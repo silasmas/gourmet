@@ -45,6 +45,92 @@
     </head>
 
     <body>
+        <!-- ======= Header ======= -->
+        <header id="header" class="header fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center justify-content-between">
+
+                <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                    <h1>Groupe Gourmet</h1>
+                </a>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Resto Traiteur</a></li>
+                        <li class="dropdown"><a href="#"><span>Atelier</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="#">Production</a></li>
+                                <li><a href="#">Formation culinaire</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Sommellerie</a></li>
+                        <li><a href="#">A propos</a></li>
+                    </ul>
+                </nav><!-- .navbar -->
+
+                <a class="btn-book-a-table" href="#book-a-table">Book a Table</a>
+                <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+                <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+            </div>
+        </header><!-- End Header -->
+
+@yield('guest-content')
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer" class="footer">
+            <div class="container">
+                <div class="row gy-3">
+                    <div class="col-lg-3 col-md-6 d-flex">
+                        <i class="bi bi-geo-alt icon"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>A108 Adam Street <br>New York, NY 535022 - US<br></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links d-flex">
+                        <i class="bi bi-telephone icon"></i>
+                        <div>
+                            <h4>Reservations</h4>
+                            <p><strong>Phone:</strong> +1 5589 55488 55<br> <strong>Email:</strong> info@example.com<br></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links d-flex">
+                        <i class="bi bi-clock icon"></i>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p><strong>Mon-Sat: 11AM</strong> - 23PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Follow Us</h4>
+                        <div class="social-links d-flex">
+                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+        <!-- End Footer -->
+
+        <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+        <div id="preloader"></div>
 
         <!-- JavaScript Libraries -->
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery.min.js') }}"></script>
