@@ -74,7 +74,9 @@
             </div>
         </header><!-- End Header -->
 
+        <main id="main">
 @yield('guest-content')
+        </main><!-- End #main -->
 
         <!-- ======= Footer ======= -->
         <footer id="footer" class="footer">
