@@ -48,14 +48,14 @@
         <!-- ======= Header ======= -->
         <header id="header" class="header fixed-top d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
-                <a href="./" class="logo d-flex align-items-center me-auto me-lg-0">
+                <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="">
                     <h1>Gourmet</h1>
                 </a>
 
                 <nav id="navbar" class="navbar shadow-0">
                     <ul>
-                        <li><a href="#">Accueil</a></li>
+                        <li><a href="{{ route('home') }}">Accueil</a></li>
                         <li><a href="#">Resto Traiteur</a></li>
                         <li class="dropdown"><a href="#"><span>Atelier</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                             <ul>
@@ -64,34 +64,15 @@
                             </ul>
                         </li>
                         <li><a href="#">Sommellerie</a></li>
-                        <li><a href="#">A propos</a></li>
+                        <li><a href="{{ route('about') }}">A propos</a></li>
                     </ul>
                 </nav><!-- .navbar -->
 
-                <a class="btn-book-a-table" href="#">Se connecter</a>
+                <a class="btn-book-a-table" href="#"><span class="bi bi-lock d-sm-none"></span> <span class="d-sm-inline-block d-none">Se connecter</span></a>
                 <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
                 <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             </div>
         </header><!-- End Header -->
-
-        <!-- ======= Hero Section ======= -->
-        <section id="hero" class="hero d-flex align-items-center section-bg">
-    <div class="container">
-      <div class="row justify-content-between gy-5">
-        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
-          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-            <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-          </div>
-        </div>
-        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="assets/img/hero-img.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
-        </div>
-      </div>
-    </div>
-  </section><!-- End Hero Section -->
 
 @yield('guest-content')
 
@@ -103,7 +84,7 @@
                         <i class="bi bi-geo-alt icon"></i>
                         <div>
                             <h4>Address</h4>
-                            <p>A108 Adam Street <br>New York, NY 535022 - US<br></p>
+                            <p>Rue de la Crèche 19 1050 <br>Bruxelles, Belgique<br></p>
                         </div>
                     </div>
 
@@ -111,20 +92,20 @@
                         <i class="bi bi-telephone icon"></i>
                         <div>
                             <h4>Reservations</h4>
-                            <p><strong>Phone:</strong> +1 5589 55488 55<br> <strong>Email:</strong> info@example.com<br></p>
+                            <p><strong>Phone:</strong> +1 5589 55488 55<br> <strong>Email:</strong> infokicoucou@gmail.com<br></p>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links d-flex">
                         <i class="bi bi-clock icon"></i>
                         <div>
-                            <h4>Opening Hours</h4>
-                            <p><strong>Mon-Sat: 11AM</strong> - 23PM<br>Sunday: Closed</p>
+                            <h4>Heures d'ouverture</h4>
+                            <p><strong>Lun-Sam : 11H - 23H</strong><br>Dim: Fermé</p>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Follow Us</h4>
+                        <h4>Nous suivre</h4>
                         <div class="social-links d-flex">
                             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -137,10 +118,10 @@
 
             <div class="container">
                 <div class="copyright">
-                    &copy; Copyright <strong><span>Yummy</span></strong>. All Rights Reserved
+                    &copy; Copyright <strong><span>Gourmet</span></strong>. Tous droits réservés
                 </div>
                 <div class="credits">
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    Designed by <a href="https://silasmas.com/">SDEV</a>
                 </div>
             </div>
         </footer><!-- End Footer -->
