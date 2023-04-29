@@ -1403,7 +1403,7 @@ header .navbar.bg-white .nav-item .nav-link.active {
 
 .global-div .block-about h3 {
   color: var(--secondaryColor);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 20px;
   font-weight: 500;
   line-height: 130%;
@@ -1660,19 +1660,11 @@ header .navbar.bg-white .nav-item .nav-link.active {
 }
 
 .global-div footer {
-  padding-top: 170px;
-  background: #f7f7f7;
+  padding: 70px 0;
+  background: var(--primaryColor);
   position: relative;
   z-index: 1;
-}
-
-.global-div footer .logo {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.global-div footer .logo img {
-  width: 120px;
+  padding-bottom: 0;
 }
 
 .global-div footer .block-network {
@@ -1689,12 +1681,27 @@ header .navbar.bg-white .nav-item .nav-link.active {
 }
 
 .global-div footer .block-network a {
-  color: var(--secondaryColor);
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-decoration: none;
-  font-size: 22px;
   -webkit-transition: .5s;
   transition: .5s;
+  background: #313a6f;
+  height: 40px;
+  width: 40px;
+  border-radius: 12px;
+}
+
+.global-div footer .block-network a .bi {
+  margin-right: 0;
+  font-size: 20px;
 }
 
 .global-div footer .block-network a:hover {
@@ -1703,71 +1710,39 @@ header .navbar.bg-white .nav-item .nav-link.active {
 
 .global-div footer p {
   font-size: 14px;
-  color: var(--colorMuted);
+  color: var(--whiteColor);
+}
+
+.global-div footer p span {
+  font-weight: 500;
 }
 
 .global-div footer p a {
-  color: var(--secondaryColor);
+  color: var(--whiteColor);
   text-decoration: none;
 }
 
 .global-div footer p a:hover {
-  color: var(--primaryColor);
+  color: var(--yellowColor);
 }
 
-.global-div footer h5 {
-  color: var(--secondaryColor);
-  font-size: 16px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.global-div footer ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.global-div footer ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 14px;
-  color: var(--colorMuted);
-  padding: 8px 0;
-}
-
-.global-div footer ul li .bi {
+.global-div footer .bi {
+  color: var(--yellowColor);
+  margin-right: 20px;
   font-size: 22px;
-  margin-right: 10px;
-  color: var(--primaryColor);
-  display: block;
 }
 
-.global-div footer ul li a {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #9c9292;
-  text-decoration: none;
-  font-size: 14px;
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.global-div footer ul li a:hover {
-  color: var(--primaryColor);
+.global-div footer h6 {
+  color: var(--whiteColor);
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .global-div footer .bottom-bar {
   padding: 20px 0;
   margin-top: 50px;
-  border-top: 1px solid #e4e0e0;
+  border-top: 1px solid #e4e0e01c;
 }
 
 .global-div footer .bottom-bar p {

@@ -24,7 +24,7 @@
 <div class="block-about">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
+            <div class="col-lg-8 text-center">
                 <h2>Nous sommes Gourmet</h2>
                 <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti dolorum nostrum tempora at accusantium id praesentium dolore. Atque aliquid error delectus enim minima vero incidunt impedit, saepe quasi exercitationem tempore!</h3>
             </div>
@@ -100,7 +100,7 @@
         <div class="row g-lg-5 g-3 align-items-center">
             <div class="col-lg-6">
                 <div class="card">
-                    <img src="{{asset('assets/img/banner.jpg')}}" alt="">
+                    <img src="{{asset('assets/img/img-4.jpg')}}" alt="">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -121,4 +121,74 @@
         </div>
     </div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 d-flex">
+                <i class="bi bi-geo-alt"></i>
+                <div class="div">
+                    <h6>Addresse</h6>
+                    <p>
+                        Rue de la Crèche 19 1050
+                        Bruxelles, Belgique
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 d-flex">
+                <i class="bi bi-telephone-fill"></i>
+                <div class="div">
+                    <h6>Réservations</h6>
+                    <p>
+                        <span>Phone: <a href="tel:+155895548855">+1 5589 55488 55</a></span>
+                    </p>
+                    <p>
+                        <span>Email: <a href="mailto:infokicoucou@gmail.com">infokicoucou@gmail.com</a></span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 d-flex">
+                <i class="bi bi-clock-fill"></i>
+                <div class="div">
+                    <h6>Heures d'ouverture</h6>
+                    <p>
+                        <span>Lun-Sam:</span> 11H - 23H
+                    </p>
+                    <p>
+                        <span>Dim:</span> Fermé
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 d-flex">
+                <div class="div">
+                    <h6>Nous suivre</h6>
+                    <div class="block-network">
+                        <a href="#">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-lg-6">
+                    <p class="mb-0">© Gourmet du Congo 2023</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="d-flex justify-content-center justify-content-lg-end">
+                        <p>Developed By <a href="#">Silas Dev</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 @endsection
