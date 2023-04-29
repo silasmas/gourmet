@@ -1402,7 +1402,7 @@ header .navbar.bg-white .nav-item .nav-link.active {
 }
 
 .global-div .block-about h3 {
-  color: var(--secondaryColor);
+  color: var(--colorText);
   font-size: 1.6rem;
   margin-bottom: 20px;
   font-weight: 500;
