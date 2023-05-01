@@ -1,4 +1,4 @@
-<header class="sticky-top">
+<header class="fixed-top">
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid px-lg-3 px-xl-3 px-xxl-5">
             <div class="logo-site d-flex align-items-center">

@@ -2,26 +2,87 @@
 
 @section('content')
 <div class="banner-home">
-    <div class="content-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1>Bienvenue à Gourmet du Congo</h1>
-                    <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
-                    <a href="#book-a-table" class="btn">Commander</a>
+    <div id="carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="content-banner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <h1>Kicoucou resto </h1>
+                                <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                                <a href="/kicoucou" class="btn">Savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="card card-cover">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                       
+                    </div> --}}
+                    <img src="{{asset('assets/img/1.jpg')}}" alt="banner" class="cover">
                 </div>
             </div>
-        </div>
-        <div class="card card-cover">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <img src="{{asset('assets/img/img.png')}}" alt="banner">
+            <div class="carousel-item">
+                <div class="content-banner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <h1>Atelier</h1>
+                                <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                                <a href="/atelier" class="btn">Savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="card card-cover">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                       
+                    </div> --}}
+                    <img src="{{asset('assets/img/3.jpg')}}" alt="banner" class="cover">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="content-banner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <h1>Sommellerie</h1>
+                                <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                                <a href="/sommellerie" class="btn">Savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="card card-cover">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                       
+                    </div> --}}
+                    <img src="{{asset('assets/img/banner.jpg')}}" alt="banner" class="cover">
+                </div>
+            </div>
+            <button class="carousel-control-prev btn-carousel" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+              <i class="bi bi-arrow-left"></i>
+            </button>
+            <button class="carousel-control-next btn-carousel" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <i class="bi bi-arrow-right"></i>
+
         </div>
     </div>
+   
 </div>
-<div class="block-about">
+{{-- <div class="block-about">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
@@ -80,18 +141,6 @@
                     </a>
                 </div>
             </div>
-            {{-- <div class="col-lg-3">
-                <div class="card">
-                    <a href="#">
-                        <div class="block-img">
-                            <img src="{{asset('assets/img/banner.jpg')}}" alt="">
-                        </div>
-                        <div class="content-text">
-                            <h5>Kikoukou resto</h5>
-                        </div>
-                    </a>
-                </div>
-            </div> --}}
         </div>
     </div> 
 </div>
@@ -120,7 +169,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <footer>
     <div class="container">
         <div class="row">

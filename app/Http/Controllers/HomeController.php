@@ -21,7 +21,7 @@ class HomeController extends Controller
     }
     public function kicoucou()
     {
-        return view('pages/kicoucou');
+        return view('pages/kikoukou');
     }
     public function atelier()
     {
