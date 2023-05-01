@@ -4,16 +4,16 @@
 <div class="banner-home banner-kikoukou">
     <div class="content-banner">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
+            <div class="row">
+                <div class="col-lg-8">
                     <h1>Bienvenue à Kikoukou Resto</h1>
                     <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
-                    <p class="ms-auto me-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
                     <a href="#book-a-table" class="btn">Réserver maintenant</a>
                 </div>
             </div>
         </div>
-        <img src="{{asset('assets/img/1.jpg')}}" alt="banner" class="cover">
+        <img src="{{asset('assets/img/3.jpg')}}" alt="banner" class="cover">
     </div>
 </div>
 {{-- <div class="block-about block-content" style="background: transparent">
