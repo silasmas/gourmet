@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/kikoukou">
                     Kicoucou resto
                 </a>
             </li>
@@ -42,7 +42,7 @@
           </ul>
         </div>
         <div class="block-tools d-flex align-items-center">
-            <a href="#" class="btn">Contact</a>
+            <a href="#" class="btn">Se connecter</a>
         </div>
       </div>
     </nav>

@@ -150,6 +150,31 @@ header{
                 font-weight: 700;
             }
         }
+        .menu{
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            span{
+                width: 30px;
+                height: 2px;
+                background: var(--primaryColor);
+                margin: 2px;
+                display: block;
+            }
+        }
+        .brand {
+            img{
+                width: 44px;
+                margin-right: 0;
+            }
+            span{
+                font-size: 16px;
+            }
+        }
         .nav-item{
             margin-right: 40px;
             &:last-child{
@@ -182,6 +207,7 @@ header{
         }
     }
     .navbar.bg-white{
+        padding: 2px 0;
         box-shadow: 0 5px 18px rgba($color: #000000, $alpha: .05);
         .nav-item{
 
@@ -361,17 +387,17 @@ header{
                     &:first-child{
                         left: 0;
                         top: 4vw;
-                        
+
                     }
                     &:nth-child(2){
                         left: 4vw;
                         bottom: 2vw;
-                        
+
                     }
                     &:nth-child(3){
                         right: 4vw;
                         top: 2vw;
-                        
+
                     }
                 }
             }
@@ -404,6 +430,37 @@ header{
                     background: var(--yellowColor);
                     color: var(--whiteColor);
                 }
+            }
+        }
+    }
+    .banner-kikoukou{
+        height: 80vh;
+        .content-banner{
+            background: transparent;
+            width: 100%;
+            &::before{
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba($color: #000000, $alpha: .2);
+                z-index: -1;
+                width: 100%!important;
+            }
+            h2{
+                span{
+                    color: var(--whiteColor);
+                }
+            }
+            .btn{
+                background: var(--primaryColor);
+                color: var(--whiteColor);
+            }
+            .cover{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -2;
             }
         }
     }
@@ -944,7 +1001,7 @@ header{
             margin-bottom: 70px;
             font-weight: 600;
           }
-          
+
         .card{
             border-radius: 24px;
             border: none;
@@ -982,8 +1039,95 @@ header{
                 }
             }
         }
+        .card-menu{
+            .block-img{
+                width: 120px;
+                height: 120px;
+                border-radius: 100%;
+                margin-bottom: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                position: relative;
+                z-index: 1;
+                &::before{
+                    inset: -10px;
+                    background: #e3e4ee;
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    border-radius: 100%;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 100%;
+                }
+            }
+            h5{
+                font-size: 16px;
+                text-align: center;
+            }
+            p{
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            .link{
+                color: var(--yellowColor);
+                font-size: 12px;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+        }
 
 
+    }
+    .block-reservation{
+        padding: 70px 0;
+        padding-bottom: 150px;
+        .card{
+            border: none;
+            overflow: hidden;
+            z-index: 1;
+            padding: 70px 70px;
+            border-radius: 24px;
+            &::before{
+                content: '';
+                inset: 0;
+                background: rgba($color: #000000, $alpha: .2);
+                position: absolute;
+                z-index: -1;
+            }
+            h2{
+                color: var(--whiteColor);
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+            h3{
+                color: var(--whiteColor);
+                font-size: 3vw;
+                margin-bottom: 50px;
+                line-height: 100%;
+                font-weight: 600;
+            }
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+            }
+            .btn{
+                background: var(--yellowColor);
+                color: var(--whiteColor);
+            }
+        }
     }
     .block-choice{
         padding: 100px 0;
@@ -1012,6 +1156,10 @@ header{
 
             }
         }
+        .btn{
+            background: var(--yellowColor);
+            color: var(--whiteColor);
+        }
         h2{
             color: var(--yellowColor);
             font-size: 22px;
@@ -1039,6 +1187,29 @@ header{
                 padding: 5px 14px;
                 border-radius: 8px;
             }
+        }
+    }
+    .block-special{
+        .card{
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            border-radius: 24px;
+            width: 80%;
+            img{
+                width: 100%;
+                position: absolute;
+
+            }
+           &::before{
+                left: 40px;
+                right: -40px;
+                border-color: var(--yellowColor);
+
+           } 
+        }
+        h3{
+            font-size: 4.5rem;
         }
     }
     .block-about{
@@ -1152,6 +1323,12 @@ header{
                 color: var(--secondaryColor);
                 font-family: 'montserrat-medium';
             }
+        }
+    }
+    .block-content{
+        h3{
+            font-size: 2.6rem;
+            color: var(--primaryColor);
         }
     }
     .block-contact-card{
