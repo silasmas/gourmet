@@ -82,7 +82,7 @@
     </div>
    
 </div>
-{{-- <div class="block-about">
+<div class="block-about">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
@@ -169,7 +169,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 <footer>
     <div class="container">
         <div class="row">

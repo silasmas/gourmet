@@ -1,58 +1,123 @@
-@extends('layouts.guest')
+@extends('layouts.app-page')
 
-@section('guest-content')
-
-            <!-- ======= Breadcrumbs ======= -->
-            <div class="breadcrumbs">
-                <div class="container">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h2>A propos de nous</h2>
-                        <ol>
-                            <li><a href="{{ route('home') }}">Accueil</a></li>
-                            <li>A propos</li>
-                        </ol>
+@section('content')
+    <div class="banner-sm">
+        <div class="container">
+            <div class="text-center">
+                <h1>A propos</h1>
+            </div>
+        </div>
+    </div>
+    <div class="block-about about-lg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card card-about">
+                        <img src="{{ asset('assets/img/banner.jpg') }}" alt="">
                     </div>
                 </div>
-            </div><!-- End Breadcrumbs -->
+                <div class="col-lg-6">
+                    <h2>Qui sommes-nous ?</h2>
+                    <h4>Nous sommes Gourmet du Congo</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis rerum alias labore culpa quaerat.
+                        Consectetur atque animi exercitationem facilis. Repellendus doloremque atque, cumque quod vel
+                        placeat quia earum sed accusamus.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis rerum alias labore culpa quaerat.
+                        Consectetur atque animi exercitationem facilis. Repellendus doloremque atque, cumque quod vel
+                        placeat quia earum sed accusamus.
+                    </p>
+                    <ul class="list d-flex align-items-baseline flex-wrap">
+                        <li>La qualité</li>
+                        <li>La qualité</li>
+                        <li>La qualité</li>
+                        <li>La qualité</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-map">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-map">
 
-            <!-- ======= About Section ======= -->
-            <section id="about" class="about">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-header">
-                        <h2>A propo</h2>
-                        <p>Qui <span>sommes-nous</span></p>
                     </div>
-
-                    <div class="row gy-4">
-                        <div class="col-lg-7 position-relative about-img" style="background-image: url({{ asset('assets/img/pub/pub_01.jpg') }}) ;" data-aos="fade-up" data-aos-delay="150">
-                            <div class="call-us position-absolute">
-                                <h4>Réserver une table</h4>
-                                <p>+1 5589 55488 55</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-                            <div class="content ps-0 ps-lg-5">
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-                                </p>
-
-                                <div class="position-relative mt-4">
-                                    <img src="{{ asset('assets/img/pub/pub_02.jpg') }}" class="img-fluid" alt="">
-                                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-                                </div>
-                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 d-flex">
+                    <i class="bi bi-geo-alt"></i>
+                    <div class="div">
+                        <h6>Addresse</h6>
+                        <p>
+                            Rue de la Crèche 19 1050
+                            Bruxelles, Belgique
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex">
+                    <i class="bi bi-telephone-fill"></i>
+                    <div class="div">
+                        <h6>Réservations</h6>
+                        <p>
+                            <span>Phone: <a href="tel:+155895548855">+1 5589 55488 55</a></span>
+                        </p>
+                        <p>
+                            <span>Email: <a href="mailto:infokicoucou@gmail.com">infokicoucou@gmail.com</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex">
+                    <i class="bi bi-clock-fill"></i>
+                    <div class="div">
+                        <h6>Heures d'ouverture</h6>
+                        <p>
+                            <span>Lun-Sam:</span> 11H - 23H
+                        </p>
+                        <p>
+                            <span>Dim:</span> Fermé
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-flex">
+                    <div class="div">
+                        <h6>Nous suivre</h6>
+                        <div class="block-network">
+                            <a href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-twitter"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </section><!-- End About Section -->
-
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-lg-6">
+                        <p class="mb-0">© Gourmet du Congo 2023</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex justify-content-center justify-content-lg-end">
+                            <p>Developed By <a href="#">Silas Dev</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 @endsection

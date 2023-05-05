@@ -17,7 +17,7 @@
         <!-- Scripts -->
     </head>
     <body>
-        @include('parties.navbar-kikoukou')
+        @include('parties.navbar-page')
         <div class="global-div">
             <div class="wrapper">
                 @yield('content')
