@@ -42,6 +42,11 @@
           </ul>
         </div>
         <div class="block-tools d-flex align-items-center">
+            <div class="block-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <a href="#" class="btn">Se connecter</a>
         </div>
       </div>

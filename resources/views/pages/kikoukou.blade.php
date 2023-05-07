@@ -10,7 +10,8 @@
                         <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam
                             corrupti!</p>
-                        <a href="#book-a-table" class="btn">Réserver maintenant</a>
+                        <a href="#book-a-table" class="btn" data-bs-toggle="modal"
+                        data-bs-target="#modal-reservation">Réserver maintenant</a>
                     </div>
                 </div>
                 <div class="card card-cover">
@@ -23,12 +24,37 @@
             
         </div>
     </div>
-    {{-- <div class="block-about block-content" style="background: transparent">
+    <div class="block-about block-content" style="background: transparent">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
                 <h2>Découvrir notre spécialité</h2>
                 <h3>Dégustez les spécialités goûteuses de notre terroir dans ces anciennes caves voûtée du 17e siècle</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- <div class="block-about about-lg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card card-about">
+                    <img src="http://127.0.0.1:8000/assets/img/banner.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2>Qui sommes-nous ?</h2>
+                <h4>Nous sommes Gourmet du Congo</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis rerum alias labore culpa quaerat.
+                    Consectetur atque animi exercitationem facilis. Repellendus doloremque atque, cumque quod vel
+                    placeat quia earum sed accusamus.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis rerum alias labore culpa quaerat.
+                    Consectetur atque animi exercitationem facilis. Repellendus doloremque atque, cumque quod vel
+                    placeat quia earum sed accusamus.
+                </p>
             </div>
         </div>
     </div>
@@ -58,16 +84,16 @@
     </div>
     <div class="block-service block-menu">
         <div class="container">
-            <div class="row g-3 g-lg-5 align-items-center">
+            <div class="row g-2 g-lg-5 align-items-center">
                 <div class="col-lg-4 order-sm-1 order-2">
                     <div class="card card-menu mb-3">
                         <div class="row g-lg-5">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-4">
                                 <div class="block-img">
                                     <img src="{{ asset('assets/img/b.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-9 col-8">
                                 <div class="content-text">
                                     <h5>Nom du plat</h5>
                                     <p>Catégorie</p>
@@ -83,12 +109,12 @@
                     </div>
                     <div class="card card-menu mb-3">
                         <div class="row g-lg-5">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-4">
                                 <div class="block-img">
                                     <img src="{{ asset('assets/img/b.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-9 col-8">
                                 <div class="content-text">
                                     <h5>Nom du plat</h5>
                                     <p>Catégorie</p>
@@ -102,14 +128,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card card-menu">
+                    <div class="card card-menu mb-3">
                         <div class="row g-lg-5">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-4">
                                 <div class="block-img">
                                     <img src="{{ asset('assets/img/b.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-9 col-8">
                                 <div class="content-text">
                                     <h5>Nom du plat</h5>
                                     <p>Catégorie</p>
@@ -128,18 +154,18 @@
                     <div class="text-center">
                         <h2>Menu</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit distinctio illum assumenda!</p>
-                        <a href="#" class="btn">Voir plus</a>
+                        <a href="#" class="btn mb-4 mb-lg-0">Voir plus</a>
                     </div>
                 </div>
                 <div class="col-lg-4 order-sm-3 order-3">
                     <div class="card card-menu mb-3">
                         <div class="row g-lg-5">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-4">
                                 <div class="block-img">
                                     <img src="{{ asset('assets/img/b.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-9 col-8">
                                 <div class="content-text">
                                     <h5>Nom du plat</h5>
                                     <p>Catégorie</p>
@@ -155,12 +181,12 @@
                     </div>
                     <div class="card card-menu mb-3">
                         <div class="row g-lg-5">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-4">
                                 <div class="block-img">
                                     <img src="{{ asset('assets/img/b.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-9 col-8">
                                 <div class="content-text">
                                     <h5>Nom du plat</h5>
                                     <p>Catégorie</p>
@@ -174,14 +200,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card card-menu">
+                    <div class="card card-menu mb-3">
                         <div class="row g-lg-5">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-4">
                                 <div class="block-img">
                                     <img src="{{ asset('assets/img/b.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-9 col-8">
                                 <div class="content-text">
                                     <h5>Nom du plat</h5>
                                     <p>Catégorie</p>
@@ -290,4 +316,21 @@
             </div>
         </div>
     </footer>
+    <div class="modal fade" id="modal-reservation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content ">
+            <div class="modal-header px-sm-4" style="border: none;">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0 px-sm-4">
+                <h5 class="formation-title">Réservation</h5>
+                <form action="">
+                    <div class="form-group">
+                        
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
 @endsection

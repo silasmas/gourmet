@@ -10,7 +10,7 @@
     </div>
     <div class="block-about about-lg">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center g-lg-5 g-4">
                 <div class="col-lg-6">
                     <div class="card card-about">
                         <img src="{{ asset('assets/img/banner.jpg') }}" alt="">
@@ -44,7 +44,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-map">
-
+                        <div class="d-flex justify-content-center align-items-center h-100">
+                            <h4>Ici c'est pour la map </h4>
+                        </div>
                     </div>
                 </div>
             </div>

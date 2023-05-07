@@ -18,6 +18,88 @@
     </head>
     <body>
         @include('parties.navbar-kikoukou')
+        <div class="full-menu">
+            <div class="close-menu">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="container-fluid px-0">
+                <ul>
+                    <li>
+                        <a href="#" class="active">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="#">A propos</a>
+                    </li>
+                    <li>
+                        <a href="#">Kicoucou resto</a>
+                    </li>
+                    <li>
+                        <a href="#">Atelier</a>
+                    </li>
+                    <li>
+                        <a href="#">Sommellerie </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="block-info mt-auto">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <h5>Addresse</h5>
+                                <p>
+                                    Rue de la Crèche 19 1050 Bruxelles, Belgique
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex">
+                            <i class="bi bi-telephone-fill"></i>
+                            <div>
+                                <h5>Réservations</h5>
+                                <p class="mb-0">
+                                   <a href="tel:+155895548855"> +1 5589 55488 55</a>
+                                </p>
+                                <p>
+                                   <a href="mailto:infokicoucou@gmail.com">infokicoucou@gmail.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex">
+                            <i class="bi bi-clock-fill"></i>
+                            <div>
+                                <h5>Heures d'ouverture</h5>
+                                <p class="mb-0">
+                                    Lun-Sam: 11H - 23H 
+                                </p>
+                                <p>
+                                    Dim: Fermé 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="block-network d-flex align-items-center">
+                            <a href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="back-drop"></div>
         <div class="global-div">
             <div class="wrapper">
                 @yield('content')
@@ -47,10 +129,22 @@
                 })
                 $('.navbar .block-menu').click(function() {
                     $(this).toggleClass('close')
-                    $('.global-div').toggleClass('translate')
                     $('.full-menu').toggleClass('show')
-                    $('.navbar').toggleClass('bg-black')
                     $('body').toggleClass('overflow')
+                    $('.back-drop').toggleClass('show')
+
+                })
+                $('.back-drop').click(function() {
+                    $(this).removeClass('show')
+                    $('.full-menu').removeClass('show')
+                    $('body').removeClass('overflow')
+                    $('.navbar .block-menu').removeClass('close')
+                })
+                $('.close-menu').click(function() {
+                    $('.back-drop').removeClass('show')
+                    $('.full-menu').removeClass('show')
+                    $('body').removeClass('overflow')
+                    $('.navbar .block-menu').removeClass('close')
                 })
                 $('.scrollTop').click(function() {
                     $('.global-div').removeClass('translate')

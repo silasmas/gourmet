@@ -94,7 +94,7 @@
 </div>
 <div class="block-service">
    <div class="container">
-        <div class="row">
+        <div class="row g-lg-4 g-3">
             <div class="col-12">
                 <div class="text-center">
                     <h2>Nos branches</h2>
@@ -146,7 +146,7 @@
 </div>
 <div class="block-choice">
     <div class="container">
-        <div class="row g-lg-5 g-3 align-items-center">
+        <div class="row g-lg-5 g-4 align-items-center">
             <div class="col-lg-6">
                 <div class="card">
                     <img src="{{asset('assets/img/img-4.jpg')}}" alt="">
@@ -172,7 +172,7 @@
 </div>
 <footer>
     <div class="container">
-        <div class="row">
+        <div class="row g-lg-5 g-3">
             <div class="col-lg-3 d-flex">
                 <i class="bi bi-geo-alt"></i>
                 <div class="div">
@@ -232,7 +232,7 @@
                     <p class="mb-0">© Gourmet du Congo 2023</p>
                 </div>
                 <div class="col-lg-6">
-                    <div class="d-flex justify-content-center justify-content-lg-end">
+                    <div class="d-flex justify-content-start justify-content-lg-end">
                         <p>Developed By <a href="#">Silas Dev</a></p>
                     </div>
                 </div>
