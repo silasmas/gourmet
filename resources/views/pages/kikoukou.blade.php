@@ -87,6 +87,9 @@
             <div class="row g-2 g-lg-5 align-items-center">
                 <div class="col-lg-4 order-sm-1 order-2">
                     <div class="card card-menu mb-3">
+                        <div class="badge-menu">
+                            Congolaise
+                        </div>
                         <div class="row g-lg-5">
                             <div class="col-lg-3 col-4">
                                 <div class="block-img">
@@ -108,6 +111,9 @@
                         </div>
                     </div>
                     <div class="card card-menu mb-3">
+                        <div class="badge-menu">
+                            Congolaise
+                        </div>
                         <div class="row g-lg-5">
                             <div class="col-lg-3 col-4">
                                 <div class="block-img">
@@ -129,6 +135,9 @@
                         </div>
                     </div>
                     <div class="card card-menu mb-3">
+                        <div class="badge-menu">
+                            Congolaise
+                        </div>
                         <div class="row g-lg-5">
                             <div class="col-lg-3 col-4">
                                 <div class="block-img">
@@ -159,6 +168,9 @@
                 </div>
                 <div class="col-lg-4 order-sm-3 order-3">
                     <div class="card card-menu mb-3">
+                        <div class="badge-menu">
+                            Congolaise
+                        </div>
                         <div class="row g-lg-5">
                             <div class="col-lg-3 col-4">
                                 <div class="block-img">
@@ -180,6 +192,9 @@
                         </div>
                     </div>
                     <div class="card card-menu mb-3">
+                        <div class="badge-menu">
+                            Congolaise
+                        </div>
                         <div class="row g-lg-5">
                             <div class="col-lg-3 col-4">
                                 <div class="block-img">
@@ -201,6 +216,9 @@
                         </div>
                     </div>
                     <div class="card card-menu mb-3">
+                        <div class="badge-menu">
+                            Congolaise
+                        </div>
                         <div class="row g-lg-5">
                             <div class="col-lg-3 col-4">
                                 <div class="block-img">
@@ -317,16 +335,34 @@
         </div>
     </footer>
     <div class="modal fade" id="modal-reservation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content ">
             <div class="modal-header px-sm-4" style="border: none;">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body pt-0 px-sm-4">
-                <h5 class="formation-title">Réservation</h5>
+                <div class="text-center">
+                    <h5 class="formation-title mb-4">Réservation</h5>
+                </div>
                 <form action="">
                     <div class="form-group">
-                        
+                        <div class="form-group row g-3">
+                            <div class="col-12">
+                                <label for="">Nombre de personnes</label>
+                                <input type="text" class="form-control" placeholder="Selectionnez le nombre de personnes">
+                            </div>
+                            <div class="col-12">
+                                <label for="">Date</label>
+                                <input type="text" class="form-control" placeholder="Selectionnez la date">
+                            </div>
+                            <div class="col-12">
+                                <label for="">Heure</label>
+                                <input type="text" class="form-control" placeholder="Selectionnez l'heure">
+                            </div>
+                            <div class="col-12 justify-content-center d-flex align-items-center mb-5">
+                                <button class="btn mt-3">Valider</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

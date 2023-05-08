@@ -355,6 +355,32 @@ header{
     p{
         color: var(--colorMuted);
     }
+    label{
+        font-size: 14px;
+        color: var(--colorText);
+        font-weight: 500;
+        margin-bottom: 7px;
+    }
+    .form-control{
+        font-size: 14px;
+        background: #e9eaec;
+        border: none;
+        box-shadow: none;
+        color: var(--primaryColor);
+        padding-left: 16px;
+        border-radius: 12px;
+    }
+    input{
+        height: 48px;
+    }
+    .btn{
+        background: var(--primaryColor);
+        color: var(--whiteColor);
+        width: 75%;
+        &:hover{
+            background: var(--yellowColor);
+        }
+    }
 }
 .global-div{
     position: relative;
@@ -1300,6 +1326,25 @@ header{
         }
         .card-menu{
             box-shadow: none;
+            overflow: hidden;
+            .badge-menu{
+                position: absolute;
+                width: 150px;
+                background: var(--primaryColor);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: var(--whiteColor);
+                transform: rotate(33deg);
+                font-size: 10px;
+                font-weight: 700;
+                right: -35px;
+                top: 12px;
+                text-transform: uppercase;
+                padding: 5px 14px;
+                box-shadow: 0 5px 10px #adb1cc23;
+            }
             .block-img{
                 width: 90px;
                 height: 90px;
@@ -1311,14 +1356,21 @@ header{
                 z-index: 1;
                 &::before{
                     inset: 0px;
-                    left: -10px;
-                    background: #e3e4ee;
+                    left: -50px;
+                    background: #f3f3f9;
                     content: '';
                     position: absolute;
                     z-index: -1;
                     border-radius: 100%;
                     width: 100%;
                     height: 100%;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    inset: -5px;
+                    border-radius: 100%;
+                    border: 2px solid var(--yellowColor);
                 }
                 img{
                     width: 100%;
@@ -1330,6 +1382,7 @@ header{
             h5{
                 font-size: 16px;
                 margin-bottom: 5px;
+                color: var(--primaryColor);
             }
             p{
                 margin-bottom: 5px;
@@ -3289,8 +3342,8 @@ header{
             }
             .card-menu{
                 .block-img{
-                    width: 70px;
-                height: 70px;
+                    width: 24vw;
+                    height: 24vw;
                 }
                 h5{
                     font-size: 16px;
