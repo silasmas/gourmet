@@ -41,7 +41,7 @@ class User extends Authenticatable
     ];
 
     public function achat(){
-        return $this->belongsToMany(achat::class);
+        return $this->hasMany(achat::class);
     }
     public function plat(){
         return $this->belongsToMany(achat::class);
