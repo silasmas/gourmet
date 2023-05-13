@@ -21,9 +21,7 @@ Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
 Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
 Route::get('/sommelerie', [HomeController::class, 'sommelerie'])->name('sommelerie');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -26,19 +26,19 @@
             <div class="container-fluid px-0">
                 <ul>
                     <li>
-                        <a href="#" class="active">Accueil</a>
+                        <a href="{{ route('home') }}" class="{{ Route::current()->getName() == 'home' ? 'active' : '' }}">Accueil</a>
                     </li>
                     <li>
-                        <a href="#">A propos</a>
+                        <a href="{{ route('about') }}" class="{{ Route::current()->getName() == 'about' ? 'active' : '' }}">A propos</a>
                     </li>
                     <li>
-                        <a href="#">Kicoucou resto</a>
+                        <a href="{{ route('kicoucou') }}" class="{{ Route::current()->getName() == 'kicoucou' ? 'active' : '' }}">Kicoucou resto</a>
                     </li>
                     <li>
-                        <a href="#">Atelier</a>
+                        <a href="{{ route('atelier') }}" class="{{ Route::current()->getName() == 'atelier' ? 'active' : '' }}">Atelier</a>
                     </li>
                     <li>
-                        <a href="#">Sommellerie </a>
+                        <a href="{{ route('sommelerie') }}" class="{{ Route::current()->getName() == 'sommelerie' ? 'active' : '' }}">Sommellerie </a>
                     </li>
                 </ul>
             </div>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="back-drop"></div>
         <div class="global-div">
             <div class="wrapper">
