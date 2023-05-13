@@ -7,6 +7,12 @@
         </x-slot>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
+        
+            @foreach ($errors->all() as $err)
+                {{$err}}
+            @endforeach
+            {{ session('status') }}
+       
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
