@@ -20,15 +20,6 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
 Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
 Route::get('/sommelerie', [HomeController::class, 'sommelerie'])->name('sommelerie');
-Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 require __DIR__ . '/auth.php';

@@ -24,7 +24,33 @@
             </div>
             <div class="col-lg-4 d-none d-lg-flex justify-content-end order-2 order-lg-2 ">
                 <div class="block-tools d-flex align-items-center">
-                    <a href="#" class="btn">Se connecter</a>
+                    @if (Auth::guest())
+            <div class="block-tools d-flex align-items-center">
+                <div class="block-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a href="{{ route('login') }}" class="btn">Se connecter</a>
+            </div>
+            @else
+            <div class="block-tools d-flex align-items-center">
+                <div class="block-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                   Déconnexion
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                    class="d-none">
+                    @csrf
+                </form>
+            </div>
+              
+            @endif
                 </div>
             </div>
         </div>

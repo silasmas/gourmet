@@ -6,55 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-    <!-- Scripts -->
-</head>
-
-<body>
-    @include('parties.navbar-kikoukou')
-    <div class="full-menu">
-        <div class="close-menu">
-            <span></span>
-            <span></span>
-        </div>
-        <div class="container-fluid px-0">
-            <ul>
-                <li>
-                    <a href="#" class="active">Accueil</a>
-                </li>
-                <li>
-                    <a href="#">A propos</a>
-                </li>
-                <li>
-                    <a href="#">Kicoucou resto</a>
-                </li>
-                <li>
-                    <a href="#">Atelier</a>
-                </li>
-                <li>
-                    <a href="#">Sommellerie </a>
-                </li>
-            </ul>
-        </div>
-        <div class="block-info mt-auto">
-            <div class="row g-3">
-                <div class="col-12">
-                    <div class="d-flex">
-                        <i class="bi bi-geo-alt-fill"></i>
-                        <div>
-                            <h5>Addresse</h5>
-                            <p>
-                                Rue de la Crèche 19 1050 Bruxelles, Belgique
-                            </p>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
+        <!-- Scripts -->
+    </head>
+    <body>
+        @include('parties.navbar-kikoukou')
+        <div class="full-menu">
+            <div class="close-menu">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="container-fluid px-0">
+                <ul>
+                    <li>
+                        <a href="{{ route('home') }}" class="{{ Route::current()->getName() == 'home' ? 'active' : '' }}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('about') }}" class="{{ Route::current()->getName() == 'about' ? 'active' : '' }}">A propos</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('kicoucou') }}" class="{{ Route::current()->getName() == 'kicoucou' ? 'active' : '' }}">Kicoucou resto</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('atelier') }}" class="{{ Route::current()->getName() == 'atelier' ? 'active' : '' }}">Atelier</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('sommelerie') }}" class="{{ Route::current()->getName() == 'sommelerie' ? 'active' : '' }}">Sommellerie </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="block-info mt-auto">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div>
+                                <h5>Addresse</h5>
+                                <p>
+                                    Rue de la Crèche 19 1050 Bruxelles, Belgique
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,12 +97,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="back-drop"></div>
-    <div class="global-div">
-        <div class="wrapper">
-            @yield('content')
+        </div> 
+        <div class="back-drop"></div>
+        <div class="global-div">
+            <div class="wrapper">
+                @yield('content')
+            </div>
         </div>
     </div>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
