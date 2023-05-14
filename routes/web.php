@@ -20,7 +20,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
 Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
 Route::get('/sommelerie', [HomeController::class, 'sommelerie'])->name('sommelerie');
-
+Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

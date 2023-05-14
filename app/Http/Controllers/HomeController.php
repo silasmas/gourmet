@@ -31,7 +31,10 @@ class HomeController extends Controller
     {
         return view('pages/sommelerie');
     }
-
+    public function menu()
+    {
+        return view('pages/menu');
+    }
     /**
      * Show the form for creating a new resource.
      */

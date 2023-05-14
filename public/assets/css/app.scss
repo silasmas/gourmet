@@ -369,14 +369,68 @@ header{
         color: var(--primaryColor);
         padding-left: 16px;
         border-radius: 12px;
+        &:focus ~ .block-list{
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
     }
     input{
         height: 48px;
     }
+    .col-input{
+        position: relative;
+        .block-list{
+            position: absolute;
+            background: var(--whiteColor);
+            top: 100%;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            z-index: 11000;
+            border-radius: 12px;
+            padding: 30px 30px;
+            transition: 0.3s cubic-bezier(0.51, 0.8, 0.21, 1.36);
+            opacity: 0;
+            visibility: hidden;
+            transform-origin: bottom;
+            transform: scale(.8);
+            ul{
+                padding-left: 0;
+                margin-bottom: 0;
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                li{
+                    padding: 7px 10px;
+                    font-size: 14px;
+                    color: var(--paragraphColor);
+                    cursor: pointer;
+                    transition: .3s;
+                    border-radius: 8px;
+                    .fi{
+                        margin-right: 10px;
+                        display: none;
+                    }
+                    &:hover{
+                        color: var(--primaryColor);
+                    }
+                }
+                li.active{
+                    background: #e9eaec;
+                    color: var(--primaryColor);
+                    .fi{
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
     .btn{
         background: var(--primaryColor);
         color: var(--whiteColor);
-        width: 75%;
+        width: 100%;
         &:hover{
             background: var(--yellowColor);
         }
