@@ -249,7 +249,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
@@ -336,7 +336,7 @@
                         <p class="mb-0">© Gourmet du Congo 2023</p>
                     </div>
                     <div class="col-lg-6">
-                        <div class="d-flex justify-content-center justify-content-lg-end">
+                        <div class="d-flex justify-content-start justify-content-lg-end">
                             <p>Developed By <a href="#">Silas Dev</a></p>
                         </div>
                     </div>
