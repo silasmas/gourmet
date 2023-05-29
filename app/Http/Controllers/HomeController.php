@@ -31,8 +31,6 @@ class HomeController extends Controller
         ];
         // Client used for accessing API
         $this::$client = new Client();
-
-        $this->middleware('auth')->except(['offerSent', 'payWithCard']);
     }
 
     /**
