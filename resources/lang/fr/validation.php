@@ -75,7 +75,57 @@ return array(
     |
     */
 
-    'custom' => array(),
+    'custom' => [
+        'email' => [
+            'incorrect' => 'Ecrivez une adresse e-mail valide s\'il vous plait',
+            'exists' => 'L\'adresse e-mail fournie existe déjà',
+        ],
+        'phone' => [
+            'incorrect' => 'Ecrivez un n° de téléphone valide s\'il vous plait',
+            'exists' => 'Le n° de téléphone fourni existe déjà',
+        ],
+        'former_password' => [
+            'empty' => 'Veuillez mettre votre ancien mot de passe !',
+            'incorrect' => 'L\'ancien mot de passe est incorrect',
+        ],
+        'new_password' => [
+            'empty' => 'Veuillez entrer votre nouveau mot de passe !',
+            'incorrect' => 'Le nouveau mot de passe doit respecter nos conditions',
+        ],
+        'email_or_phone' => [
+            'required' => 'L\'adresse e-mail ou le n° de téléphone doit être défini'
+        ],
+        'surname_and_birthdate' => [
+            'required' => 'Le nom et la date de naissance doivent être définis'
+        ],
+        'group_name' => [
+            'exists' => 'Ce nom de groupe already exists'
+        ],
+        'role_name' => [
+            'exists' => 'Ce nom de rôle existe déjà'
+        ],
+        'content' => [
+            'exists' => 'Ce contenu existe déjà'
+        ],
+        'subject' => [
+            'exists' => 'Ce sujet existe déjà'
+        ],
+        'title' => [
+            'exists' => 'Ce titre existe déjà'
+        ],
+        'description' => [
+            'exists' => 'This description already exists'
+        ],
+        'country_name' => [
+            'exists' => 'Ce pays existe déjà'
+        ],
+        'owner' => [
+            'required' => 'A quelle entité ça appartient ?'
+        ],
+        'type_name' => [
+            'exists' => 'Ce nom de type existe déjà'
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

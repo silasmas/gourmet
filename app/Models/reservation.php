@@ -10,13 +10,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class reservation extends Model
 {
     use HasFactory;
-    protected $guarded=[];
 
-    public function user(){
+    protected $guarded = [];
+    protected $fillable = ['user_id', 'date', 'nombre', 'prix', 'monaie', 'statut_id', 'updated_at'];
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function statut(){
+    public function statut()
+    {
         return $this->belongsTo(statut::class);
     }
 }

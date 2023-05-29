@@ -141,8 +141,54 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'incorrect' => 'Write a valid e-mail address please',
+            'exists' => 'The provided e-mail address already exists',
+        ],
+        'phone' => [
+            'incorrect' => 'Write a valid phone number please',
+            'exists' => 'The provided phone number already exists',
+        ],
+        'former_password' => [
+            'empty' => 'Please enter your old password!',
+            'incorrect' => 'The former password is incorrect',
+        ],
+        'new_password' => [
+            'empty' => 'Please enter your new password!',
+            'incorrect' => 'The new password must respect our conditions',
+        ],
+        'email_or_phone' => [
+            'required' => 'The email address or the phone number must be defined'
+        ],
+        'surname_and_birthdate' => [
+            'required' => 'The surname and the birth date must be defined'
+        ],
+        'group_name' => [
+            'exists' => 'This group name already exists'
+        ],
+        'role_name' => [
+            'exists' => 'This role name already exists'
+        ],
+        'content' => [
+            'exists' => 'This content already exists'
+        ],
+        'subject' => [
+            'exists' => 'This subject already exists'
+        ],
+        'title' => [
+            'exists' => 'This title already exists'
+        ],
+        'description' => [
+            'exists' => 'This description already exists'
+        ],
+        'country_name' => [
+            'exists' => 'This country already exists'
+        ],
+        'owner' => [
+            'required' => 'What entity does it belong to?'
+        ],
+        'type_name' => [
+            'exists' => 'This type name already exists'
         ],
     ],
 
