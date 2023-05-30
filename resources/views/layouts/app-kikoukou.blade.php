@@ -278,44 +278,36 @@
             // ------------------------------------------------------------------------------
             // NOMBRE DE PERSONNE
             $('#selectNbrPerson').change(function (e) { 
-                var foodPrice = $('#selectPlat').val();
                 var nbrPerson = $(this).val();
-                var monnaie = $('#register_monnaie').val();
-
-                if ($('#selectPlat').val() != null) {
-                    $('#prixUnitaire').val(foodPrice + ' ' + monnaie);
-                    $('#register_prix').val((foodPrice * nbrPerson) + ' ' + monnaie);                    
-                }
 
                 if ($(this).val() == '6+') {
                     if ($('#writeNbrPerson').hasClass('d-none')) {
                         $('#writeNbrPerson').removeClass('d-none');
                     }
 
-                    $('#writeNbrPerson').val(null);
+                    $('#writeNbrPerson').val(6);
+                    $('#register_prix').val('30 USD');
 
                 } else {
                     $('#writeNbrPerson').addClass('d-none');
                     $('#writeNbrPerson').val(nbrPerson);
+                    $('#register_prix').val((nbrPerson * 5) + ' USD');
                 }
+
             });
 
-            // SELECTIONNER LE PLAT
-            $('#selectPlat').change(function (e) { 
-                var foodPrice = parseInt($(this).val());
-                var nbrPerson = parseInt($('#writeNbrPerson').val());
-                var monnaie = $('#register_monnaie').val();
+            $('#writeNbrPerson').keyup(function () {
+                var nbrPerson = $(this).val();
 
-                $('#prixUnitaire').val(foodPrice + ' ' + monnaie);
-
-                if (parseInt($('#writeNbrPerson').val()) != NaN) {
-                    $('#register_prix').val((foodPrice * nbrPerson) + ' ' + monnaie);
-
+                if (!Number.isInteger(nbrPerson)) {
+                    $('#register_prix').val('0 USD');
                 }
+
+                $('#register_prix').val((nbrPerson * 5) + ' USD');
             });
 
             // TRANSACTION TYPE
-            $('#paymentMethod .form-check-input').each(function () {
+            $('#paymentMethod .align-middle').each(function () {
                 $(this).on('click', function () {
                     if ($('#bank_card').is(':checked')) {
                         $('#phoneNumberForMoney').addClass('d-none');
@@ -325,7 +317,7 @@
                     }
                 });
             });
-        })
+        });
     </script>
 </body>
 

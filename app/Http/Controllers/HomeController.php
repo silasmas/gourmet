@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdatehomeRequest;
 use App\Models\categorie;
 use App\Models\plat;
+use App\Models\statut;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\ClientException;
 
@@ -118,36 +119,48 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function transactionMessage($orderNumber, $userId)
+    public function transactionMessage($entity, $orderNumber, $userId)
     {
-        $achat = achat::where([['order_number', $orderNumber], ['user_id', $userId]])->first();
+        if ($entity == 'achat') {
+            $achat = achat::where([['order_number', $orderNumber], ['user_id', $userId]])->first();
+            $statut = statut::find($achat->statut_id);
 
-        if (is_null($achat)) {
-            return Redirect::action('/kicoucou')->with('error_message', 'Aucun achat en cours !');
+            return view('transaction_message', [
+                'message_content' => __('general.transaction_done'),
+                'status_code' => (string) $achat->statut_id,
+                'statut' => $statut->nom,
+                'achat' => $achat,
+            ]);
+
         }
 
-        return view('transaction_message', [
-            'message_content' => __('general.transaction_done'),
-            'status_code' => (string) $achat->statut_id,
-            'achat' => $achat->data,
-        ]);
+        if ($entity == 'reservation') {
+            $reservation = reservation::where([['order_number', $orderNumber], ['user_id', $userId]])->first();
+            $statut = statut::find($reservation->statut_id);
+
+            return view('transaction_message', [
+                'message_content' => __('general.transaction_done'),
+                'status_code' => (string) $reservation->statut_id,
+                'statut' => $statut->nom,
+                'achat' => $reservation,
+            ]);
+        }
     }
 
     /**
-     * GET: Transaction result
+     * GET: Buying result
      *
      * @param $montant
-     * @param $monnaie
      * @param $code
      * @param $user_id
      * @return \Illuminate\View\View
      */
-    public function reservationEnvoyee($montant, $monnaie, $code, $user_id)
+    public function achatEnvoye($montant, $code, $user_id)
     {
         if ($code == '0') {
-            reservation::create([
+            achat::create([
                 'prix' => $montant,
-                'monaie' => $monnaie,
+                'order_number' => Session::get('order_number'),
                 'user_id' => $user_id
             ]);
 
@@ -191,12 +204,68 @@ class HomeController extends Controller
     }
 
     /**
-     * POST: Register reservation
+     * GET: Reservation result
+     *
+     * @param $montant
+     * @param $code
+     * @param $user_id
+     * @return \Illuminate\View\View
+     */
+    public function reservationEnvoyee($montant, $code, $user_id)
+    {
+        if ($code == '0') {
+            reservation::create([
+                'prix' => $montant,
+                'order_number' => Session::get('order_number'),
+                'user_id' => $user_id
+            ]);
+
+            return view('transaction_message', [
+                'status_code' => $code,
+                'message_content' => __('general.transaction_done'),
+            ]);
+        }
+
+        if ($code == '1') {
+            $reservation = reservation::where('order_number', Session::get('order_number'))->first();
+
+            if ($reservation != null) {
+                $reservation->update([
+                    'status_id' => 2,
+                    'updated_at' => now()
+                ]);
+            }
+
+            return view('transaction_message', [
+                'status_code' => $code,
+                'message_content' => __('general.transaction_canceled'),
+            ]);
+        }
+
+        if ($code == '2') {
+            $reservation = reservation::where('order_number', Session::get('order_number'))->first();
+
+            if ($reservation != null) {
+                $reservation->update([
+                    'status_id' => 2,
+                    'updated_at' => now()
+                ]);
+            }
+
+            return view('transaction_message', [
+                'status_code' => $code,
+                'message_content' => __('general.transaction_failed'),
+            ]);
+        }
+    }
+
+    /**
+     * POST: Register achat
      *
      * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function reserver(Request $request)
+    public function acheter(Request $request)
     {
         $flexpay_gateway = 'https://backend.flexpay.cd/api/rest/v1/paymentService';
 
@@ -205,7 +274,7 @@ class HomeController extends Controller
         }
 
         if ($request->transaction_type_id == 1) {
-            if ($request->select_country == null or $request->other_phone_number == null) {
+            if ($request->other_phone == null) {
                 return Redirect::back()->with('error_message', __('validation.custom.phone.incorrect'));
             }
 
@@ -223,8 +292,8 @@ class HomeController extends Controller
                         'type' => $request->transaction_type_id,
                         'phone' => $request->other_phone,
                         'reference' => $reference_code,
-                        'amount' => $request->register_prix,
-                        'currency' => $request->register_monnaie,
+                        'amount' => explode(' ', $request->register_prix)[0],
+                        'currency' => explode(' ', $request->register_prix)[1],
                         'callbackUrl' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/achat/store'
                     ),
                     'verify'  => false
@@ -236,14 +305,18 @@ class HomeController extends Controller
 
                 if ($code != '0') {
                     return Redirect::back()->with('error_message', __('general.transaction_failed'));
+
                 } else {
-                    reservation::create([
-                        'date' => explode('/', $request->register_dateReservation)[2] . '-' . explode('/', $request->register_dateReservation)[1] . '-' . explode('/', $request->register_dateReservation)[0] . ' ' . explode('h', $request->register_heureReservation)[0] . ':' . explode('h', $request->register_heureReservation)[1] . ':00',
-                        'nombre' => $request->register_nombre,
-                        'prix' => $request->register_prix,
-                        'monaie' => $request->register_monnaie,
-                        'statut_id' => 1,
-                    ]);
+                    // reservation::create([
+                    //     'date' => $request->register_dateReservation . ' ' . explode('h', $request->register_heureReservation)[0] . ':' . explode('h', $request->register_heureReservation)[1] . ':00',
+                    //     'reference' => $reference_code,
+                    //     'order_number' => $jsonRes->orderNumber,
+                    //     'nombre' => $request->register_nombre,
+                    //     'prix' => explode(' ', $request->register_prix)[0],
+                    //     'monaie' => explode(' ', $request->register_prix)[1],
+                    //     'statut_id' => 1,
+                    //     'user_id' => Auth::user()->id,
+                    // ]);
 
                     return Redirect::route('transaction.en_attente', [
                         'success_message' => $jsonRes->orderNumber . '-' . Auth::user()->id,
@@ -257,7 +330,82 @@ class HomeController extends Controller
         }
 
         if ($request->transaction_type_id == 2) {
-            return Redirect::to('/kicoucou/reservation/' . $request->register_prix . '/' . $request->register_monnaie . '/' . Auth::user()->id);
+            return Redirect::to('/kicoucou/reservation/' . explode(' ', $request->register_prix)[0] . '/' . explode(' ', $request->register_prix)[1] . '/' . Auth::user()->id);
+        }
+    }
+
+    /**
+     * POST: Register reservation
+     *
+     * @param \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function reserver(Request $request)
+    {
+        $flexpay_gateway = 'https://backend.flexpay.cd/api/rest/v1/paymentService';
+
+        if ($request->transaction_type_id == null) {
+            return Redirect::back()->with('error_message', __('general.transaction_type_error'));
+        }
+
+        if ($request->transaction_type_id == 1) {
+            if ($request->other_phone == null) {
+                return Redirect::back()->with('error_message', __('validation.custom.phone.incorrect'));
+            }
+
+            $reference_code = 'REF-' . ((string) random_int(10000000, 99999999)) . '-' . Auth::user()->id;
+
+            try {
+                // Create response by sending request to FlexPay
+                $flexpay_response = $this::$client->request('POST', $flexpay_gateway, [
+                    'headers' => array(
+                        'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJcL2xvZ2luIiwicm9sZXMiOlsiTUVSQ0hBTlQiXSwiZXhwIjoxNzI2MTYxOTIzLCJzdWIiOiIyYzM2NzZkNDhkNGY4OTBhMGNiZjg4YmVjOTc1OTkyNyJ9.N7BBGQ2hNEeL_Q3gkvbyIQxcq71KtC_b0a4WsTKaMT8',
+                        'Accept' => 'application/json'
+                    ),
+                    'json' => array(
+                        'merchant' => 'PROXDOC',
+                        'type' => $request->transaction_type_id,
+                        'phone' => $request->other_phone,
+                        'reference' => $reference_code,
+                        'amount' => explode(' ', $request->register_prix)[0],
+                        'currency' => explode(' ', $request->register_prix)[1],
+                        'callbackUrl' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/reservation/store'
+                    ),
+                    'verify'  => false
+                ]);
+
+                // Decode JSON from the FlexPay created response
+                $jsonRes = json_decode($flexpay_response->getBody(), false);
+                $code = $jsonRes->code;
+
+                if ($code != '0') {
+                    return Redirect::back()->with('error_message', __('general.transaction_failed'));
+
+                } else {
+                    reservation::create([
+                        'date' => $request->register_dateReservation . ' ' . explode('h', $request->register_heureReservation)[0] . ':' . explode('h', $request->register_heureReservation)[1] . ':00',
+                        'reference' => $reference_code,
+                        'order_number' => $jsonRes->orderNumber,
+                        'nombre' => $request->register_nombre,
+                        'prix' => explode(' ', $request->register_prix)[0],
+                        'monaie' => explode(' ', $request->register_prix)[1],
+                        'statut_id' => 1,
+                        'user_id' => Auth::user()->id,
+                    ]);
+
+                    return Redirect::route('transaction.en_attente', [
+                        'success_message' => $jsonRes->orderNumber . '-' . Auth::user()->id . '-reservation',
+                    ]);
+                }
+            } catch (ClientException $e) {
+                return view('transaction_message', [
+                    'response_error' => json_decode($e->getResponse()->getBody()->getContents(), false),
+                ]);
+            }
+        }
+
+        if ($request->transaction_type_id == 2) {
+            return Redirect::to('/kicoucou/reservation/' . explode(' ', $request->register_prix)[0] . '/' . explode(' ', $request->register_prix)[1] . '/' . Auth::user()->id);
         }
     }
 
@@ -269,7 +417,7 @@ class HomeController extends Controller
      * @param $user_id
      * @return \Illuminate\View\View
      */
-    public function payerAvecCarte($montant, $monnaie, $user_id)
+    public function payerAvecCarte($entity, $montant, $monnaie, $user_id)
     {
         $reference_code = 'REF-' . ((string) random_int(10000000, 99999999)) . '-' . $user_id;
         $flexpay_gateway = 'https://cardpayment.flexpay.cd/v1.1/pay';
@@ -287,17 +435,17 @@ class HomeController extends Controller
                     'amount' => $montant,
                     'currency' => $monnaie,
                     'description' => __('general.bank_transaction_description'),
-                    'callback_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/achat/store',
-                    'approve_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/kicoucou/reservation_envoyee/' . $montant . '/' . $monnaie . '/0/' . $user_id,
-                    'cancel_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/kicoucou/reservation_envoyee/' . $montant . '/' . $monnaie . '/1/' . $user_id,
-                    'decline_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/kicoucou/reservation_envoyee/' . $montant . '/' . $monnaie . '/2/' . $user_id,
+                    'callback_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/achat/store' : '/reservation/store'),
+                    'approve_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/' . $monnaie . '/0/' . $user_id,
+                    'cancel_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/' . $monnaie . '/1/' . $user_id,
+                    'decline_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/' . $monnaie . '/2/' . $user_id,
                 ),
                 'verify'  => false
             ]);
-            $achat = json_decode($response->getBody(), false);
+            $entity = json_decode($response->getBody(), false);
 
-            if ($achat) {
-                return redirect($achat->url)->with('order_number', $achat->orderNumber);
+            if ($entity) {
+                return redirect($entity->url)->with('order_number', $entity->orderNumber);
 
             } else {
                 return redirect('/kicoucou')->with('error_message', __('notifications.error_while_processing'));

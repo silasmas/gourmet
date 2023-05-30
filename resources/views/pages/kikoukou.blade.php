@@ -346,10 +346,31 @@
                 <div class="text-center">
                     <h5 class="formation-title mb-4">Réservation</h5>
                 </div>
-                <form action="">
+                <form method="POST" action="{{ route('kicoucou.reserver') }}">
+                    @csrf
                     <div class="form-group">
                         <div class="row g-3">
-                            <div class="col-12">
+                            <div class="col-6">
+                                <label for="register_dateReservation">Date de réservation</label>
+                                <input type="date" name="register_dateReservation" id="register_dateReservation" class="form-control" placeholder="Selectionnez la date">
+                            </div>
+
+                            <div class="col-6">
+                                <div class="col-input">
+                                    <label for="register_heureReservation">Heure de réservation</label>
+                                    <select name="register_heureReservation" id="register_heureReservation" class="form-select">
+                                        <option class="small" disabled selected>Choisir l'heure</option>
+                                        <option>09h30</option>
+                                        <option>10h30</option>
+                                        <option>11h30</option>
+                                        <option>12h30</option>
+                                        <option>13h30</option>
+                                        <option>14h30</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
                                 <label for="selectNbrPerson">Nombre de personnes</label>
                                 <select id="selectNbrPerson" class="form-select">
                                     <option value="1">1 personne</option>
@@ -363,61 +384,35 @@
                                 <input type="number" id="writeNbrPerson" class="d-none mt-3 form-control" placeholder="Ecrire le nombre de personnes" value="">
                             </div>
 
-                            <div class="col-sm-6">
-                                <label for="selectPlat">Plat</label>
-                                <select id="selectPlat" class="form-select">
-                                    <option class="small" selected disabled>Plat</option>
-                                    @foreach ($plats as $plat)
-                                        <option value="{{ $plat->prix }}">{{ $plat->nom }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div class="col-sm-6 mb-3">
-                                <label for="register_monnaie">Devise</label>
-                                <select name="register_monnaie" id="register_monnaie" class="form-select">
-                                    <option value="CDF" selected>Franc congolais</option>
-                                    <option value="USD">Dollar américain</option>
-                                </select>
-                            </div>
-
                             <div class="col-6">
-                                <label for="prixUnitaire">Prix Unitaire</label>
-                                <input type="text" id="prixUnitaire" class="bg-transparent border-0 fs-5" value="0 CDF" disabled>
+                                <label for="register_prix">Prix : </label>
+                                <input type="text" id="register_prix" name="register_prix" class="form-control ps-0 pt-0 bg-transparent border-0 fs-5 text-primary disabled" value="5 USD">
                             </div>
 
-                            <div class="col-6">
-                                <label for="register_prix">Prix Total</label>
-                                <input type="text" id="register_prix" name="register_prix" class="bg-transparent border-0 fs-5 text-primary" value="0 CDF" disabled>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="">Date de réservation</label>
-                                <input type="date" class="form-control" placeholder="Selectionnez la date">
-                            </div>
-                            <div class="col-12">
-                                <div class="col-12">
-                                    <div class="col-input">
-                                        <label for="">Heure de réservation</label>
-                                    <input type="text" class="form-control" placeholder="Selectionnez l'heure" readonly>
-                                    <div class="block-list">
-                                        <ul>
-                                          <li>09h30</li>
-                                          <li>10h30</li>
-                                          <li>09h30</li>
-                                          <li>10h30</li>
-                                          <li>09h30</li>
-                                          <li>10h30</li>
-                                        </ul>
-                                      </div>
-                                    </div>
+                            <div id="paymentMethod">
+                                <p class="mb-3 pb-1 border-bottom border-default text-uppercase">Mode de paiement</p>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" name="transaction_type_id" id="mobile_money" class="align-middle" value="1" />
+                                    <label class="form-check-label" for="mobile_money" role="button">
+                                        <img src="{{ asset('assets/img/payment-mobile-money.png') }}" alt="Mobile money" width="40"> Mobile money
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" name="transaction_type_id" id="bank_card" class="align-middle" value="2" />
+                                    <label class="form-check-label" for="bank_card" role="button">
+                                        <img src="{{ asset('assets/img/payment-credit-card.png') }}" alt="Carte bancaire" width="40"> Carte bancaire
+                                    </label>
                                 </div>
                             </div>
-                            <div class="col-12 justify-content-center d-flex align-items-center mb-5">
-                                <button class="btn mt-3">Réserver</button>
+
+                            <div id="phoneNumberForMoney" class="col-12 my-2 d-none">
+                                <label for="other_phone">Téléphone</label>
+                                <input type="text" id="other_phone" name="other_phone" class="form-control" placeholder="Avec code téléphonique (Ex: 243xxxxxxxxx)">
                             </div>
                         </div>
                     </div>
+
+                    <button class="btn mt-3">Réserver</button>
                 </form>
             </div>
           </div>

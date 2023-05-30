@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('nombre')->nullable();
             $table->string('prix')->nullable();
             $table->string('monaie')->nullable();
+            $table->string('reference');
+            $table->text('order_number')->nullable();
+            $table->string('amount_customer')->nullable();
+            $table->string('channel')->nullable();
             $table->foreignId('statut_id')->constrained()->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();

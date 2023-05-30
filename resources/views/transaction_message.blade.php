@@ -10,7 +10,7 @@
             <div class="col-lg-6">
                 <p>@lang('general.transaction_waiting')</p>
                 <p>
-                    <a href="{{ route('transaction.message', ['orderNumber' => explode('-', request()->success_message)[0], 'userId' => explode('-', request()->success_message)[1]]) }}"
+                    <a href="{{ route('transaction.message', ['entity' => explode('-', request()->success_message)[2], 'orderNumber' => explode('-', request()->success_message)[0], 'userId' => explode('-', request()->success_message)[1]]) }}"
                         class="btn btn-primary rounded-pill py-3 px-5">OK</a>
                 </p>
             </div>
@@ -46,19 +46,19 @@
                 @if (!empty($achat))
                 <div class="card mb-4 shadow-0">
                     <div class="card-body d-flex justify-content-between align-items-center">
-                        <div class="px-2 py-1 border-start border-3 bdc-{{ $achat->status->color }}-600">
+                        <div class="px-2 py-1 border-start border-3 bdc--600">
                             <p class="m-0 text-black">{{ $achat->reference }}</p>
-                            <h4 class="h4 mt-0 mb-1 fw-bold c-{{ $achat->status->color }}-600 text-truncate"
+                            <h4 class="h4 mt-0 mb-1 fw-bold c--600 text-truncate"
                                 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{ $achat->amount
                                 . ' ' . $achat->currency }}</h4>
                             <p class="m-0 small">{{ $achat->created_at }}</p>
                         </div>
 
                         <div class="px-3 py-1 text-center">
-                            <p class="m-0 text-black text-uppercase text-truncate">{{ $achat->channel }}</p>
+                            <p class="m-0 text-dark text-uppercase text-truncate">{{ $achat->channel }}</p>
                             <span
-                                class="badge bgc-{{ $achat->status->color }}-50 c-{{ $achat->status->color }}-700 p-10 lh-0 tt-c rounded-pill fw-light">{{
-                                $achat->status->status_name }}</span>
+                                class="badge text-dark">{{
+                                $statut }}</span>
                         </div>
                     </div>
                 </div>
