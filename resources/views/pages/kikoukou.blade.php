@@ -348,7 +348,7 @@
                 </div>
                 <form action="">
                     <div class="form-group">
-                        <div class="form-group row g-3">
+                        <div class="row g-3">
                             <div class="col-12">
                                 <label for="">Nombre de personnes</label>
                                 <select id="nombrePersonnes" class="form-select">
@@ -364,13 +364,11 @@
 
                             <div class="col-6">
                                 <label for="">Plat</label>
-                                <select id="register_monnaie" class="form-select">
+                                <select id="plat" class="form-select">
                                     <option class="small" selected disabled>Plat</option>
-                                    <option value="1-2300-10">Pondu madesu + Poulet</option>
-                                    <option value="2-3350-15">Frite + thon grillé</option>
-                                    <option value="3-2100-9">Mbwengi + spaghetti</option>
-                                    <option value="4-1150-5">Shawarma</option>
-                                    <option value="5-">Poulet mayo</option>
+                                    @foreach ($plats as $plat)
+                                        <option value="{{ $plat->prix }}">{{ $plat->nom }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -385,7 +383,7 @@
 
                             <div class="col-6">
                                 <label for="">Prix unitaire</label>
-                                <input type="text" class="form-control bg-transparent" value="{{ formatIntegerNumber(23500) }} CDF" disabled>
+                                <input type="text" class="form-control bg-transparent" value="23500 CDF" disabled>
                             </div>
 
                             <div class="col-6">

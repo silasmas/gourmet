@@ -275,7 +275,8 @@
                     // console.log(inputField.value = item.textContent);
                 });
             });
-
+            // ------------------------------------------------------------------------------
+            
             // TRANSACTION TYPE
             $('#paymentMethod .form-check-input').each(function () {
                 $(this).on('click', function () {

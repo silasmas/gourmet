@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorehomeRequest;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdatehomeRequest;
+use App\Models\categorie;
+use App\Models\plat;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\ClientException;
 
@@ -38,7 +40,9 @@ class HomeController extends Controller
     }
     public function kicoucou()
     {
-        return view('pages/kikoukou');
+        $plats = plat::all();
+
+        return view('pages/kikoukou', compact('plats'));
     }
     public function atelier()
     {
