@@ -8,10 +8,12 @@
                     <div class="col-lg-8">
                         <h1>Bienvenue à Kikoukou Resto</h1>
                         <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam
-                            corrupti!</p>
-                        <a href="#book-a-table" class="btn" data-bs-toggle="modal"
-                        data-bs-target="#modal-reservation">Réserver maintenant</a>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+    @if (!empty(Auth::user()))
+                        <a href="#book-a-table" class="btn" data-bs-toggle="modal" data-bs-target="#modal-reservation">Réserver maintenant</a>
+    @else
+                        <a href="{{ route('login') }}" class="btn">Réserver maintenant</a>
+    @endif
                     </div>
                 </div>
                 <div class="card card-cover">
@@ -348,21 +350,49 @@
                     <div class="form-group">
                         <div class="form-group row g-3">
                             <div class="col-12">
-                                <div class="col-input">
-                                    <label for="">Nombre de personnes</label>
-                                <input type="text" class="form-control" placeholder="Selectionnez le nombre de personnes" readonly>
-                                <div class="block-list">
-                                    <ul>
-                                      <li>1 personne</li>
-                                      <li>2 personnes</li>
-                                      <li>3 personnes</li>
-                                      <li>4 personnes</li>
-                                      <li>5 personnes</li>
-                                      <li>Plus de 5 personnes</li>
-                                    </ul>
-                                  </div>
-                                </div>
+                                <label for="">Nombre de personnes</label>
+                                <select id="nombrePersonnes" class="form-select">
+                                    <option class="small" selected disabled>Nombre de personnes</option>
+                                    <option value="1">1 personne</option>
+                                    <option value="2">2 personnes</option>
+                                    <option value="3">3 personnes</option>
+                                    <option value="4">4 personnes</option>
+                                    <option value="5">5 personnes</option>
+                                    <option value="6+">Plus de 5 personnes</option>
+                                </select>
                             </div>
+
+                            <div class="col-6">
+                                <label for="">Plat</label>
+                                <select id="register_monnaie" class="form-select">
+                                    <option class="small" selected disabled>Plat</option>
+                                    <option value="1-2300-10">Pondu madesu + Poulet</option>
+                                    <option value="2-3350-15">Frite + thon grillé</option>
+                                    <option value="3-2100-9">Mbwengi + spaghetti</option>
+                                    <option value="4-1150-5">Shawarma</option>
+                                    <option value="5-">Poulet mayo</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="">Devise</label>
+                                <select id="register_monnaie" class="form-select">
+                                    <option class="small" selected disabled>Devise</option>
+                                    <option value="USD">Dollar américain</option>
+                                    <option value="CDF">Franc congolais</option>
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="">Prix unitaire</label>
+                                <input type="text" class="form-control bg-transparent" value="{{ formatIntegerNumber(23500) }} CDF" disabled>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="">Prix total</label>
+                                <input type="number" class="form-control" value="">
+                            </div>
+
                             <div class="col-12">
                                 <label for="">Date de réservation</label>
                                 <input type="date" class="form-control" placeholder="Selectionnez la date">

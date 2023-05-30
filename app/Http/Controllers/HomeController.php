@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\home;
 use App\Models\achat;
 use GuzzleHttp\Client;
+use App\Models\reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +14,6 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdatehomeRequest;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\ClientException;
-use App\Http\Controllers\API\BaseController;
-use App\Models\reservation;
 
 class HomeController extends Controller
 {
