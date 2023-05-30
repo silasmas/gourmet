@@ -350,9 +350,8 @@
                     <div class="form-group">
                         <div class="row g-3">
                             <div class="col-12">
-                                <label for="">Nombre de personnes</label>
-                                <select id="nombrePersonnes" class="form-select">
-                                    <option class="small" selected disabled>Nombre de personnes</option>
+                                <label for="selectNbrPerson">Nombre de personnes</label>
+                                <select id="selectNbrPerson" class="form-select">
                                     <option value="1">1 personne</option>
                                     <option value="2">2 personnes</option>
                                     <option value="3">3 personnes</option>
@@ -360,11 +359,13 @@
                                     <option value="5">5 personnes</option>
                                     <option value="6+">Plus de 5 personnes</option>
                                 </select>
+
+                                <input type="number" id="writeNbrPerson" class="d-none mt-3 form-control" placeholder="Ecrire le nombre de personnes" value="">
                             </div>
 
-                            <div class="col-6">
-                                <label for="">Plat</label>
-                                <select id="plat" class="form-select">
+                            <div class="col-sm-6">
+                                <label for="selectPlat">Plat</label>
+                                <select id="selectPlat" class="form-select">
                                     <option class="small" selected disabled>Plat</option>
                                     @foreach ($plats as $plat)
                                         <option value="{{ $plat->prix }}">{{ $plat->nom }}</option>
@@ -372,23 +373,22 @@
                                 </select>
                             </div>
 
-                            <div class="col-6">
-                                <label for="">Devise</label>
-                                <select id="register_monnaie" class="form-select">
-                                    <option class="small" selected disabled>Devise</option>
+                            <div class="col-sm-6 mb-3">
+                                <label for="register_monnaie">Devise</label>
+                                <select name="register_monnaie" id="register_monnaie" class="form-select">
+                                    <option value="CDF" selected>Franc congolais</option>
                                     <option value="USD">Dollar américain</option>
-                                    <option value="CDF">Franc congolais</option>
                                 </select>
                             </div>
 
                             <div class="col-6">
-                                <label for="">Prix unitaire</label>
-                                <input type="text" class="form-control bg-transparent" value="23500 CDF" disabled>
+                                <label for="prixUnitaire">Prix Unitaire</label>
+                                <input type="text" id="prixUnitaire" class="bg-transparent border-0 fs-5" value="0 CDF" disabled>
                             </div>
 
                             <div class="col-6">
-                                <label for="">Prix total</label>
-                                <input type="number" class="form-control" value="">
+                                <label for="register_prix">Prix Total</label>
+                                <input type="text" id="register_prix" name="register_prix" class="bg-transparent border-0 fs-5 text-primary" value="0 CDF" disabled>
                             </div>
 
                             <div class="col-12">
