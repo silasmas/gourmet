@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use App\Models\plat;
-use App\Http\Requests\StoreplatRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateplatRequest;
+use GuzzleHttp\Exception\ClientException;
 
 class PlatController extends Controller
 {
@@ -24,14 +26,7 @@ class PlatController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreplatRequest $request)
-    {
-        //
-    }
-
+    
     /**
      * Display the specified resource.
      */

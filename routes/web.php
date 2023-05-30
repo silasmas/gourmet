@@ -18,6 +18,7 @@ Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
 Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
 Route::get('/sommelerie', [HomeController::class, 'sommelerie'])->name('sommelerie');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 // Transaction
 Route::get('/transaction_en_attente', [HomeController::class, 'transactionEnAttente'])->name('transaction.en_attente');
 Route::get('/transaction_message/{orderNumber}/{userId}', [HomeController::class, 'transactionMessage'])->whereNumber('userId')->name('transaction.message');
@@ -26,5 +27,7 @@ Route::post('/achat/store', [AchatController::class, 'store'])->name('achat.stor
 Route::post('/kicoucou/reserver', [HomeController::class, 'reserver'])->name('kicoucou.reserver');
 Route::get('/kicoucou/reservation/{montant}/{monnaie}/{user_id}', [HomeController::class, 'payerAvecCarte'])->whereNumber(['montant', 'user_id'])->name('kicoucou.reservation.payer_avec_carte');
 Route::get('/kicoucou/reservation_envoyee/{montant}/{monnaie}/{code}/{user_id}', [HomeController::class, 'reservationEnvoyee'])->whereNumber(['montant', 'code', 'user_id'])->name('kicoucou.reservation.reservation_envoyee');
+
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
