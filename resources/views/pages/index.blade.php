@@ -129,7 +129,7 @@
                 <div class="card">
                     <a href="#">
                         <div class="block-img">
-                            <img src="{{asset('assets/img/banner.jpg')}}" alt="">
+                            <img src="{{asset('assets/img/1.jpg')}}" alt="">
                         </div>
                         <div class="content-text">
                             <h5>Kicoucou resto</h5>
@@ -142,7 +142,7 @@
                 <div class="card">
                     <a href="#">
                         <div class="block-img">
-                            <img src="{{asset('assets/img/banner.jpg')}}" alt="">
+                            <img src="{{asset('assets/img/3.jpg')}}" alt="">
                         </div>
                         <div class="content-text">
                             <h5>Atelier</h5>
@@ -155,7 +155,7 @@
                 <div class="card">
                     <a href="#">
                         <div class="block-img">
-                            <img src="{{asset('assets/img/banner.jpg')}}" alt="">
+                            <img src="{{asset('assets/img/5.jpg')}}" alt="">
                         </div>
                         <div class="content-text">
                             <h5>Boisson</h5>
