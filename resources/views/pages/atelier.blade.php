@@ -7,9 +7,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <h1>Bienvenue sur notre atelier</h1>
-                    <h2>La formation culinaire</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam
-                        corrupti!</p>
+                    <h2>La Formation <span class="text-warning">Culinaire</span></h2>
+                    <p>Nous sommes un atelier ouvert. Nous produisons et nous formons.</p>
                     <a href="#block-formation" class="btn">Voir nos formations</a>
                 </div>
             </div>
@@ -17,15 +16,16 @@
         <img src="{{ asset('assets/img/banner.jpg') }}" alt="banner" class="cover">
     </div>
 </div>
+
 <div class="block-about block-formation" id="block-formation">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2>Nous sommes Gourmet</h2>
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti dolorum nostrum tempora at accusantium id praesentium dolore. Atque aliquid error delectus enim minima vero incidunt impedit, saepe quasi exercitationem tempore!</h3>
+                <h2 class="mb-2">Nos formations</h2>
+                <h3 class="mb-5" style="line-height: 3rem;">En tant qu'atelier ouvert, nous produisons et formons.</h3>
             </div>
         </div>
-        <div class="row justify-content-center g-lg-5 g-3 mt-4">
+        <div class="row justify-content-center g-lg-5 g-3">
             <div class="col-lg-5">
                 <a href="#" data-bs-toggle="modal"
                 data-bs-target="#modal-plus-1">
@@ -40,7 +40,7 @@
             <div class="col-lg-5">
                 <a href="#" data-bs-toggle="modal"
                 data-bs-target="#modal-plus-2">
-                    <div class="card card-formation mt-lg-5">
+                    <div class="card card-formation">
                         <img src="{{ asset('assets/img/banner.jpg') }}" alt="banner">
                         <div class="content">
                             Formation culinaire
@@ -51,19 +51,36 @@
         </div>
     </div>
 </div>
-<div class="block-map">
+
+<div class="block-choice block-special py-5 bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="card card-map">
-                    <div class="d-flex justify-content-center align-items-center h-100">
-                        <h4>Ici c'est pour la map </h4>
-                    </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <img src="{{ asset('assets/img/pub/pub_02.jpg') }}" alt="">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="text-start">
+                    <p class="mb-3 text-dark">Nous assurons le traitement, la conservation, la transformation et  la production des produits alimentaires en série.</p>
+                    <p class="mb-3 text-dark">Notre objectif est d'offrir aux consommateurs une production en série des aliments de meilleure qualité à des prix concurrentiels.</p>
+                    <p class="mb-3 text-dark">Nous assurons également :</p>
+                    <p class="mb-2 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i><strong>La production des aliments crus</strong> : Ce service englobe le nettoyage, la mise emballage.</p>
+                    <ul class="mb-2">
+                        <li><u>Produits d’élevage</u> : viande, bœuf, chèvre, gibiers ;</li>
+                        <li><u>Volaille</u> : poulet, cailles ;</li>
+                        <li><u>Produits agricoles</u> : haricots, maïs ;</li>
+                        <li><u>Piscicultures</u> : poisson, dans toute sa diversité.</li>
+                    </ul>
+                    <p class="mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i><strong>La Production des produits de consommation directe</strong> : Il s'agit de la transformation et la préparation des aliments prêts à la consommation. La production de diverses boissons, jus, sauces, et différents menus.</p>
+                    <p class="mb-3 text-dark">Pour un devis ou un conseil, joignons au (+243) 820 661 009 / 898 681 751 ou nous écrire sur <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <footer>
     <div class="container">
         <div class="row">
