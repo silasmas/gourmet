@@ -171,7 +171,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="d-flex justify-content-center justify-content-lg-end">
-                        <p>Developed By <a href="#">Silas Dev</a></p>
+                        <p>Developed By <a href="#">SDEV</a></p>
                     </div>
                 </div>
             </div>
