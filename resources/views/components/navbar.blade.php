@@ -36,7 +36,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    Sommellerie
+                    Boisson
                 </a>
             </li>
           </ul>

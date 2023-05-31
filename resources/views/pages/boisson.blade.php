@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h1>Bienvenue sur notre sommellerie</h1>
+                    <h1>Bienvenue</h1>
                     <h2>Les boissons <br> servies au frais</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam
                         corrupti!</p>

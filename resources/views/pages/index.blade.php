@@ -15,8 +15,8 @@
                         <div class="row">
                             <div class="col-lg-10">
                                 <h1>Kicoucou resto </h1>
-                                <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                                <h2>Une Nourriture <br> Saine et <span class="text-warning">Délicieuse</span></h2>
+                                <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
                                 <a href="/kicoucou" class="btn">Savoir plus</a>
                             </div>
                         </div>
@@ -36,8 +36,8 @@
                         <div class="row">
                             <div class="col-lg-10">
                                 <h1>Atelier</h1>
-                                <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                                <h2>Production <br> d'Aliments de <span class="text-warning">Qualité</span></h2>
+                                <p>Nous assurons le traitement, la conservation, la transformation et  la production des produits alimentaires en série.</p>
                                 <a href="/atelier" class="btn">Savoir plus</a>
                             </div>
                         </div>
@@ -56,10 +56,10 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10">
-                                <h1>Sommellerie</h1>
+                                <h1>Boisson</h1>
                                 <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
-                                <a href="/sommellerie" class="btn">Savoir plus</a>
+                                <a href="/boisson" class="btn">Savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                             <img src="{{asset('assets/img/banner.jpg')}}" alt="">
                         </div>
                         <div class="content-text">
-                            <h5>Sommellerie</h5>
+                            <h5>Boisson</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aspernatur dolor earum doloribus ipsum laborum.</p>
 
                         </div>
