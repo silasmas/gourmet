@@ -274,8 +274,7 @@
                     <div class="div">
                         <h6>Adresse</h6>
                         <p>
-                            Rue de la Crèche 19 1050
-                            Bruxelles, Belgique
+                            3754, Avenue Kimiala, Q/Salongo<br>Limeté-Kinshasa
                         </p>
                     </div>
                 </div>
@@ -284,7 +283,7 @@
                     <div class="div">
                         <h6>Réservations</h6>
                         <p>
-                            <span>Phone: <a href="tel:+155895548855">+1 5589 55488 55</a></span>
+                            <span>Phone: <a href="tel:+243820661009">(+243) 820 661 009 / 898 681 751</a></span>
                         </p>
                         <p>
                             <span>Email: <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></span>
