@@ -246,14 +246,12 @@
                     <div class="card">
                         <div class="container">
                             <div class="col-lg-8">
-                                <h2>Pourquoi nous choisir ?</h2>
-                                <h3>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quisquam odit iure.
-                                </h3>
+                                <h2 style="color: #f8d911;">Pourquoi nous choisir ?</h2>
+                                <h3>L'ambition de notre groupe est d'améliorer la qualité des services dans la production et dans l'événementiel à Kinshasa en RD Congo.</h3>
                                 <a href="#" class="btn">Réserver maintenant</a>
                             </div>
                         </div>
-                        <img src="{{ asset('assets/img/1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/2.jpg') }}" alt="">
                     </div>
                 </div>
             </div>
