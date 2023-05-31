@@ -175,12 +175,12 @@
                 <div class="card mb-4">
                     <img src="{{asset('assets/img/pub/pub_03.jpg')}}" alt="">
                 </div>
-                <h3 style="font-size: 2.5rem;">LUABEYA NKOBONG</h3>
+                <h3 style="font-size: 2rem;">LUABEYA NKOBONG Junior</h3>
             </div>
             <div class="col-lg-6">
                 <div class="text-start">
                     <h2>Le Promoteur</h2>
-                    <p class="mb-3 text-dark"><strong>Luabeya Nkobong</strong> est diplômé en Hôtellerie, option Restauration et détenteur d’un diplôme supérieur en Gestion Hôtelière, titre obtenu en Belgique à l’institut Arthur Haulot.</p>
+                    <p class="mb-3 text-dark"><strong>Luabeya Nkobong Junior</strong> est diplômé en Hôtellerie, option Restauration et détenteur d’un diplôme supérieur en Gestion Hôtelière, titre obtenu en Belgique à l’institut Arthur Haulot.</p>
                     <p class="mb-3 text-dark">Gastronome-hôtelier de formation et homme d’expérience, Monsieur Junior Luabeya Nkobong baigne dans le monde de la restauration depuis une vingtaine d’années.</p>
                     <p class="mb-3 text-dark">Il a effectué des stages et a travaillé dans différents établissements de renommée internationale comme  Hôtel Hilton, Maison du Bœuf, Café d’Egmont, Brasserie Georges, Brasserie du Lac, Hôtels du Groupe Accor.</p>
                     <p class="mb-3 text-dark">Il a occupé différentes fonctions notamment : Maître d’hôtel, Maître des cérémonies, cuisinier, chef de cuisine et Sommelier  œnologue. Actuellement il est le chef associé exécutif du Restaurant « <strong>KICOUCOU</strong> » en Belgique.</p>
