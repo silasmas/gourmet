@@ -68,7 +68,7 @@
                     <p class="mb-3 text-dark">Nous assurons également :</p>
                     <p class="mb-2 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i><strong>La production des aliments crus</strong> : Ce service englobe le nettoyage, la mise emballage.</p>
                     <ul class="mb-2">
-                        <li><u>Produits d’élevage</u> : viande, bœuf, chèvre, gibiers ;</li>
+                        <li><u>Produits d'élevage</u> : viande, bœuf, chèvre, gibiers ;</li>
                         <li><u>Volaille</u> : poulet, cailles ;</li>
                         <li><u>Produits agricoles</u> : haricots, maïs ;</li>
                         <li><u>Piscicultures</u> : poisson, dans toute sa diversité.</li>
