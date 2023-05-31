@@ -20,7 +20,7 @@
             <section id="about" class="about">
                 <div class="container" data-aos="fade-up">
                     <div class="section-header">
-                        <h2>A propo</h2>
+                        <h2>A propos</h2>
                         <p>Qui <span>sommes-nous</span></p>
                     </div>
 

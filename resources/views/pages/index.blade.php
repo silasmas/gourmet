@@ -57,7 +57,7 @@
                         <div class="row">
                             <div class="col-lg-10">
                                 <h1>Boisson</h1>
-                                <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
+                                <h2>Des Boissons <br> Vraiment <span class="text-warning">Vitalisantes</span></h2>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
                                 <a href="/boisson" class="btn">Savoir plus</a>
                             </div>
@@ -69,7 +69,7 @@
                         <div class="bubble"></div>
                        
                     </div> --}}
-                    <img src="{{asset('assets/img/banner.jpg')}}" alt="banner" class="cover">
+                    <img src="{{asset('assets/img/5.jpg')}}" alt="banner" class="cover">
                 </div>
             </div>
             <button class="carousel-control-prev btn-carousel" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -77,18 +77,43 @@
             </button>
             <button class="carousel-control-next btn-carousel" type="button" data-bs-target="#carousel" data-bs-slide="next">
                 <i class="bi bi-arrow-right"></i>
-
+            </button>
         </div>
     </div>
    
 </div>
-<div class="block-about">
-    <div class="container">
+<div class="block-choice py-5">
+    <div class="container mt-0">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2>Nous sommes Gourmet</h2>
-                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti dolorum nostrum tempora at accusantium id praesentium dolore. Atque aliquid error delectus enim minima vero incidunt impedit, saepe quasi exercitationem tempore!</h3>
+                <h2 class="mb-2">Le Gourmet du Congo</h2>
+                <h3 class="mb-5">La qualité dans le service !</h3>
             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="bg-image mt-4">
+                    <div class="card">
+                        <img src="{{asset('assets/img/pub/pub_02.jpg')}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h5 class="mb-3" style="line-height: 2rem;">Nous sommes une société de droit congolais évoluant dans le secteur de RECA.</h5>
+                <p class="mb-3 text-dark">Notre ambition est d'offrir des  services de qualité sur toute la chaîne de la restauration, en partant du choix des aliments, de leur préparation à leur mise en bouche. Des repas délicieux faits à partir des produits de qualité, c'est notre credo !</p>
+                <p class="mb-3 text-dark">Notre service événementiel assure l'organisation de vos événements : dîners d'affaires ou de famille,  buffets,  cocktails, soirées et cérémonies festives (anniversaire, mariage).</p>
+                <p class="mb-3 text-dark">Pour atteindre nos objectifs, nous nous appuyons sur une symbiose d'expertise entre celle acquise à l'étranger et l'expertise locale :</p>
+                <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Les normes de sécurité et d’hygiène rigoureuses ;</p>
+                <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>La mise en application des normes HACCP ;</p>
+                <p class="mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Le recours aux fournisseurs locaux.</p>
+                <p class="mb-3 text-dark">Le pilotage de notre activité par des mains expertes, des passionnés de cuisine et un promoteur aguerri dans la restauration.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-sm-6"></div>
+            <div class="col-lg-4 col-sm-6"></div>
         </div>
     </div>
 </div>
@@ -144,27 +169,24 @@
         </div>
     </div> 
 </div>
-<div class="block-choice">
+<div class="block-choice block-special">
     <div class="container">
         <div class="row g-lg-5 g-4 align-items-center">
             <div class="col-lg-6">
-                <div class="card">
-                    <img src="{{asset('assets/img/img-4.jpg')}}" alt="">
+                <div class="card mb-4">
+                    <img src="{{asset('assets/img/pub/pub_03.jpg')}}" alt="">
                 </div>
+                <h3 style="font-size: 2.5rem;">LUABEYA NKOBONG</h3>
             </div>
             <div class="col-lg-6">
                 <div class="text-start">
-                    <h2>Pourquoi nous choisir ? </h2>
-                    <h3>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum at quae alias.
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores quasi vero est nihil repellat porro expedita quod?</p>
-                    <ul class="list d-flex align-items-baseline flex-wrap">
-                        <li>La qualité</li>
-                        <li>La qualité</li>
-                        <li>La qualité</li>
-                        <li>La qualité</li>
-                    </ul>
+                    <h2>Le Promoteur</h2>
+                    <p class="mb-3 text-dark"><strong>Luabeya Nkobong</strong> est diplômé en Hôtellerie, option Restauration et détenteur d’un diplôme supérieur en Gestion Hôtelière, titre obtenu en Belgique à l’institut Arthur Haulot.</p>
+                    <p class="mb-3 text-dark">Gastronome-hôtelier de formation et homme d’expérience, Monsieur Junior Luabeya Nkobong baigne dans le monde de la restauration depuis une vingtaine d’années.</p>
+                    <p class="mb-3 text-dark">Il a effectué des stages et a travaillé dans différents établissements de renommée internationale comme  Hôtel Hilton, Maison du Bœuf, Café d’Egmont, Brasserie Georges, Brasserie du Lac, Hôtels du Groupe Accor.</p>
+                    <p class="mb-3 text-dark">Il a occupé différentes fonctions notamment : Maître d’hôtel, Maître des cérémonies, cuisinier, chef de cuisine et Sommelier  œnologue. Actuellement il est le chef associé exécutif du Restaurant « <strong>KICOUCOU</strong> » en Belgique.</p>
+                    <p class="mb-3 text-dark">Avant la création de Kicoucou, il a occupé le poste de chef exécutif à l'UCB (cuisine de direction) pendant 2 ans.</p>
+                    <p class="mb-3 text-dark">Fort de cette expérience, et passionné, Monsieur Luabeya porte le projet du Gourmet du Congo, le lancement d'une chaîne de restaurant Kicoucou et d'un atelier de production d'aliments de qualité à des prix concurrentiels.</p>
                 </div>
             </div>
         </div>
