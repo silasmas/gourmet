@@ -7,8 +7,8 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <h1>Bienvenue à Kikoukou Resto</h1>
-                        <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                        <h2>Une Nourriture <br> Saine et <span class="text-warning">Délicieuse</span></h2>
+                        <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
     @if (!empty(Auth::user()))
                         <a href="#book-a-table" class="btn" data-bs-toggle="modal" data-bs-target="#modal-reservation">Réserver maintenant</a>
     @else
@@ -26,59 +26,52 @@
 
         </div>
     </div>
-    <div class="block-about block-content" style="background: transparent">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h2>Découvrir notre spécialité</h2>
-                <h3>Dégustez les spécialités goûteuses de notre terroir dans ces anciennes caves voûtée du 17e siècle</h3>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- <div class="block-about about-lg">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="card card-about">
-                    <img src="http://127.0.0.1:8000/assets/img/banner.jpg" alt="">
+
+    <div class="block-choice mt-5 py-5 bg-light">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Dégustez nos spécialités</h2>
+                    <h3 class="mb-5" style="line-height: 3rem;">Créativité et service de qualité dans la cuisine traditionnelle</h3>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <h2>Qui sommes-nous ?</h2>
-                <h4>Nous sommes Gourmet du Congo</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis rerum alias labore culpa quaerat.
-                    Consectetur atque animi exercitationem facilis. Repellendus doloremque atque, cumque quod vel
-                    placeat quia earum sed accusamus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis rerum alias labore culpa quaerat.
-                    Consectetur atque animi exercitationem facilis. Repellendus doloremque atque, cumque quod vel
-                    placeat quia earum sed accusamus.
-                </p>
+
+            <div class="row g-3 align-items-center">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <img src="{{ asset('assets/img/3.jpg') }}" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="text-start">
+                        <p class="mb-3 text-dark">Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
+                        <p class="mb-3 text-dark">Vous recherchez un endroit cosy, où partager un repas surprenant entre amis ou en famille ? Kicoucou se fera le plaisir de vous accueillir.</p>
+                        <p class="mb-3 text-dark">Cuites sur le grill au BBQ, nos viandes conservent ainsi toute leur saveur et tendreté caractéristiques. C'est la chaleur ardente du soleil de l'Afrique qui fait pousser les piments Kicoucou ! nous avons sélectionné les meilleurs et nous les avons assaisonnés de citron, d'ail, et d'autres ingrédients pour sublimer chaque saveur de nos viandes.</p>
+                        <p class="mb-3 text-dark">Des ingrédients frais sélectionnés par nos cuisiniers pour faire voyager vos papilles.</p>
+                        <p class="mb-3 text-dark">Des plats faits maison et cuits avec peu de matière grasse pour une cuisine Healthy. Poisson, bœuf, viande de chèvre, poulet, burgers, plats végétariens, etc. Une variété de plats assaisonnés à votre goût. Un festin pour les yeux et pour le ventre.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div> --}}
+
     <div class="block-choice block-special">
         <div class="container">
-            <div class="row g-lg-5 g-3 align-items-center">
+            <div class="row g-lg-5 g-3">
+                <div class="col-lg-6">
+                    <div class="text-start">
+                        <p class="mb-3 text-dark">Nous apportons un soin particulier à expérimenter de nouveaux plats et de nouvelles saveurs pour satisfaire tout le monde !</p>
+                        <p class="mb-3 text-dark">Nos burgers à la viande de chèvre hachée font notre réputation. Grâce à la variété des garnitures, tout le monde y trouve son compte: piquant, mangue, avocat, champignons, etc.</p>
+                        <p class="mb-3 text-dark"><strong>Les végétariens ne sont pas oubliés.<br>Nos différent burgers à base de légumes sont des musts.</strong></p>
+                        <p class="mb-3 text-dark">Envie d'un dessert original ? Vous êtes au bon endroit ! Chez Kicoucou vous trouverez des desserts maison !</p>
+                        <p class="mb-3 text-dark">Optez pour notre coupe aux fruits exotiques. Sans oublier notre délicieuse tarte ainsi que le tiramisu à la mangue.</p>
+                    </div>
+                </div>
+
                 <div class="col-lg-6">
                     <div class="card">
                         <img src="{{ asset('assets/img/1.jpg') }}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="text-start">
-                        <h2> Notre meilleure spécialité </h2>
-                        <h3>
-                            Burger Ntaba
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nobis beatae, eaque earum dolor
-                            voluptatibus soluta. Quidem veritatis reprehenderit libero veniam odio sit nesciunt sunt magnam
-                            possimus? Illo, ea accusamus!</p>
-                        <a href="#" class="btn">Commander maintenant</a>
                     </div>
                 </div>
             </div>
