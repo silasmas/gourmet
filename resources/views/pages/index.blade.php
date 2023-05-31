@@ -133,7 +133,7 @@
                         </div>
                         <div class="content-text">
                             <h5>Kicoucou resto</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aspernatur dolor earum doloribus ipsum laborum.</p>
+                            <p>Kicoucou est un nouveau concept de restaurant congolais qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
                         </div>
                     </a>
                 </div>
@@ -146,8 +146,7 @@
                         </div>
                         <div class="content-text">
                             <h5>Atelier</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aspernatur dolor earum doloribus ipsum laborum.</p>
-
+                            <p>Nous assurons le traitement, la conservation, la transformation et  la production des produits alimentaires en série.</p>
                         </div>
                     </a>
                 </div>
