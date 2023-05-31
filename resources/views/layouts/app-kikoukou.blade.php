@@ -32,10 +32,6 @@
                         class="{{ Route::current()->getName() == 'home' ? 'active' : '' }}">Accueil</a>
                 </li>
                 <li>
-                    <a href="{{ route('about') }}"
-                        class="{{ Route::current()->getName() == 'about' ? 'active' : '' }}">A propos</a>
-                </li>
-                <li>
                     <a href="{{ route('kicoucou') }}"
                         class="{{ Route::current()->getName() == 'kicoucou' ? 'active' : '' }}">Kicoucou resto</a>
                 </li>
@@ -44,8 +40,12 @@
                         class="{{ Route::current()->getName() == 'atelier' ? 'active' : '' }}">Atelier</a>
                 </li>
                 <li>
-                    <a href="{{ route('sommelerie') }}"
-                        class="{{ Route::current()->getName() == 'sommelerie' ? 'active' : '' }}">Sommellerie </a>
+                    <a href="{{ route('boisson') }}"
+                        class="{{ Route::current()->getName() == 'boisson' ? 'active' : '' }}">boisson </a>
+                </li>
+                <li>
+                    <a href="{{ route('about') }}"
+                        class="{{ Route::current()->getName() == 'about' ? 'active' : '' }}">A propos</a>
                 </li>
             </ul>
         </div>
@@ -55,9 +55,9 @@
                     <div class="d-flex">
                         <i class="bi bi-geo-alt-fill"></i>
                         <div>
-                            <h5>Addresse</h5>
+                            <h5>Adresse</h5>
                             <p>
-                                Rue de la Crèche 19 1050 Bruxelles, Belgique
+                                3754, Avenue Kimiala, Q/Salongo<br>Limeté-Kinshasa
                             </p>
                         </div>
                     </div>

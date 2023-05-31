@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\reservation;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorereservationRequest;
 use App\Http\Requests\UpdatereservationRequest;
 
@@ -27,9 +28,49 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorereservationRequest $request)
+    public function store(Request $request)
     {
-        //
+        $user_id = is_numeric(explode('-', $request->reference)[2]) ? (int) explode('-', $request->reference)[2] : null;
+        // Check if reservation already exists
+        $reservation = reservation::where('order_number', $request->orderNumber)->first();
+
+        // If achat exists
+        if ($reservation != null) {
+            $reservation->update([
+                'user_id' => $user_id,
+                'date' => $request->date,
+                'nombre' => $request->nombre,
+                'prix' => $request->amount,
+                'monaie' => $request->currency,
+                'reference' => $request->reference,
+                'order_number' => $request->orderNumber,
+                'amount_customer' => $request->amountCustomer,
+                'phone' => $request->phone,
+                'channel' => $request->channel,
+                'statut_id' => $request->code,
+                'updated_at' => now()
+            ]);
+
+            return $reservation;
+
+        // Otherwise, create new reservation
+        } else {
+            $reservation = reservation::create([
+                'user_id' => $user_id,
+                'date' => $request->date,
+                'nombre' => $request->nombre,
+                'prix' => $request->amount,
+                'monaie' => $request->currency,
+                'reference' => $request->reference,
+                'order_number' => $request->orderNumber,
+                'amount_customer' => $request->amountCustomer,
+                'phone' => $request->phone,
+                'channel' => $request->channel,
+                'statut_id' => $request->code,
+            ]);
+
+            return $reservation;
+        }
     }
 
     /**

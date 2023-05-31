@@ -49,9 +49,9 @@ class HomeController extends Controller
     {
         return view('pages/atelier');
     }
-    public function sommelerie()
+    public function boisson()
     {
-        return view('pages/sommelerie');
+        return view('pages/boisson');
     }
     public function menu()
     {
@@ -158,11 +158,15 @@ class HomeController extends Controller
     public function achatEnvoye($montant, $code, $user_id)
     {
         if ($code == '0') {
-            achat::create([
-                'prix' => $montant,
-                'order_number' => Session::get('order_number'),
-                'user_id' => $user_id
-            ]);
+            $achat = achat::where('order_number', Session::get('order_number'))->first();
+
+            if ($achat == null) {
+                achat::create([
+                    'prix' => $montant,
+                    'order_number' => Session::get('order_number'),
+                    'user_id' => $user_id
+                ]);
+            }
 
             return view('transaction_message', [
                 'status_code' => $code,
@@ -214,11 +218,15 @@ class HomeController extends Controller
     public function reservationEnvoyee($montant, $code, $user_id)
     {
         if ($code == '0') {
-            reservation::create([
-                'prix' => $montant,
-                'order_number' => Session::get('order_number'),
-                'user_id' => $user_id
-            ]);
+            $reservation = reservation::where('order_number', Session::get('order_number'))->first();
+
+            if ($reservation == null) {
+                reservation::create([
+                    'prix' => $montant,
+                    'order_number' => Session::get('order_number'),
+                    'user_id' => $user_id
+                ]);
+            }
 
             return view('transaction_message', [
                 'status_code' => $code,
@@ -436,19 +444,43 @@ class HomeController extends Controller
                     'currency' => $monnaie,
                     'description' => __('general.bank_transaction_description'),
                     'callback_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/achat/store' : '/reservation/store'),
-                    'approve_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/' . $monnaie . '/0/' . $user_id,
-                    'cancel_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/' . $monnaie . '/1/' . $user_id,
-                    'decline_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/' . $monnaie . '/2/' . $user_id,
+                    'approve_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/0/' . $user_id,
+                    'cancel_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/1/' . $user_id,
+                    'decline_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/2/' . $user_id,
                 ),
                 'verify'  => false
             ]);
-            $entity = json_decode($response->getBody(), false);
 
-            if ($entity) {
-                return redirect($entity->url)->with('order_number', $entity->orderNumber);
+            if ($entity == 'achat') {
+                $achat = json_decode($response->getBody(), false);
+                $register = achat::create([
+                    'prix' => $montant,
+                    'order_number' => Session::get('order_number'),
+                    'user_id' => $user_id
+                ]);
 
-            } else {
-                return redirect('/kicoucou')->with('error_message', __('notifications.error_while_processing'));
+                if ($register) {
+                    return redirect($achat->url)->with('order_number', $achat->orderNumber);
+
+                } else {
+                    return redirect('/kicoucou')->with('error_message', __('notifications.error_while_processing'));
+                }
+            }
+
+            if ($entity == 'reservation') {
+                $reservation = json_decode($response->getBody(), false);
+                $register = reservation::create([
+                    'prix' => $montant,
+                    'order_number' => Session::get('order_number'),
+                    'user_id' => $user_id
+                ]);
+
+                if ($register) {
+                    return redirect($reservation->url)->with('order_number', $reservation->orderNumber);
+
+                } else {
+                    return redirect('/kicoucou')->with('error_message', __('notifications.error_while_processing'));
+                }
             }
 
         } catch (ClientException $e) {

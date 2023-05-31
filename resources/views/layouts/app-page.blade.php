@@ -31,16 +31,16 @@
                         <a href="{{ route('home') }}" class="active">Accueil</a>
                     </li>
                     <li>
-                        <a href="{{ route('about') }}">A propos</a>
-                    </li>
-                    <li>
                         <a href="{{ route('kicoucou') }}">Kicoucou resto</a>
                     </li>
                     <li>
                         <a href="{{ route('atelier') }}">Atelier</a>
                     </li>
                     <li>
-                        <a href="{{ route('sommelerie') }}">Sommellerie </a>
+                        <a href="{{ route('boisson') }}">Boisson</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('about') }}">A propos</a>
                     </li>
                 </ul>
             </div>
@@ -50,9 +50,9 @@
                         <div class="d-flex">
                             <i class="bi bi-geo-alt-fill"></i>
                             <div>
-                                <h5>Addresse</h5>
+                                <h5>Adresse</h5>
                                 <p>
-                                    Rue de la Crèche 19 1050 Bruxelles, Belgique
+                                    3754, Avenue Kimiala, Q/Salongo<br>Limeté-Kinshasa
                                 </p>
                             </div>
                         </div>

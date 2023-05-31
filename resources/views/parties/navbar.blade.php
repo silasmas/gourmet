@@ -15,11 +15,6 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link {{ Route::current()->getName() == 'about' ? 'active' : '' }}" href="{{ route('about') }}">
-                            A propos
-                          </a>
-                      </li>
-                      <li class="nav-item">
                           <a class="nav-link {{ Route::current()->getName() == 'kicoucou' ? 'active' : '' }}" href="{{ route('kicoucou') }}">
                               Kicoucou resto
                           </a>
@@ -30,8 +25,13 @@
                           </a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link {{ Route::current()->getName() == 'sommelerie' ? 'active' : '' }}" href="{{ route('sommelerie') }}">
-                              Sommellerie
+                          <a class="nav-link {{ Route::current()->getName() == 'boisson' ? 'active' : '' }}" href="{{ route('boisson') }}">
+                              Boisson
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link {{ Route::current()->getName() == 'about' ? 'active' : '' }}" href="{{ route('about') }}">
+                            A propos
                           </a>
                       </li>
                 </ul>

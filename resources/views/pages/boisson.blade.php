@@ -115,7 +115,7 @@
             <div class="col-lg-3 d-flex">
                 <i class="bi bi-geo-alt"></i>
                 <div class="div">
-                    <h6>Addresse</h6>
+                    <h6>Adresse</h6>
                     <p>
                         Rue de la Crèche 19 1050
                         Bruxelles, Belgique

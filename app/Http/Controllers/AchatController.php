@@ -22,6 +22,14 @@ class AchatController extends Controller
      */
     public function create(Request $request)
     {
+        // 
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $user_id = is_numeric(explode('-', $request->reference)[2]) ? (int) explode('-', $request->reference)[2] : null;
         // Check if achat already exists
         $achat = achat::where('order_number', $request->orderNumber)->first();
@@ -32,47 +40,35 @@ class AchatController extends Controller
                 'user_id' => $user_id,
                 'sommelerie_id' => $request->sommelerie_id,
                 'reference' => $request->reference,
-                // 'provider_reference' => $request->provider_reference,
                 'order_number' => $request->orderNumber,
                 'montant' => $request->amount,
                 'monaie' => $request->currency,
                 'amount_customer' => $request->amountCustomer,
                 'phone' => $request->phone,
                 'channel' => $request->channel,
-                // 'type_id' => $request->type,
-                'status_id' => $request->code,
+                'statut_id' => $request->code,
                 'updated_at' => now()
             ]);
 
             return $achat;
 
-            // Otherwise, create new achat
+        // Otherwise, create new achat
         } else {
             $achat = achat::create([
                 'user_id' => $user_id,
                 'sommelerie_id' => $request->sommelerie_id,
                 'reference' => $request->reference,
-                // 'provider_reference' => $request->provider_reference,
                 'order_number' => $request->orderNumber,
                 'montant' => $request->amount,
                 'monaie' => $request->currency,
                 'amount_customer' => $request->amountCustomer,
                 'phone' => $request->phone,
                 'channel' => $request->channel,
-                // 'type_id' => $request->type,
-                'status_id' => $request->code,
+                'statut_id' => $request->code,
             ]);
 
             return $achat;
         }
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreachatRequest $request)
-    {
-        //
     }
 
     /**

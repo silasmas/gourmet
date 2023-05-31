@@ -34,31 +34,28 @@
                 @if (!empty($response_error))
                 <h1 class="text-danger" style="font-size: 5rem;"><span class="bi bi-x-circle"></span></h1>
                 @endif
-                <h3 class="h3 mb-4">{{ !empty($response_error) ? (!empty($response_error->data) ? $response_error->data
-                    : $response_error->message) : $message_content }}</h3>
-                @if (!empty($message_new_partner))
-                <p class="mb-4">{{ $message_new_partner }}</p>
-                @endif
+                <h3 class="h3 mb-4">
+                    {{ !empty($response_error) ? (!empty($response_error->data) ? $response_error->data : $response_error->message) : $message_content }}
+                </h3>
                 @if (!empty($response_error))
-                <p class="small mb-4">{{ !empty($response_error->message) ? $response_error->message :
-                    $response_error->data }}</p>
+                <p class="small mb-4">
+                    {{ !empty($response_error->message) ? $response_error->message : $response_error->data }}
+                </p>
                 @endif
                 @if (!empty($achat))
                 <div class="card mb-4 shadow-0">
                     <div class="card-body d-flex justify-content-between align-items-center">
-                        <div class="px-2 py-1 border-start border-3 bdc--600">
+                        <div class="px-2 py-1 border-start border-3 {{ $statut != 'Effectué' ? ($statut == 'En cours' ? 'border-warning' : 'border-danger') : 'border-success' }}">
                             <p class="m-0 text-black">{{ $achat->reference }}</p>
-                            <h4 class="h4 mt-0 mb-1 fw-bold c--600 text-truncate"
-                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{ $achat->amount
-                                . ' ' . $achat->currency }}</h4>
+                            <h4 class="h4 mt-0 mb-1 fw-bold {{ $statut != 'Effectué' ? ($statut == 'En cours' ? 'text-warning' : 'text-danger') : 'text-success' }} text-truncate" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                {{ $achat->amount . ' ' . $achat->currency }}
+                            </h4>
                             <p class="m-0 small">{{ $achat->created_at }}</p>
                         </div>
 
                         <div class="px-3 py-1 text-center">
                             <p class="m-0 text-dark text-uppercase text-truncate">{{ $achat->channel }}</p>
-                            <span
-                                class="badge text-dark">{{
-                                $statut }}</span>
+                            <span class="badge {{ $statut != 'Effectué' ? ($statut == 'En cours' ? 'badge-warning' : 'badge-danger') : 'badge-success' }}">{{ $statut }}</span>
                         </div>
                     </div>
                 </div>
