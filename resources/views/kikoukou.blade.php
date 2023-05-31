@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h1>Bienvenue à Kikoukou Resto</h1>
+                    <h1>Bienvenue à Kicoucou Resto</h1>
                     <h2>Une Nourriture <br> Saine et <span>Délicieuse</span></h2>
                     <p class="ms-auto me-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
                     <a href="#book-a-table" class="btn">Réserver maintenant</a>
@@ -111,7 +111,7 @@
                              <img src="{{asset('assets/img/banner.jpg')}}" alt="">
                          </div>
                          <div class="content-text">
-                             <h5>Kikoukou resto</h5>
+                             <h5>Kicoucou resto</h5>
                          </div>
                      </a>
                  </div>
@@ -160,7 +160,7 @@
                         <span>Phone: <a href="tel:+155895548855">+1 5589 55488 55</a></span>
                     </p>
                     <p>
-                        <span>Email: <a href="mailto:infokicoucou@gmail.com">infokicoucou@gmail.com</a></span>
+                        <span>Email: <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></span>
                     </p>
                 </div>
             </div>

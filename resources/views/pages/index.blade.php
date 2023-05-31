@@ -107,7 +107,7 @@
                             <img src="{{asset('assets/img/banner.jpg')}}" alt="">
                         </div>
                         <div class="content-text">
-                            <h5>Kikoukou resto</h5>
+                            <h5>Kicoucou resto</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aspernatur dolor earum doloribus ipsum laborum.</p>
                         </div>
                     </a>
@@ -191,7 +191,7 @@
                         <span>Phone: <a href="tel:+155895548855">+1 5589 55488 55</a></span>
                     </p>
                     <p>
-                        <span>Email: <a href="mailto:infokicoucou@gmail.com">infokicoucou@gmail.com</a></span>
+                        <span>Email: <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></span>
                     </p>
                 </div>
             </div>

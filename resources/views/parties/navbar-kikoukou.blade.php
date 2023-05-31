@@ -13,7 +13,7 @@
                 <div class="logo-site d-flex align-items-center justify-content-center">
                     <a href="/" class="navbar-brand flex-row flex-lg-column me-0 brand">
                       <img src="{{asset('assets/img/logo.png')}}" alt="logo">
-                      <span>Kikoukou Resto</span>
+                      <span>Kicoucou Resto</span>
                     </a>
                     <div class="menu-toggle">
                       <span></span>
