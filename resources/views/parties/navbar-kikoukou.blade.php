@@ -40,14 +40,38 @@
                     <span></span>
                     <span></span>
                 </div>
-                <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-                   Déconnexion
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                    class="d-none">
-                    @csrf
-                </form>
+                <div class="dropdown">
+                    <a id="avatarLink" class="btn px-3 py-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->prenom }}&nbsp;&nbsp;
+                        <img src="{{ asset('assets/img/placeholder.png') }}" alt="{{ Auth::user()->prenom }}" width="40" class="rounded-circle">
+                    </a>
+    
+                    <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="avatarLink">
+                        <li>
+                            <a href="#" class="dropdown-item py-2">
+                                <i class="bi bi-person me-1"></i> <span style="font-size: 0.8rem;">Profil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-item py-2">
+                                <i class="bi bi-telephone-forward me-1"></i> <span style="font-size: 0.8rem;">Mes réservations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-item py-2">
+                                <i class="bi bi-cart me-1"></i> <span style="font-size: 0.8rem;">Mes commandes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}" class="dropdown-item py-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="bi bi-power me-1"></i> <span style="font-size: 0.8rem;">Se déconnecter</span>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
               
             @endif

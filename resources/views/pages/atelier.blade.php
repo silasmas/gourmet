@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="block-about block-formation" id="block-formation">
+{{-- <div class="block-about block-formation" id="block-formation">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
@@ -50,9 +50,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
-<div class="block-choice block-special py-5 bg-light">
+<div class="block-choice block-special mt-4 py-5">
     <div class="container">
         <div class="row g-3 align-items-center">
             <div class="col-lg-6">
@@ -63,18 +63,14 @@
 
             <div class="col-lg-6">
                 <div class="text-start">
-                    <p class="mb-3 text-dark">Nous assurons le traitement, la conservation, la transformation et  la production des produits alimentaires en série.</p>
-                    <p class="mb-3 text-dark">Notre objectif est d'offrir aux consommateurs une production en série des aliments de meilleure qualité à des prix concurrentiels.</p>
-                    <p class="mb-3 text-dark">Nous assurons également :</p>
-                    <p class="mb-2 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i><strong>La production des aliments crus</strong> : Ce service englobe le nettoyage, la mise emballage.</p>
-                    <ul class="mb-2">
-                        <li><u>Produits d'élevage</u> : viande, bœuf, chèvre, gibiers ;</li>
-                        <li><u>Volaille</u> : poulet, cailles ;</li>
-                        <li><u>Produits agricoles</u> : haricots, maïs ;</li>
-                        <li><u>Piscicultures</u> : poisson, dans toute sa diversité.</li>
-                    </ul>
-                    <p class="mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i><strong>La Production des produits de consommation directe</strong> : Il s'agit de la transformation et la préparation des aliments prêts à la consommation. La production de diverses boissons, jus, sauces, et différents menus.</p>
-                    <p class="mb-3 text-dark">Pour un devis ou un conseil, joignons au (+243) 820 661 009 / 898 681 751 ou nous écrire sur <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></p>
+                    <p class="mb-3 text-dark">Notre atelier comprend un service traiteur et une unité de production agroalimentaire. Nous vous conseillons, nous vous guidons et nous organisons pour vous et avec vous vos évènements.</p>
+                    <p class="mb-3 text-dark">Nous produisons à la demande :</p>
+                    <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3 text-warning"></i><span class="d-inline-block">Des repas en série ; des menus pour tout type d’évènement (mariage, anniversaire, conférence, soirée festive) ;</span></p>
+                    <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3 text-warning"></i><span class="d-inline-block">Divers aliments (sauces, aliments dérivés) ;</span></p>
+                    <p class="d-flex mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3 text-warning"></i><span class="d-inline-block">Diverses boissons, des jus.</span></p>
+                    <p class="mb-3 text-dark">Nous assurons également le nettoyage et la mise en emballage des aliments crus comme  les produits d’élevage : la viande ; la volaille : poulet, cailles ; les produits de la pisciculture : le poisson dans toute sa diversité.</p>
+                    <p class="mb-3 text-dark">Pour votre évènement ou pour toute demande de devis, vous pouvez nous contacter aux numéros suivants.</p>
+                    <p class="mb-3 text-dark">Pour un devis ou un conseil, joignons au <br>(+243) 820 661 009 / 898 681 751 ou nous écrire sur <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></p>
                 </div>
             </div>
         </div>

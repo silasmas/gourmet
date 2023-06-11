@@ -79,159 +79,207 @@
     </div>
     <div class="block-service block-menu">
         <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Notre menu</h2>
+                    <h3 class="mb-5" style="line-height: 3rem;">Nous vous accompagnons de l'entrée au dessert</h3>
+                </div>
+            </div>
+
             <div class="row g-2 g-lg-5 align-items-center">
-                <div class="col-lg-4 order-sm-1 order-2">
+                <div class="col-12">
                     <div class="card card-menu mb-3">
-                        <div class="badge-menu">
-                            Congolaise
-                        </div>
-                        <div class="row g-lg-5">
-                            <div class="col-lg-3 col-4">
-                                <div class="block-img">
-                                    <img src="{{ asset('assets/img/b.jpg') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-8">
-                                <div class="content-text">
-                                    <h5>Nom du plat</h5>
-                                    <p>Catégorie</p>
-                                    <div class="prix">
-                                        12$
-                                    </div>
-                                    <div class="text-end">
-                                        <a href="#" class="link">Commandez</a>
-                                    </div>
-                                </div>
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Entrées</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Gambas</strong> : Gambas grillées aux fines herbes ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Scampi</strong> : Chair de scampi au gingembre et à l'ail ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Ailerons farcis</strong> : 3 ailes de poulet farcies (chèvre, poulet, bœuf) ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Samoussas viandes</strong> : 6 samoussas (boeuf, poulet) avec sauce aigre-douce ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Samoussas légumes</strong> : 6 samoussas légumes avec sauce aigre-douce.</span></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="card card-menu mb-3">
-                        <div class="badge-menu">
-                            Congolaise
-                        </div>
-                        <div class="row g-lg-5">
-                            <div class="col-lg-3 col-4">
-                                <div class="block-img">
-                                    <img src="{{ asset('assets/img/b.jpg') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-8">
-                                <div class="content-text">
-                                    <h5>Nom du plat</h5>
-                                    <p>Catégorie</p>
-                                    <div class="prix">
-                                        12$
-                                    </div>
-                                    <div class="text-end">
-                                        <a href="#" class="link">Commandez</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-menu mb-3">
-                        <div class="badge-menu">
-                            Congolaise
-                        </div>
-                        <div class="row g-lg-5">
-                            <div class="col-lg-3 col-4">
-                                <div class="block-img">
-                                    <img src="{{ asset('assets/img/b.jpg') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-8">
-                                <div class="content-text">
-                                    <h5>Nom du plat</h5>
-                                    <p>Catégorie</p>
-                                    <div class="prix">
-                                        12$
-                                    </div>
-                                    <div class="text-end">
-                                        <a href="#" class="link">Commandez</a>
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 order-sm-2 order-1">
-                    <div class="text-center">
-                        <h2>Menu</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit distinctio illum assumenda!</p>
-                        <a href="{{ route('menu') }}" class="btn mb-4 mb-lg-0">Voir plus</a>
+
+                <div class="col-12">
+                    <div class="card card-menu mb-3">
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Salades</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Salade Tanganyika</strong> : Maquereau, champignon, concombre, tomates ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Salade Ubangi</strong> : Avocat, maïs, tomate, échalotes, salade ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Salade Lomani</strong> : Poulet, mangue, œuf dur, tomate, salade ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Salade Maï Ndombe</strong> : Patate douce, poivron, olive, concombre.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 order-sm-3 order-3">
+
+                <div class="col-12">
                     <div class="card card-menu mb-3">
-                        <div class="badge-menu">
-                            Congolaise
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Enfants</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Menu Kids Ntaba Burger</strong> : Ntaba Burger, frites, 1 limonade ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Menu Kids Ntaba Burger</strong> : BBoulettes avec sauce tomate, frites, 1 limonade.</span></p>
+                            </div>
                         </div>
-                        <div class="row g-lg-5">
-                            <div class="col-lg-3 col-4">
-                                <div class="block-img">
-                                    <img src="{{ asset('assets/img/b.jpg') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-8">
-                                <div class="content-text">
-                                    <h5>Nom du plat</h5>
-                                    <p>Catégorie</p>
-                                    <div class="prix">
-                                        12$
-                                    </div>
-                                    <div class="text-end">
-                                        <a href="#" class="link">Commandez</a>
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-12">
                     <div class="card card-menu mb-3">
-                        <div class="badge-menu">
-                            Congolaise
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Side au choix</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Makemba</strong> : Frites banane plantain ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">Frite patate douce ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">Kwanga (pâte de manioc cuite à la vapeur) ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Riz sauté afro</strong> : Riz cuit en sauce tomate ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">Crousty de manioc ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Salade mixte</strong> : Salade, tomate, échalotes ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Madesu</strong> : Haricot blanc à la sauce tomate ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Pondu</strong> : Feuilles de manioc, aubergines, poisson, huile de palme ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Biteku</strong> : Feuilles d'amarante, courgettes, aubergines, échalotes.</span></p>
+                            </div>
                         </div>
-                        <div class="row g-lg-5">
-                            <div class="col-lg-3 col-4">
-                                <div class="block-img">
-                                    <img src="{{ asset('assets/img/b.jpg') }}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-9 col-8">
-                                <div class="content-text">
-                                    <h5>Nom du plat</h5>
-                                    <p>Catégorie</p>
-                                    <div class="prix">
-                                        12$
-                                    </div>
-                                    <div class="text-end">
-                                        <a href="#" class="link">Commandez</a>
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-12">
                     <div class="card card-menu mb-3">
-                        <div class="badge-menu">
-                            Congolaise
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Plats</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Carré de chèvre</strong> : Côtes de chèvre cuites à basse température, taboulé de manioc, légumes ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Ntaba + sauce + 1 side</strong> : Steak de chèvre grillé au BBQ avec sauce au choix.</span></p>
+                            </div>
                         </div>
-                        <div class="row g-lg-5">
-                            <div class="col-lg-3 col-4">
-                                <div class="block-img">
-                                    <img src="{{ asset('assets/img/b.jpg') }}" alt="">
-                                </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card card-menu mb-3">
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Poulets</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>1/4 de poulet + sauce + 1 side</strong> : 1/4 de poulet fermier grillé au BBQ ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>1/2 de poulet + sauce + 1 side</strong> : 1/2 de poulet grillé au BBQ.</span></p>
                             </div>
-                            <div class="col-lg-9 col-8">
-                                <div class="content-text">
-                                    <h5>Nom du plat</h5>
-                                    <p>Catégorie</p>
-                                    <div class="prix">
-                                        12$
-                                    </div>
-                                    <div class="text-end">
-                                        <a href="#" class="link">Commandez</a>
-                                    </div>
-                                </div>
+                        </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card card-menu mb-3">
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Spécial Moambe (Mossaka)</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Poulet Moambe + 1 side</strong> : 1/4 de poulet fermier cuit à la sauce Moambe (chair de noix de palme) ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Veggie Moambe</strong> : Légumes (courgettes, épis maïs, haricot vert, patate douce, pommes de terre cuite à la sauce Moambe.</span></p>
                             </div>
+                        </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card card-menu mb-3">
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Poisson</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Filet de bar + 1 side</strong> : 2 filets de bar grillé à la planche.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card card-menu mb-3">
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Sauce</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Sauce Kicoucou</strong> : Sauce à la crème et herbes ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Sauce pili</strong> : Sauce au piment fort ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Sauce Ail</strong> : Huile à l'ail.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card card-menu mb-3">
+                        <div class="badge-menu bg-danger">
+                            Notre spécialité
+                        </div>
+
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Burgers</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Ntaba Burger + 1 side</strong> : Viande de chèvre, cheddar, bacon, tomate, cornichon, salade ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Garamba Ntaba Burger + 1 side</strong> : Viande de chèvre, cheddar, mangue, avocat, tartare de tomate, salade ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Nyragongo Ntaba Burger + 1 side</strong> : Viande de chèvre, cheddar, bacon, tomate, salapenos, salade, oignons frites, sauce maison piquante ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Upemba Ntaba Burger+ 1 side</strong> : Viande de chèvre, cheddar, champignons, tomate, salade, oignon frit, sauce maison piquante ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Biega Veggie Burger + 1 side</strong> : Burger de légumes, tomate, cornichons, salade, oignon frit ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Salonga Veggie Burger + 1 side</strong> : Burger de légumes, mangue, avocat, tartare de tomate, oignon frit.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card card-menu mb-3">
+                        <div class="card-body">
+                            <div class="content-text">
+                                <h3 class="text-warning mb-3">Desserts</h3>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Tarte mangue</strong> : Tarte à la mangue fait maison ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Coupe Kicoucou</strong> : Mangue, ananas, glace vanille, crème chantilly, coulis ;</span></p>
+                                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block"><strong>Kikou Misu</strong> : Tiramisu fait maison à la base de la mangue.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-0 text-end">
+                            <a href="#" class="link">Réserver</a>
                         </div>
                     </div>
                 </div>

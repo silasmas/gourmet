@@ -58,7 +58,7 @@
                             <div class="col-lg-10">
                                 <h1>Boisson</h1>
                                 <h2>Des Boissons <br> Vraiment <span class="text-warning">Vitalisantes</span></h2>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt magni totam quae tenetur ullam corrupti!</p>
+                                <p>Nous vous proposons un accord vins et mets et le négoce de différents types de breuvages importés et des boissons locales.</p>
                                 <a href="/boisson" class="btn">Savoir plus</a>
                             </div>
                         </div>
@@ -100,14 +100,14 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <h5 class="mb-3" style="line-height: 2rem;">Nous sommes une société de droit congolais évoluant dans le secteur de RECA.</h5>
-                <p class="mb-3 text-dark">Notre ambition est d'offrir des  services de qualité sur toute la chaîne de la restauration, en partant du choix des aliments, de leur préparation à leur mise en bouche. Des repas délicieux faits à partir des produits de qualité, c'est notre credo !</p>
-                <p class="mb-3 text-dark">Notre service événementiel assure l'organisation de vos événements : dîners d'affaires ou de famille,  buffets,  cocktails, soirées et cérémonies festives (anniversaire, mariage).</p>
-                <p class="mb-3 text-dark">Pour atteindre nos objectifs, nous nous appuyons sur une symbiose d'expertise entre celle acquise à l'étranger et l'expertise locale :</p>
-                <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Les normes de sécurité et d’hygiène rigoureuses ;</p>
-                <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>La mise en application des normes HACCP ;</p>
-                <p class="mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Le recours aux fournisseurs locaux.</p>
-                <p class="mb-3 text-dark">Le pilotage de notre activité par des mains expertes, des passionnés de cuisine et un promoteur aguerri dans la restauration.</p>
+                <h5 class="mb-3" style="line-height: 2rem;">Nous sommes une société de droit congolais évoluant dans le secteur de RECA (Restauration et Café).</h5>
+                <p class="mb-3 text-dark">Notre ambition est d'offrir des services de qualité sur toute la chaîne de la restauration, en partant du choix des aliments et des ingrédients à la préparation des plats ; puis des mets à la dégustation. Des repas délicieux faits à partir des produits frais, c'est notre credo !</p>
+                <p class="mb-3 text-dark">Le Gourmet du Congo, c'est aussi un atelier de production. Nous produisons en série des produits alimentaires de qualité à des prix concurrentiels. La gamme de nos produits est large. Nous fournissons  diverses boissons (jus, yaourt), des sauces variées, des aliments de consommation directe à la demande ou à la carte comme le boudin de poulet.</p>
+                <p class="mb-3 text-dark">Enfin, le Gourmet du Congo, c'est un service événementiel performant qui a fait ses preuves à l'étranger principalement en Belgique.</p>
+                <p class="mb-3 text-dark">Pour atteindre nos objectifs, nous nous appuyons sur :</p>
+                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">Une main d'œuvre experte, à la fois locale et étrangère, sur des passionnés de cuisine et sur un promoteur de projet aguerri dans la restauration ;</span></p>
+                <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">Le respect rigoureux des normes de sécurité et d’hygiène ;</span></p>
+                <p class="d-flex mb-3 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">La mise en application des normes HACCP.</span></p>
             </div>
         </div>
 
@@ -127,42 +127,38 @@
             </div>
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="#">
-                        <div class="block-img">
-                            <img src="{{asset('assets/img/1.jpg')}}" alt="">
-                        </div>
-                        <div class="content-text">
-                            <h5>Kicoucou resto</h5>
-                            <p>Kicoucou est un nouveau concept de restaurant congolais qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
-                        </div>
-                    </a>
+                    <div class="block-img">
+                        <img src="{{asset('assets/img/1.jpg')}}" alt="">
+                    </div>
+                    <div class="content-text">
+                        <h5>Kicoucou resto</h5>
+                        <p>Kicoucou est un nouveau concept de restaurant congolais qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
+                        <a href="{{ route('kicoucou') }}" class="btn pt-0 px-0 border-bottom border-3 border-warning rounded-0 float-end">Voir les détails <i class="bi bi-arrow-right ms-2 align-middle"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="#">
-                        <div class="block-img">
-                            <img src="{{asset('assets/img/3.jpg')}}" alt="">
-                        </div>
-                        <div class="content-text">
-                            <h5>Atelier</h5>
-                            <p>Nous assurons le traitement, la conservation, la transformation et  la production des produits alimentaires en série.</p>
-                        </div>
-                    </a>
+                    <div class="block-img">
+                        <img src="{{asset('assets/img/3.jpg')}}" alt="">
+                    </div>
+                    <div class="content-text">
+                        <h5>Atelier</h5>
+                        <p>Nous assurons le traitement, la conservation, la transformation et  la production des produits alimentaires en série.</p>
+                        <a href="{{ route('atelier') }}" class="btn pt-0 px-0 border-bottom border-3 border-warning rounded-0 float-end">Voir les détails <i class="bi bi-arrow-right ms-2 align-middle"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="#">
-                        <div class="block-img">
-                            <img src="{{asset('assets/img/5.jpg')}}" alt="">
-                        </div>
-                        <div class="content-text">
-                            <h5>Boisson</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aspernatur dolor earum doloribus ipsum laborum.</p>
-
-                        </div>
-                    </a>
+                    <div class="block-img">
+                        <img src="{{asset('assets/img/5.jpg')}}" alt="">
+                    </div>
+                    <div class="content-text">
+                        <h5>Boisson</h5>
+                        <p>Nous vous proposons un accord vins et mets et le négoce de différents types de breuvages importés et des boissons locales.</p>
+                        <a href="{{ route('boisson') }}" class="btn pt-0 px-0 border-bottom border-3 border-warning rounded-0 float-end">Voir les détails <i class="bi bi-arrow-right ms-2 align-middle"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -181,11 +177,9 @@
                 <div class="text-start">
                     <h2>Le Promoteur</h2>
                     <p class="mb-3 text-dark"><strong>Luabeya Nkobong Junior</strong> est diplômé en Hôtellerie, option Restauration et détenteur d’un diplôme supérieur en Gestion Hôtelière, titre obtenu en Belgique à l’institut Arthur Haulot.</p>
-                    <p class="mb-3 text-dark">Gastronome-hôtelier de formation et homme d’expérience, Monsieur Junior Luabeya Nkobong baigne dans le monde de la restauration depuis une vingtaine d’années.</p>
-                    <p class="mb-3 text-dark">Il a effectué des stages et a travaillé dans différents établissements de renommée internationale comme  Hôtel Hilton, Maison du Bœuf, Café d’Egmont, Brasserie Georges, Brasserie du Lac, Hôtels du Groupe Accor.</p>
-                    <p class="mb-3 text-dark">Il a occupé différentes fonctions notamment : Maître d’hôtel, Maître des cérémonies, cuisinier, chef de cuisine et Sommelier  œnologue. Actuellement il est le chef associé exécutif du Restaurant « <strong>KICOUCOU</strong> » en Belgique.</p>
-                    <p class="mb-3 text-dark">Avant la création de Kicoucou, il a occupé le poste de chef exécutif à l'UCB (cuisine de direction) pendant 2 ans.</p>
-                    <p class="mb-3 text-dark">Fort de cette expérience, et passionné, Monsieur Luabeya porte le projet du Gourmet du Congo, le lancement d'une chaîne de restaurant Kicoucou et d'un atelier de production d'aliments de qualité à des prix concurrentiels.</p>
+                    <p class="mb-3 text-dark">Gastronome-hôtelier de formation et homme d’expérience, Monsieur Junior Luabeya Nkobong baigne dans le monde de la restauration depuis une vingtaine d’années. Il a effectué des stages et a travaillé dans différents établissements de renommée internationale comme Hôtel Hilton, Maison du Bœuf, Café d’Egmont, Brasserie Georges, Brasserie du Lac, Hôtels du Groupe Accor.</p>
+                    <p class="mb-3 text-dark">Il a occupé différentes fonctions notamment : Maître d’hôtel, Maître des cérémonies, cuisinier, chef de cuisine et Sommelier œnologue. Il a occupé le poste de chef exécutif à l'UCB (cuisine de direction) pendant 2 ans.</p>
+                    <p class="mb-3 text-dark">En 2019, il a lancé à Bruxelles la chaîne de Restaurant Kicoucou. Il a, par ailleurs, occupé au sein de Kicoucou le poste de chef et d’associé exécutif. Actuellement, Il porte le projet gourmet du Congo.</p>
                 </div>
             </div>
         </div>

@@ -21,27 +21,23 @@
                 <div class="col-lg-6">
                     <h2>Qui sommes-nous ?</h2>
                     <h4 style="font-size: 3rem;">Le Gourmet du Congo</h4>
-                    <p class="mb-3 text-dark">Le Gourmet du Congo est une société de droit congolais évoluant dans le secteur de HORECA.</p>
-                    <p class="mb-3 text-dark">L'ambition de notre groupe, «GDC», est d'améliorer la qualité des services dans la restauration c'est-à-dire ; de la production (transformation (des mets) à la livraison (ventes) des produits, et dans l'événementiel (organisation des banquets, réception et autres festivités de grande, moyenne et petite taille) à Kinshasa en RD Congo. Par service de qualité, nous entendons :</p>
-                    <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Transformation et production des produits destinés à la vente</p>
-                    <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Un service personnalisé et complet</p>
-                    <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Des conseils objectifs en événementiel</p>
-                    <p class="mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Un service adapté et une aide permanente</p>
+                    <p class="mb-3 text-dark">Le Gourmet du Congo est une société de droit congolais évoluant dans le secteur de RECA (Restauration et Café).</p>
+                    <p class="mb-3 text-dark">Notre ambition est d'offrir des services de qualité sur toute la chaîne de la restauration, en partant du choix des aliments et des ingrédients à la préparation des plats ; puis des mets à la dégustation. Des repas délicieux faits à partir des produits frais, c'est notre credo !</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="block-about about-lg pt-0 pb-5">
+    <div class="block-about about-lg py-5">
         <div class="container">
             <div class="row justify-content-center g-4">
                 <div class="col-lg-6">
-                    <p class="mb-3 text-dark">Pour atteindre nos objectifs, nous nous appuyons sur</p>
-                    <p class="mb-3 text-dark">L'ambition de notre groupe, «GDC», est d'améliorer la qualité des services dans la restauration c'est-à-dire ; de la production (transformation (des mets) à la livraison (ventes) des produits, et dans l'événementiel (organisation des banquets, réception et autres festivités de grande, moyenne et petite taille) à Kinshasa en RD Congo. Par service de qualité, nous entendons :</p>
-                    <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Une symbiose d'expertise entre celle acquise à l'étranger et l'expertise locale.</p>
-                    <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Les normes de sécurité et d’hygiène rigoureuses, la mise en application des normes HACCP</p>
-                    <p class="mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Le recours aux fournisseurs locaux.<br>Notre groupe s'approvisionnera substantiellement auprès des producteurs locaux tels que, les maraîchères, les différentes fermes et plantations locales. C'est un choix stratégique pour nous assurer une réduction des coûts de production et  par la même occasion, encourager le travail des maraîchères et les producteurs locaux.</p>
-                    <p class="mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3" style="color: #bea605;"></i>Le pilotage de notre activité par une main experte, un homme de terrain qui détient une expertise avérée dans la restauration collective. Cet expert est également le promoteur principal du gourmet du Congo.</p>
+                    <p class="mb-3 text-dark">Le Gourmet du Congo, c'est aussi un atelier de production. Nous produisons en série des produits alimentaires de qualité à des prix concurrentiels. La gamme de nos produits est large. Nous fournissons  diverses boissons (jus, yaourt), des sauces variées, des aliments de consommation directe à la demande ou à la carte comme le boudin de poulet.</p>
+                    <p class="mb-3 text-dark">Enfin, le Gourmet du Congo, c'est un service événementiel performant qui a fait ses preuves à l'étranger principalement en Belgique.</p>
+                    <p class="mb-3 text-dark">Pour atteindre nos objectifs, nous nous appuyons sur :</p>
+                    <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">Une main d'œuvre experte, à la fois locale et étrangère, sur des passionnés de cuisine et sur un promoteur de projet aguerri dans la restauration ;</span></p>
+                    <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">Le respect rigoureux des normes de sécurité et d’hygiène ;</span></p>
+                    <p class="d-flex mb-3 text-dark"><i class="bi bi-pin-angle-fill me-2 text-warning"></i><span class="d-inline-block">La mise en application des normes HACCP.</span></p>
                 </div>
 
                 <div class="col-lg-6">
