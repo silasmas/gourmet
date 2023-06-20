@@ -31,6 +31,14 @@
                     <span></span>
                     <span></span>
                 </div>
+                <a href="{{ route('register') }}" class="btn">Créer son compte</a>
+            </div>
+            <div class="block-tools d-flex align-items-center">
+                <div class="block-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <a href="{{ route('login') }}" class="btn">Se connecter</a>
             </div>
             @else
@@ -45,7 +53,7 @@
                         {{ Auth::user()->prenom }}&nbsp;&nbsp;
                         <img src="{{ asset('assets/img/placeholder.png') }}" alt="{{ Auth::user()->prenom }}" width="40" class="rounded-circle">
                     </a>
-    
+
                     <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="avatarLink">
                         <li>
                             <a href="#" class="dropdown-item py-2">
@@ -73,12 +81,12 @@
                     </ul>
                 </div>
             </div>
-              
+
             @endif
                 </div>
             </div>
         </div>
-        
+
       </div>
     </nav>
 </header>

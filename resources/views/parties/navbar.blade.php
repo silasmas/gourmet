@@ -37,6 +37,14 @@
                 </ul>
             </div>
             @if (Auth::guest())
+            <div class="block-tools d-flex align-items-center mr-3">
+                <div class="block-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a href="{{ route('register') }}" class="btn">Créer son compte</a>
+            </div>
             <div class="block-tools d-flex align-items-center">
                 <div class="block-menu">
                     <span></span>
@@ -57,7 +65,7 @@
                         {{ Auth::user()->prenom }}&nbsp;&nbsp;
                         <img src="{{ asset('assets/img/placeholder.png') }}" alt="{{ Auth::user()->prenom }}" width="40" class="rounded-circle">
                     </a>
-    
+
                     <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="avatarLink">
                         <li>
                             <a href="#" class="dropdown-item py-2">
@@ -90,8 +98,8 @@
                 <div class="icon">
                     <a href="javascript::">
                         <img src="{{ asset('assets/img/uploads/user.png') }}"
-                            alt="placeholder" class="img-fluid" />                                  
-                       
+                            alt="placeholder" class="img-fluid" />
+
                     </a>
                 </div>
                 <div class="dropdown user-dropdown corner-triangle top-right">
@@ -101,8 +109,8 @@
                                 <div class="clearfix">
                                     <div class="user-image float-start">
                                         <img src="{{ asset('assets/img/uploads/user.png') }}"
-                                            alt="placeholder" class="img-fluid" />                                    
-                                       
+                                            alt="placeholder" class="img-fluid" />
+
                                     </div>
                                     <div class="user-details">
                                         <div class="user-name">
@@ -126,7 +134,7 @@
                             <a href=""><i
                                     class="fas fa-heart"></i>Historique</a>
                         </li>
-                        
+
 
                         <li class="dropdown-user-logout user-dropdown-menu-item">
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -143,7 +151,7 @@
             </div> --}}
             {{-- Fin menu profil --}}
             @endif
-            
+
         </div>
     </nav>
 </header>

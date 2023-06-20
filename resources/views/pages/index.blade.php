@@ -25,7 +25,7 @@
                         <div class="bubble"></div>
                         <div class="bubble"></div>
                         <div class="bubble"></div>
-                       
+
                     </div> --}}
                     <img src="{{asset('assets/img/1.jpg')}}" alt="banner" class="cover">
                 </div>
@@ -46,7 +46,7 @@
                         <div class="bubble"></div>
                         <div class="bubble"></div>
                         <div class="bubble"></div>
-                       
+
                     </div> --}}
                     <img src="{{asset('assets/img/3.jpg')}}" alt="banner" class="cover">
                 </div>
@@ -67,7 +67,7 @@
                         <div class="bubble"></div>
                         <div class="bubble"></div>
                         <div class="bubble"></div>
-                       
+
                     </div> --}}
                     <img src="{{asset('assets/img/5.jpg')}}" alt="banner" class="cover">
                 </div>
@@ -80,7 +80,7 @@
             </button>
         </div>
     </div>
-   
+
 </div>
 <div class="block-choice py-5">
     <div class="container mt-0">
@@ -95,7 +95,7 @@
             <div class="col-sm-6">
                 <div class="bg-image mt-4">
                     <div class="card">
-                        <img src="{{asset('assets/img/pub/pub_02.jpg')}}" alt="">
+                        <img src="{{asset('assets/img/pub/img.jpg')}}" alt="">
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 <div class="block-choice block-special">
     <div class="container">
