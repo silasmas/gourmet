@@ -24,24 +24,16 @@
             </div>
             <div class="col-lg-4 d-none d-lg-flex justify-content-end order-2 order-lg-2 ">
                 <div class="block-tools d-flex align-items-center">
-                    @if (Auth::guest())
+@if (Auth::guest())
             <div class="block-tools d-flex align-items-center">
                 <div class="block-menu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <a href="{{ route('register') }}" class="btn">Créer son compte</a>
+                <a href="{{ route('login') }}" class="btn">S'identifier</a>
             </div>
-            <div class="block-tools d-flex align-items-center">
-                <div class="block-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <a href="{{ route('login') }}" class="btn">Se connecter</a>
-            </div>
-            @else
+@else
             <div class="block-tools d-flex align-items-center">
                 <div class="block-menu">
                     <span></span>
@@ -81,8 +73,7 @@
                     </ul>
                 </div>
             </div>
-
-            @endif
+@endif
                 </div>
             </div>
         </div>

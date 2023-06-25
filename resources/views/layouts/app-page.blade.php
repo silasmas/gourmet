@@ -22,6 +22,7 @@
 
         <title>Gourmet du Congo</title>
     </head>
+
     <body>
         @include('parties.navbar-page')
         <div class="full-menu">

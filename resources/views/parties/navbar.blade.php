@@ -36,24 +36,16 @@
                       </li>
                 </ul>
             </div>
-            @if (Auth::guest())
-            <div class="block-tools d-flex align-items-center mr-3">
-                <div class="block-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <a href="{{ route('register') }}" class="btn">Créer son compte</a>
-            </div>
+@if (Auth::guest())
             <div class="block-tools d-flex align-items-center">
                 <div class="block-menu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <a href="{{ route('login') }}" class="btn">Se connecter</a>
+                <a href="{{ route('login') }}" class="btn">S'identifier</a>
             </div>
-            @else
+@else
             <div class="block-tools d-flex align-items-center">
                 <div class="block-menu">
                     <span></span>
@@ -150,7 +142,7 @@
                 </div>
             </div> --}}
             {{-- Fin menu profil --}}
-            @endif
+@endif
 
         </div>
     </nav>
