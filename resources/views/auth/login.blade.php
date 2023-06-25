@@ -17,6 +17,10 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
+            <p class="m-0 mb-5 text-end">
+                <a href="{{ route('register') }}" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">Créer un nouveau compte</a>
+            </p>
+
             <!-- Email Address -->
             <div>
                 <x-input-label for="email" :value="__('Email ou Téléphone')" />
@@ -49,7 +53,7 @@
                 @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                     href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    Mot de passe oublié
                 </a>
                 @endif
 

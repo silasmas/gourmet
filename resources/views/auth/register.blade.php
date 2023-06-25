@@ -8,6 +8,10 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <p class="m-0 mb-5 text-end">
+            <a href="{{ route('login') }}" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">J'ai déjà un compte</a>
+        </p>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Nom')" />
