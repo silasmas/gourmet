@@ -19,6 +19,8 @@
         <style>
             .text-warning {color: #d1b603!important;} .bg-warning {background-color: #d1b603!important;} .border-warning {border-color: #d1b603!important;}
         </style>
+
+        <title>Gourmet du Congo</title>
     </head>
     <body>
         @include('parties.navbar-page')
