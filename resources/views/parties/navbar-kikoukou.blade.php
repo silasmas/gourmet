@@ -20,10 +20,9 @@
                       <span></span>
                       <span></span>
                     </div>
-                  </div>
-            </div>
-            <div class="col-lg-4 d-none d-lg-flex justify-content-end order-2 order-lg-2 ">
-                <div class="block-tools d-flex align-items-center">
+              </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-flex justify-content-end order-2 order-lg-2 ">
 @if (Auth::guest())
             <div class="block-tools d-flex align-items-center">
                 <div class="block-menu">

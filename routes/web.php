@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/account', [ProfileController::class, 'index'])->name('account.home');
+Route::post('/account', [ProfileController::class, 'update']);
+Route::delete('/account', [ProfileController::class, 'destroy']);
 Route::get('/account/{entity}', [ProfileController::class, 'entity'])->name('account.entity');
 Route::get('/account/{entity}/{id}', [ProfileController::class, 'entityDatas'])->whereNumber('id')->name('account.entity.datas');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -21,7 +23,6 @@ Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
 Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
 Route::get('/boisson', [HomeController::class, 'boisson'])->name('boisson');
-Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 // Transaction
 Route::get('/transaction_en_attente', [HomeController::class, 'transactionEnAttente'])->name('transaction.en_attente');

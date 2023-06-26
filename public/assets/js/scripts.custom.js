@@ -4,8 +4,8 @@
  * @author Xanders Samoth
  * @see https://www.linkedin.com/in/xanders-samoth-b2770737/
  */
-/* Necessary headers for APIs */
-// var headers = {'Authorization': 'Bearer ' + $('#custom-style').attr('blp-api-token'), 'Accept': 'application/json', 'X-localization': navigator.language};
+// Dynamically call the host
+var currentHost = $(location).attr('port') ? $(location).attr('protocol') + '//' + $(location).attr('hostname') + ':' + $(location).attr('port') : $(location).attr('protocol') + '//' + $(location).attr('hostname');
 
 $(document).ready(function () {
     /* Return false when click on "#" link */
@@ -14,25 +14,91 @@ $(document).ready(function () {
     });
 
     $('.back-to-top').click(function (e) {
-        $("html, body").animate({ scrollTop: "0" });
+        $("html, body").animate({ scrollTop: '0' });
     });
 
-    /* Multiline text truncation */
-    $('.paragraph-ellipsis').multilineTruncation('.paragraph2', 2, '.roll-block a');
-    $('.paragraph-ellipsis').multilineTruncation('.paragraph3', 3, '.roll-block a');
-    $('.paragraph-ellipsis').multilineTruncation('.paragraph4', 4, '.roll-block a');
-    $('.paragraph-ellipsis').multilineTruncation('.paragraph5', 5, '.roll-block a');
+    /* Upload user cropped photo */
+    var modalImage = $('#cropModalImage');
+    var retrievedAvatar = document.getElementById('retrieved_image');
+    var cropper;
 
-    /* Animate number counter */
-    $('.counter').animateCounter(4000);
+    $('#avatar').on('change', function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+            retrievedAvatar.src = url;
+            var modal = new bootstrap.Modal(document.getElementById('cropModalImage'), {
+                keyboard: false
+            });
 
-    /* Upload news/user cropped photo */
-    $('.news-image').uploadNewsImage('#cropModal1', '#news_image', currentHost + '/api/news/add_image/' + parseInt($('#newsId').val()), 'news_id');
-    $('.user-image').uploadUserImage('#cropModal1', '#avatar', currentHost + '/api/user/update_avatar_picture/' + parseInt($('#userId').val()), 'user_id');
+            modal.show();
+        };
 
-    /* Load other user image */
-    $('.other-user-image-recto').loadOtherUserImage('#cropModal2', '.register_image_recto', '#loaded_image_recto', '.image_64_recto');
-    $('.other-user-image-verso').loadOtherUserImage('#cropModal2', '.register_image_verso', '#loaded_image_verso', '.image_64_verso');
+        if (files && files.length > 0) {
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                done(reader.result);
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    });
+
+    $(modalImage).on('shown.bs.modal', function () {
+        cropper = new Cropper(retrievedAvatar, {
+            aspectRatio: 1,
+            viewMode: 3,
+            preview: '#cropModal1 .preview'
+        });
+
+    }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+
+        cropper = null;
+    });
+
+    $('#cropModalImage #crop').click(function () {
+        // Ajax loading image to tell user to wait
+        $('.user-image').attr('src', currentHost + '/assets/img/ajax-loading.gif');
+
+        var canvas = cropper.getCroppedCanvas({
+            width: 700,
+            height: 700
+        });
+
+        canvas.toBlob(function (blob) {
+            URL.createObjectURL(blob);
+            var reader = new FileReader();
+
+            reader.readAsDataURL(blob);
+            reader.onloadend = function () {
+                var base64_data = reader.result;
+                var entity_id = document.getElementById('user_id').value;
+                var apiUrl = currentHost + '/api/user/update_avatar_picture/' + parseInt($('#userId').val());
+                var datas = JSON.stringify({ 'id': parseInt($('#userId').val()), 'user_id': entity_id, 'image_64': base64_data });
+
+                modalImage.hide();
+
+                $.ajax({
+                    headers: headers,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    url: apiUrl,
+                    dataType: 'json',
+                    data: datas,
+                    success: function (res) {
+                        $(this).attr('src', res);
+                        window.location.reload();
+                    },
+                    error: function (xhr, error, status_description) {
+                        console.log(xhr.responseJSON);
+                        console.log(xhr.status);
+                        console.log(error);
+                        console.log(status_description);
+                    }
+                });
+            };
+        });
+    });
 
     /* Auto-resize textarea */
     autosize($('textarea'));
@@ -47,50 +113,6 @@ $(document).ready(function () {
         }
     });
 
-    /* On select change, update de country phone code */
-    $('#select_country1').on('change', function () {
-        var countryPhoneCode = $(this).val();
-
-        $('#phone_code_text1 .text-value').text(countryPhoneCode);
-        $('phone_code1').val(countryPhoneCode);
-    });
-    $('#select_country2').on('change', function () {
-        var countryPhoneCode = $(this).val();
-
-        $('#phone_code_text2 .text-value').text(countryPhoneCode);
-        $('phone_code2').val(countryPhoneCode);
-    });
-    $('#select_country3').on('change', function () {
-        var countryPhoneCode = $(this).val();
-
-        $('#phone_code_text3 .text-value').text(countryPhoneCode);
-        $('phone_code3').val(countryPhoneCode);
-    });
-
-    /* On check, show/hide some blocs */
-    // OFFER TYPE
-    $('#donationType .form-check-input').each(function () {
-        $(this).on('click', function () {
-            if ($('#anonyme').is(':checked')) {
-                $('#donorIdentity').addClass('d-none');
-
-            } else {
-                $('#donorIdentity').removeClass('d-none');
-            }
-        });
-    });
-    // TRANSACTION TYPE
-    $('#paymentMethod .form-check-input').each(function () {
-        $(this).on('click', function () {
-            if ($('#bank_card').is(':checked')) {
-                $('#phoneNumberForMoney').addClass('d-none');
-
-            } else {
-                $('#phoneNumberForMoney').removeClass('d-none');
-            }
-        });
-    });
-
     /* Hover stretched link */
     $('.card-body + .stretched-link').each(function () {
         $(this).hover(function () {
@@ -100,29 +122,4 @@ $(document).ready(function () {
             $(this).removeClass('changed');
         });
     });
-
-    /* Mark all notifications as read */
-    $('#markAllRead').click(function (e) {
-        e.preventDefault();
-
-        $.ajax({
-            headers: headers,
-            type: 'PUT',
-            contentType: 'application/json',
-            url: currentHost + '/api/notification/mark_all_read/' + parseInt($(this).attr('data-user-id')),
-            success: function () {
-                window.location.reload();
-            },    
-            error: function (xhr, error, status_description) {
-                console.log(xhr.responseJSON);
-                console.log(xhr.status);
-                console.log(error);
-                console.log(status_description);
-            }
-        });
-    });
-
-    /* Run an ajax function every second */
-    // setInterval(function () {
-    // }, 1000);
 });

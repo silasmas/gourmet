@@ -8,8 +8,8 @@
         <!-- Favicon -->
         <link rel="icon" href="{{ asset('assets/img/favicon/favicon.ico') }}">
         <link rel="apple-touch-icon" href="{{ asset('assets/img/favicon/apple-touch-icon.png') }}">
-        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/img/favicon/android-chrome-192x192.png') }}">
-        <link rel="icon" type="image/png" sizes="512x512"  href="{{ asset('assets/img/favicon/android-chrome-512x512.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/img/favicon/android-chrome-192x192.png') }}">
+        <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('assets/img/favicon/android-chrome-512x512.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicon/favicon-16x16.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicon/favicon-32x32.png') }}">
         <link rel="manifest" href="{{ asset('assets/img/favicon/site.webmanifest') }}">
@@ -21,7 +21,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/addons/custom/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/addons/custom/cropper/css/cropper.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
@@ -33,6 +34,33 @@
     </head>
 
     <body>
+        <!-- Modal Crop Image -->
+        <div class="modal fade" id="cropModalImage" tabindex="-1" aria-labelledby="cropModalImageLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pb-0 border-0">
+                        <h5 class="modal-title" id="cropModalImageLabel">Recadrer avant d'enregistrer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 mb-sm-0 mb-4">
+                                    <div class="bg-image">
+                                        <img src="" id="retrieved_image" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <input type="hidden" name="user_id" id="userId" value="{{ Route::is('account.home') ? Auth::user()->id : '' }}">
+
+                        <button type="button" id="crop" class="btn">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Modal Formation 1 -->
         <div class="modal fade" id="modal-plus-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -326,10 +354,13 @@
                 </footer>
             </div>
         </div>
-        <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-        <script src="{{asset('assets/js/scriptcarousel.js')}}"></script>
+        <script src="{{ asset('assets/addons/custom/jquery/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/bootstrap/js/bootstrap.bundle.js') }}"></script>
+        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/scriptcarousel.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/cropper/js/cropper.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/autosize/js/autosize.min.js') }}"></script>
+        <script src="{{ asset('assets/js/scripts.custom.js') }}"></script>
         <script>
             $(document).ready(function() {
                 $(window).scroll(function() {

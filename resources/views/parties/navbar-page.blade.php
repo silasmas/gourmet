@@ -41,12 +41,6 @@
             </li>
           </ul>
         </div>
-        <div class="block-tools d-flex align-items-center">
-            <div class="block-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
 @if (Auth::guest())
             <div class="block-tools d-flex align-items-center">
                 <div class="block-menu">
