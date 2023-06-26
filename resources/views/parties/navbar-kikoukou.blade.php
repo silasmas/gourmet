@@ -48,17 +48,17 @@
 
                     <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="avatarLink">
                         <li>
-                            <a href="#" class="dropdown-item py-2">
+                            <a href="{{ route('account.home') }}" class="dropdown-item py-2">
                                 <i class="bi bi-person me-1"></i> <span style="font-size: 0.8rem;">Profil</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="dropdown-item py-2">
+                            <a href="{{ route('account.entity', ['entity' => 'reservation']) }}" class="dropdown-item py-2">
                                 <i class="bi bi-telephone-forward me-1"></i> <span style="font-size: 0.8rem;">Mes réservations</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="dropdown-item py-2">
+                            <a href="{{ route('account.entity', ['entity' => 'order']) }}" class="dropdown-item py-2">
                                 <i class="bi bi-cart me-1"></i> <span style="font-size: 0.8rem;">Mes commandes</span>
                             </a>
                         </li>

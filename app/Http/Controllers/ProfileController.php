@@ -11,14 +11,39 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function index(): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        return view('profile.edit');
+    }
+
+    /**
+     * Display the other contents list.
+     * 
+     * @param  $entity
+     * @return Illuminate\View\View
+     */
+    public function entity($entity): View
+    {
+        return view('profile.edit');
+    }
+
+    /**
+     * Display the other content details.
+     * 
+     * @param  $entity
+     * @param  $id
+     * @return Illuminate\View\View
+     */
+    public function entityDatas($request, $id): View
+    {
+        return view('profile.edit');
     }
 
     /**
