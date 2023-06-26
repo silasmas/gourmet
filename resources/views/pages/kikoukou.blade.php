@@ -468,18 +468,15 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body pt-0 px-sm-4">
-                <div class="text-center">
-                    <h5 class="formation-title mb-4">KICOUCOU</h5>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-5">
+                <div class="row g-4">
+                    <div class="col-lg-6 col-sm-8 mx-auto">
                         <div class="bg-image">
-                            <img src="{{ asset('assets/img/logo.jpg') }}" alt="logo" class="img-fluid">
+                            <img src="{{ asset('assets/img/logo-kicoucou.png') }}" alt="logo" class="img-fluid">
                             <div class="mask"></div>
                         </div>
                     </div>
-                    <div class="col-lg-7">
+
+                    <div class="col-12 text-center">
                         <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
                         <p>Vous recherchez un endroit cosy, où partager un repas surprenant entre amis ou en famille ? Kicoucou se fera le plaisir de vous accueillir.</p>
                     </div>
