@@ -37,7 +37,17 @@ class ProfileController extends Controller
      */
     public function entity($entity): View
     {
-        return view('profile.personal_infos');
+        if ($entity == 'reservation') {
+            return view('profile.personal_infos', [
+                'entity' => $entity
+            ]);
+        }
+
+        if ($entity == 'order') {
+            return view('profile.personal_infos', [
+                'entity' => $entity
+            ]);
+        }
     }
 
     /**
@@ -47,9 +57,19 @@ class ProfileController extends Controller
      * @param  $id
      * @return Illuminate\View\View
      */
-    public function entityDatas($request, $id): View
+    public function entityDatas($entity, $id): View
     {
-        return view('profile.personal_infos');
+        if ($entity == 'reservation') {
+            return view('profile.personal_infos', [
+                'entity' => $entity
+            ]);
+        }
+
+        if ($entity == 'order') {
+            return view('profile.personal_infos', [
+                'entity' => $entity
+            ]);
+        }
     }
 
     /**
