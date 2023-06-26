@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdatehomeRequest;
 use App\Models\categorie;
 use App\Models\plat;
+use App\Models\sommelerie;
 use App\Models\statut;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\ClientException;
@@ -28,54 +29,50 @@ class HomeController extends Controller
         $this::$client = new Client();
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('pages.index');
     }
+
     public function about()
     {
         return view('pages.about');
     }
+
     public function kicoucou()
     {
         $plats = plat::all();
 
         return view('pages/kikoukou', compact('plats'));
     }
+
     public function atelier()
     {
         return view('pages/atelier');
     }
+
     public function boisson()
     {
-        return view('pages/boisson');
+        $boissons = sommelerie::all();
+
+        return view('pages/boisson', compact('boissons'));
     }
+
     public function menu()
     {
         return view('pages/menu');
     }
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StorehomeRequest $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(home $home)
     {
     }

@@ -374,7 +374,8 @@
             </div>
         </div>
     </footer>
-    <div class="modal fade" id="modal-reservation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="modal-reservation" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content ">
             <div class="modal-header px-sm-4" style="border: none;">
@@ -452,6 +453,34 @@
 
                     <button class="btn mt-3">Réserver</button>
                 </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="kicoucouPopUp" class="modal fade" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header px-sm-4" style="border: none;">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0 px-sm-4">
+                <div class="text-center">
+                    <h5 class="formation-title mb-4">KICOUCOU</h5>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="bg-image">
+                            <img src="{{ asset('assets/img/logo.jpg') }}" alt="logo" class="img-fluid">
+                            <div class="mask"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
+                        <p>Vous recherchez un endroit cosy, où partager un repas surprenant entre amis ou en famille ? Kicoucou se fera le plaisir de vous accueillir.</p>
+                    </div>
+                </div>
             </div>
           </div>
         </div>

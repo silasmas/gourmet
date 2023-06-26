@@ -251,7 +251,16 @@
         </div>
         <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-        <script>
+@if (!session()->has('first_time'))
+        <script type="text/javascript">
+            var modalKicoucouPopUp = new bootstrap.Modal(document.querySelector('#kicoucouPopUp'), {
+                keyboard: false
+            });
+
+            modalKicoucouPopUp.show();
+        </script>    
+@endif
+        <script type="text/javascript">
             $(document).ready(function() {
                 $(window).scroll(function() {
                     if ($(this).scrollTop() > 40) {
@@ -367,5 +376,6 @@
                 });
             });
         </script>
+{{ session()->put('first_time', 'yes') }}
     </body>
 </html>
