@@ -20,7 +20,7 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        return view('profile.edit');
+        return view('profile.personal_infos');
     }
 
     /**
@@ -31,7 +31,7 @@ class ProfileController extends Controller
      */
     public function entity($entity): View
     {
-        return view('profile.edit');
+        return view('profile.personal_infos');
     }
 
     /**
@@ -43,7 +43,7 @@ class ProfileController extends Controller
      */
     public function entityDatas($request, $id): View
     {
-        return view('profile.edit');
+        return view('profile.personal_infos');
     }
 
     /**
@@ -59,7 +59,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.personal_infos')->with('status', 'profile-updated');
     }
 
     /**
