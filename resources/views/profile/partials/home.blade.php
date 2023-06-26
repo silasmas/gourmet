@@ -1,8 +1,8 @@
 
 <div class="block-choice py-5 bg-light">
-    <div class="container py-4">
+    <div class="container">
         <div class="row g-3">
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-4 col-sm-6 py-lg-4">
                 <div class="card h-auto">
                     <form method="POST">
                         <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
@@ -16,8 +16,13 @@
             </div>
 
             <div class="col-lg-8 col-sm-6">
+                <h3 class="mb-4">Informations personnelles</h3>
+
                 <form method="POST" action="{{ route('account.home') }}">
                     @csrf
+
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
                     <div class="row g-md-4 g-3">
                         <!-- Prénom -->
                         <div class="col-lg-6">
@@ -51,7 +56,7 @@
                         <!-- Date de naissance -->
                         <div class="col-lg-6">
                             <label for="register_birthDate" class="small text-muted">Date de naissance</label>
-                            <input type="date" name="register_birthDate" id="register_birthDate" class="form-control" placeholder="Date de naissance">
+                            <input type="date" name="register_birthDate" id="register_birthDate" class="form-control" placeholder="Date de naissance" value="{{ Auth::user()->bithday }}">
                         </div>
 
                         <!-- E-mail -->
@@ -66,7 +71,26 @@
                             <input type="tel" id="register_phone" name="register_phone" class="form-control" placeholder="Téléphone" value="{{ Auth::user()->phone }}">
                         </div>
 
+                        <!-- Adresse -->
+                        <div class="col-12">
+                            <label for="register_address" class="form-label mb-1">Adresse</label>
+                            <textarea name="register_address" id="register_address" class="form-control" placeholder="Adresse">{{ Auth::user()->adresse }}</textarea>
+                        </div>
+
+                        <!-- Mot de passe -->
+                        <div class="col-lg-6">
+                            <label for="register_password" class="small text-muted">Mot de passe</label>
+                            <input type="password" id="register_password" name="register_password" class="form-control" placeholder="Mot de passe">
+                        </div>
+
+                        <!-- Confirmer mot de passe -->
+                        <div class="col-lg-6">
+                            <label for="confirm_password" class="small text-muted">Confirmer mot de passe</label>
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirmer mot de passe">
+                        </div>
+
                     </div>
+                    <button type="submit" class="btn w-100 my-4">Enregistrer modifications</button>
                 </form>
             </div>
         </div>
