@@ -53,6 +53,19 @@
                             <label for="register_birthDate" class="small text-muted">Date de naissance</label>
                             <input type="date" name="register_birthDate" id="register_birthDate" class="form-control" placeholder="Date de naissance">
                         </div>
+
+                        <!-- E-mail -->
+                        <div class="col-lg-6">
+                            <label for="register_email" class="small text-muted">E-mail</label>
+                            <input type="email" id="register_email" name="register_email" class="form-control" placeholder="E-mail" value="{{ Auth::user()->email }}">
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div class="col-lg-6">
+                            <label for="register_phone" class="small text-muted">Téléphone</label>
+                            <input type="tel" id="register_phone" name="register_phone" class="form-control" placeholder="Téléphone" value="{{ Auth::user()->phone }}">
+                        </div>
+
                     </div>
                 </form>
             </div>
