@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('assets/addons/custom/jquery/css/jquery-ui.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/addons/custom/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/addons/custom/cropper/css/cropper.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
@@ -279,6 +280,81 @@
 
         <div class="back-drop"></div>
 
+        <!-- =============== ALERT MESSAGES =============== -->
+@if (!empty(request()->alert_success))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="bi bi-info-circle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ request()->alert_success }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (\Session::has('success_message'))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="bi bi-info-circle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ \Session::get('success_message') }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (!empty($alert_success))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="bi bi-info-circle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ $alert_success }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (\Session::has('exception'))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="bi bi-exclamation-triangle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ \Session::get('exception') }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (\Session::has('error_message'))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="bi bi-exclamation-triangle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ \Session::get('error_message') }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (!empty($response_error))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="bi bi-exclamation-triangle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ $response_error->message }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+        <!-- /=============== ALERT MESSAGES =============== -->
+
         <div class="global-div">
             <div class="wrapper">
 @yield('content')
@@ -355,6 +431,7 @@
             </div>
         </div>
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/jquery/js/jquery-ui.min.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/bootstrap/js/bootstrap.bundle.js') }}"></script>
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('assets/js/scriptcarousel.js') }}"></script>

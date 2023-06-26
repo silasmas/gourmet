@@ -55,7 +55,7 @@
                 <div class="dropdown">
                     <a id="avatarLink" class="btn px-3 py-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->prenom }}&nbsp;&nbsp;
-                        <img src="{{ asset('assets/img/placeholder.png') }}" alt="{{ Auth::user()->prenom }}" width="40" class="rounded-circle">
+                        <img src="{{ Auth::user()->avatar_url != null ? Auth::user()->avatar_url : asset('assets/img/placeholder.png') }}" alt="{{ Auth::user()->prenom }}" width="40" class="user-image rounded-circle">
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="avatarLink">

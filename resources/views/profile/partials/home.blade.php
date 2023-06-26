@@ -11,7 +11,7 @@
                             <input type="file" name="avatar" id="avatar" class="d-none">
                         </label>
                     </form>
-                    <img src="{{ asset('assets/img/placeholder.png') }}" alt="" class="img-thumbnail">
+                    <img src="{{ Auth::user()->avatar_url != null ? Auth::user()->avatar_url : asset('assets/img/placeholder.png') }}" alt="" class="user-image img-thumbnail">
                 </div>
             </div>
 

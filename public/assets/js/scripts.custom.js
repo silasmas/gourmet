@@ -17,7 +17,7 @@ $(document).ready(function () {
         $("html, body").animate({ scrollTop: '0' });
     });
 
-    /* Upload user cropped photo */
+    /* Upload cropped image */
     var modalImage = $('#cropModalImage');
     var retrievedAvatar = document.getElementById('retrieved_image');
     var cropper;
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     $('#cropModalImage #crop').click(function () {
         // Ajax loading image to tell user to wait
-        $('.user-image').attr('src', currentHost + '/assets/img/ajax-loading.gif');
+        $('.user-image').attr('src', currentHost + '/assets/img/ajax-loader.gif');
 
         var canvas = cropper.getCroppedCanvas({
             width: 700,
@@ -72,21 +72,21 @@ $(document).ready(function () {
             reader.readAsDataURL(blob);
             reader.onloadend = function () {
                 var base64_data = reader.result;
-                var entity_id = document.getElementById('user_id').value;
-                var apiUrl = currentHost + '/api/user/update_avatar_picture/' + parseInt($('#userId').val());
-                var datas = JSON.stringify({ 'id': parseInt($('#userId').val()), 'user_id': entity_id, 'image_64': base64_data });
+                var user_id = document.getElementById('user_id').value;
+                var url = currentHost + '/account/update_avatar/' + parseInt($('#userId').val());
+                var datas = { 'id': parseInt($('#userId').val()), 'user_id': user_id, 'image_64': base64_data };
 
                 modalImage.hide();
 
                 $.ajax({
-                    headers: headers,
-                    type: 'PUT',
-                    contentType: 'application/json',
-                    url: apiUrl,
-                    dataType: 'json',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'POST',
+                    url: url,
                     data: datas,
                     success: function (res) {
-                        $(this).attr('src', res);
+                        $('.user-image').attr('src', res.avatar_url);
                         window.location.reload();
                     },
                     error: function (xhr, error, status_description) {

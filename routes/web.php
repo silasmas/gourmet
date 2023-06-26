@@ -18,6 +18,7 @@ Route::post('/account', [ProfileController::class, 'update']);
 Route::delete('/account', [ProfileController::class, 'destroy']);
 Route::get('/account/{entity}', [ProfileController::class, 'entity'])->name('account.entity');
 Route::get('/account/{entity}/{id}', [ProfileController::class, 'entityDatas'])->whereNumber('id')->name('account.entity.datas');
+Route::post('/account/update_avatar/{id}', [ProfileController::class, 'updateAvatar'])->whereNumber('id')->name('account.update_avatar');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');

@@ -151,10 +151,87 @@
                 </div>
             </div>
         </div>
+
         <div class="back-drop"></div>
+
+        <!-- =============== ALERT MESSAGES =============== -->
+@if (!empty(request()->alert_success))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="bi bi-info-circle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ request()->alert_success }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (\Session::has('success_message'))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="bi bi-info-circle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ \Session::get('success_message') }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (!empty($alert_success))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="bi bi-info-circle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ $alert_success }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (\Session::has('exception'))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="bi bi-exclamation-triangle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ \Session::get('exception') }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (\Session::has('error_message'))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="bi bi-exclamation-triangle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ \Session::get('error_message') }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+@if (!empty($response_error))
+        <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="bi bi-exclamation-triangle me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> {{ $response_error->message }}
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endif
+        <!-- /=============== ALERT MESSAGES =============== -->
+
         <div class="global-div">
             <div class="wrapper">
-                @yield('content')
+@yield('content')
             </div>
         </div>
         <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
