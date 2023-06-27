@@ -432,6 +432,8 @@
                 </footer>
             </div>
         </div>
+
+        <!-- Scripts -->
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery-ui.min.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/bootstrap/js/bootstrap.bundle.js') }}"></script>

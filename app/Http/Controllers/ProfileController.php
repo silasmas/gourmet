@@ -28,9 +28,9 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['statut_id', 4]])->count();
-        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['statut_id', 4]])->count();
-        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['statut_id', 4]])->count();
+        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
 
         return view('profile.personal_infos', [
             'count_reservation' => $count_reservation,
@@ -46,15 +46,21 @@ class ProfileController extends Controller
      */
     public function entity($entity): View
     {
+        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+
         if ($entity == 'reservation') {
             return view('profile.personal_infos', [
-                'entity' => $entity
+                'entity' => $entity,
+                'count_order' => $count_order_plat + $count_order_boisson
             ]);
         }
 
         if ($entity == 'order') {
             return view('profile.personal_infos', [
-                'entity' => $entity
+                'entity' => $entity,
+                'count_reservation' => $count_reservation
             ]);
         }
     }
@@ -68,15 +74,21 @@ class ProfileController extends Controller
      */
     public function entityDatas($entity, $id): View
     {
+        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+
         if ($entity == 'reservation') {
             return view('profile.personal_infos', [
-                'entity' => $entity
+                'entity' => $entity,
+                'count_order' => $count_order_plat + $count_order_boisson
             ]);
         }
 
         if ($entity == 'order') {
             return view('profile.personal_infos', [
-                'entity' => $entity
+                'entity' => $entity,
+                'count_reservation' => $count_reservation
             ]);
         }
     }

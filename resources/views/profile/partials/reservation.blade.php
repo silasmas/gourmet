@@ -10,13 +10,18 @@
         </div>
 
         <div class="list-group">
-            <a href="{{ route('account.home') }}" class="list-group-item list-group-item-action"><i class="bi bi-person me-3"></i>Mon profil</a>
-            <a href="{{ route('account.entity', ['entity' => 'order']) }}" class="list-group-item list-group-item-action"><i class="bi bi-cart me-3"></i>Mes commandes</a>
+            <a href="{{ route('account.home') }}" class="list-group-item list-group-item-action"><i class="bi bi-person me-2"></i>Mon profil</a>
+            <a href="{{ route('account.entity', ['entity' => 'order']) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-telephone-forward me-2"></i>Mes commandes</span>
+@if ($count_order > 0)
+                <span class="badge badge-primary bg-primary badge-pill">{{ $count_order }}</span>
+@endif
+            </a>
         </div>
     </div>
 
     <div class="col-lg-9 col-sm-8">
-        <h3 class="mb-4">Mes réservations</h3>
+        <h3 class="mb-4 text-md-start text-center">Mes réservations</h3>
 
     </div>
 </div>
