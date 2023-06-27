@@ -1,6 +1,4 @@
 
-<div class="block-choice py-5 bg-light">
-    <div class="container">
         <div class="row g-3">
             <div class="col-lg-4 col-sm-6 py-lg-4">
                 <div class="card h-auto">
@@ -94,5 +92,3 @@
                 </form>
             </div>
         </div>
-    </div>
-</div>

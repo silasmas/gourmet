@@ -2,6 +2,9 @@
 
 @section('content')
 
+<div class="block-choice py-5 bg-light">
+    <div class="container">
+
     @if (Route::is('account.home'))
         @include('profile.partials.home')
     @endif
@@ -25,5 +28,8 @@
             @include('profile.partials.order')
         @endif
     @endif
+
+    </div>
+</div>
 
 @endsection
