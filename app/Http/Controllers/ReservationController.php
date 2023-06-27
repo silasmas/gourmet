@@ -102,6 +102,10 @@ class ReservationController extends Controller
      */
     public function destroy(reservation $reservation)
     {
-        //
+        $reservation->delete();
+
+        $reservations = reservation::all();
+
+        return $reservations;
     }
 }

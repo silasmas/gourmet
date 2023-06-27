@@ -100,6 +100,10 @@ class AchatController extends Controller
      */
     public function destroy(achat $achat)
     {
-        //
+        $achat->delete();
+
+        $achats = achat::all();
+
+        return $achats;
     }
 }

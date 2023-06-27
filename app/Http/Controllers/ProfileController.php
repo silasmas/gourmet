@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Redirect;
 class ProfileController extends Controller
 {
     public function __construct() {
-        // $currentHost = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
-
         $this->middleware('auth');
     }
 
@@ -28,13 +26,16 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
-        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
-        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $reservations = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $order_plats = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $order_boissons = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $count_reservations = $reservations->count();
+        $count_order_plats = $order_plats->count();
+        $count_order_boissons = $order_boissons->count();
 
         return view('profile.personal_infos', [
-            'count_reservation' => $count_reservation,
-            'count_order' => $count_order_plat + $count_order_boisson
+            'count_reservations' => $count_reservations,
+            'count_orders' => $count_order_plats + $count_order_boissons
         ]);
     }
 
@@ -46,21 +47,27 @@ class ProfileController extends Controller
      */
     public function entity($entity): View
     {
-        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
-        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
-        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $reservations = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $order_plats = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $order_boissons = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $count_reservations = $reservations->count();
+        $count_order_plats = $order_plats->count();
+        $count_order_boissons = $order_boissons->count();
 
         if ($entity == 'reservation') {
             return view('profile.personal_infos', [
                 'entity' => $entity,
-                'count_order' => $count_order_plat + $count_order_boisson
+                'reservations' => $reservations,
+                'count_orders' => $count_order_plats + $count_order_boissons
             ]);
         }
 
         if ($entity == 'order') {
             return view('profile.personal_infos', [
                 'entity' => $entity,
-                'count_reservation' => $count_reservation
+                'order_plats' => $order_plats,
+                'order_boissons' => $order_boissons,
+                'count_reservations' => $count_reservations
             ]);
         }
     }
@@ -74,21 +81,27 @@ class ProfileController extends Controller
      */
     public function entityDatas($entity, $id): View
     {
-        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
-        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
-        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->count();
+        $reservations = reservation::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $order_plats = plaUser::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $order_boissons = achat::where([['user_id', Auth::user()->id], ['customer_served', 0]])->get();
+        $count_reservations = $reservations->count();
+        $count_order_plats = $order_plats->count();
+        $count_order_boissons = $order_boissons->count();
 
         if ($entity == 'reservation') {
             return view('profile.personal_infos', [
                 'entity' => $entity,
-                'count_order' => $count_order_plat + $count_order_boisson
+                'reservations' => $reservations,
+                'count_orders' => $count_order_plats + $count_order_boissons
             ]);
         }
 
         if ($entity == 'order') {
             return view('profile.personal_infos', [
                 'entity' => $entity,
-                'count_reservation' => $count_reservation
+                'order_plats' => $order_plats,
+                'order_boissons' => $order_boissons,
+                'count_reservations' => $count_reservations
             ]);
         }
     }

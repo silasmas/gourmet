@@ -423,7 +423,7 @@
                                     <option value="6+">Plus de 5 personnes</option>
                                 </select>
 
-                                <input type="number" id="writeNbrPerson" class="d-none mt-3 form-control" placeholder="Ecrire le nombre de personnes" value="">
+                                <input type="number" name="register_nombre" id="writeNbrPerson" class="d-none mt-3 form-control" placeholder="Ecrire le nombre de personnes" value="">
                             </div>
 
                             <div class="col-6">

@@ -436,7 +436,7 @@
         <!-- Scripts -->
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery-ui.min.js') }}"></script>
-        <script src="{{ asset('assets/addons/custom/bootstrap/js/bootstrap.bundle.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('assets/js/scriptcarousel.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/cropper/js/cropper.min.js') }}"></script>
@@ -502,43 +502,47 @@
                 });
                 // jQuery DataTable
                 $('#dataList').DataTable({
+                    language: {
+                        url: currentHost + '/assets/addons/custom/dataTables/Plugins/i18n/' + $('html').attr('lang') + '.json'
+                    },
                     paging: 'matchMedia' in window ? (window.matchMedia('(min-width: 500px)').matches ? true : false) : false,
                     ordering: false,
                     info: 'matchMedia' in window ? (window.matchMedia('(min-width: 500px)').matches ? true : false) : false,
                 });
-                // Delete from Datatable with SweetAlert
-                function deletemsg(id, url) {
-                    swal({
-                        title: 'Attention suppression',
-                        text: 'Voulez-vous vraiment supprimer ?',
-                        icon: 'warning',
-                        dangerMode: true,
-                        buttons: { cancel: 'Non', delete: 'Oui' }
-
-                    }).then(function (willDelete) {
-                        if (willDelete) {
-                            $.ajax({
-                                url: url + "/" + id,
-                                method: "DELETE",
-                                data: {'idv':id},
-                                success: function (data) {
-                                    //  load('#tab-session');
-                                    if (!data.success) {
-                                        swal({ title: data.message, icon: 'error' });
-
-                                    } else {
-                                        swal({ title: data.message, icon: 'success' });
-                                        location.reload();
-                                    }
-                                },
-                            });
-
-                        } else {
-                            swal({ title: 'Suppression annulée', icon: 'error' });
-                        }
-                    });
-                }
             });
+
+            // Delete from Datatable with SweetAlert
+            function deleteData(id, url) {
+                swal({
+                    title: 'Attention suppression',
+                    text: 'Voulez-vous vraiment supprimer ?',
+                    icon: 'warning',
+                    dangerMode: true,
+                    buttons: { cancel: 'Non', delete: 'Oui' }
+
+                }).then(function (willDelete) {
+                    if (willDelete) {
+                        $.ajax({
+                            url: url + "/" + id,
+                            method: "DELETE",
+                            data: {'idv':id },
+                            success: function (data) {
+                                // load('#tab-session');
+                                if (!data.success) {
+                                    swal({ title: data.message, icon: 'error' });
+
+                                } else {
+                                    swal({ title: data.message, icon: 'success' });
+                                    location.reload();
+                                }
+                            },
+                        });
+
+                    } else {
+                        swal({ title: 'Suppression annulée', icon: 'error' });
+                    }
+                });
+            }
         </script>
     </body>
 </html>

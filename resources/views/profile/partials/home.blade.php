@@ -15,11 +15,11 @@
                 <div class="mt-3 text-md-start text-center small">
                     <a href="{{ route('account.entity', ['entity' => 'reservation']) }}" class="d-inline-block mb-2 fs-6">
                         <i class="bi bi-telephone-forward me-1 align-middle"></i> 
-                        {{ $count_reservation == 0 ? 'aucune réservation' : ($count_reservation . ' ' . ($count_reservation > 1 ? 'réservations' : 'réservation')) }}
+                        {{ $count_reservations == 0 ? 'aucune réservation' : ($count_reservations . ' ' . ($count_reservations > 1 ? 'réservations' : 'réservation')) }}
                     </a>
                     <br>
                     <a href="{{ route('account.entity', ['entity' => 'order']) }}" class="d-inline-block fs-6">
-                        <i class="bi bi-cart me-1 align-middle"></i> {{ $count_order == 0 ? 'aucune commande' : ($count_order . ' ' . ($count_order > 1 ? 'commandes' : 'commande')) }}
+                        <i class="bi bi-cart me-1 align-middle"></i> {{ $count_orders == 0 ? 'aucune commande' : ($count_orders . ' ' . ($count_orders > 1 ? 'commandes' : 'commande')) }}
                     </a>
                 </div>
             </div>

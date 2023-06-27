@@ -28,9 +28,12 @@ Route::get('/boisson', [HomeController::class, 'boisson'])->name('boisson');
 // Transaction
 Route::get('/transaction_en_attente', [HomeController::class, 'transactionEnAttente'])->name('transaction.en_attente');
 Route::get('/transaction_message/{entity}/{orderNumber}/{userId}', [HomeController::class, 'transactionMessage'])->whereNumber('userId')->name('transaction.message');
-// Méthode pour réserver
+// Méthode pour contrôler les modèles
 Route::post('/achat/store', [AchatController::class, 'store'])->name('achat.store');
+Route::delete('/achat/{id}', [AchatController::class, 'destroy'])->whereNumber('id')->name('achat.destroy');
 Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
+Route::delete('/reservation/{id}', [ReservationController::class, 'destroy'])->whereNumber('id')->name('reservation.destroy');
+// Méthode pour réservation, commande et achat
 Route::post('/kicoucou/acheter', [HomeController::class, 'acheter'])->name('kicoucou.acheter');
 Route::post('/kicoucou/reserver', [HomeController::class, 'reserver'])->name('kicoucou.reserver');
 Route::get('/kicoucou/{entity}/{montant}/{monnaie}/{user_id}', [HomeController::class, 'payerAvecCarte'])->whereNumber(['montant', 'user_id'])->name('kicoucou.payer_avec_carte');

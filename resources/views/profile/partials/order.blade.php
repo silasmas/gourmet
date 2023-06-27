@@ -13,8 +13,8 @@
             <a href="{{ route('account.home') }}" class="list-group-item list-group-item-action"><i class="bi bi-person me-2"></i>Mon profil</a>
             <a href="{{ route('account.entity', ['entity' => 'reservation']) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                 <span><i class="bi bi-telephone-forward me-2"></i>Mes réservations</span>
-@if ($count_reservation > 0)
-                <span class="badge badge-primary bg-primary badge-pill">{{ $count_reservation }}</span>
+@if ($count_reservations > 0)
+                <span class="badge badge-primary bg-primary badge-pill">{{ $count_reservations }}</span>
 @endif
             </a>
         </div>
