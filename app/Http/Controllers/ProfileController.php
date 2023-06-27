@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\achat;
+use App\Models\plaUser;
+use App\Models\reservation;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
@@ -26,7 +28,14 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        return view('profile.personal_infos');
+        $count_reservation = reservation::where([['user_id', Auth::user()->id], ['statut_id', 4]])->count();
+        $count_order_plat = plaUser::where([['user_id', Auth::user()->id], ['statut_id', 4]])->count();
+        $count_order_boisson = achat::where([['user_id', Auth::user()->id], ['statut_id', 4]])->count();
+
+        return view('profile.personal_infos', [
+            'count_reservation' => $count_reservation,
+            'count_order' => $count_order_plat + $count_order_boisson
+        ]);
     }
 
     /**

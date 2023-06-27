@@ -10,6 +10,12 @@
                         </label>
                     </form>
                     <img src="{{ Auth::user()->avatar_url != null ? Auth::user()->avatar_url : asset('assets/img/placeholder.png') }}" alt="" class="user-image img-thumbnail">
+
+                    <div class="mt-4">
+                        <a href="{{ route('account.entity', ['entity' => 'reservation']) }}" class="btn">
+                            <i class="bi bi-telephone-forward me-3 align-middle"></i> {{ $count_reservation }}
+                        </a>
+                    </div>
                 </div>
             </div>
 
