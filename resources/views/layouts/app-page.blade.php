@@ -22,6 +22,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('assets/addons/custom/jquery/css/jquery-ui.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/addons/custom/dataTables/datatables.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/addons/custom/sweetalert2/dist/sweetalert2.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/addons/custom/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/addons/custom/cropper/css/cropper.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
@@ -437,6 +439,8 @@
         <script src="{{ asset('assets/js/scriptcarousel.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/cropper/js/cropper.min.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/autosize/js/autosize.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/dataTables/datatables.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
         <script src="{{ asset('assets/js/scripts.custom.js') }}"></script>
         <script>
             $(document).ready(function() {
