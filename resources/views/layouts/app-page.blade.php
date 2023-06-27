@@ -461,26 +461,26 @@
                     $('html,body').animate({
                         scrollTop: 0
                     }, 1000)
-                })
+                });
                 $('.navbar .block-menu').click(function() {
                     $(this).toggleClass('close')
                     $('.full-menu').toggleClass('show')
                     $('body').toggleClass('overflow')
                     $('.back-drop').toggleClass('show')
 
-                })
+                });
                 $('.back-drop').click(function() {
                     $(this).removeClass('show')
                     $('.full-menu').removeClass('show')
                     $('body').removeClass('overflow')
                     $('.navbar .block-menu').removeClass('close')
-                })
+                });
                 $('.close-menu').click(function() {
                     $('.back-drop').removeClass('show')
                     $('.full-menu').removeClass('show')
                     $('body').removeClass('overflow')
                     $('.navbar .block-menu').removeClass('close')
-                })
+                });
                 $('.scrollTop').click(function() {
                     $('.global-div').removeClass('translate')
                     $('.full-menu').removeClass('show')
@@ -497,8 +497,46 @@
                         }, 1000);
                     }
                     return false;
-                })
-            })
+                });
+                // jQuery DataTable
+                $('#dataList').DataTable({
+                    paging: 'matchMedia' in window ? (window.matchMedia('(min-width: 500px)').matches ? true : false) : false,
+                    ordering: false,
+                    info: 'matchMedia' in window ? (window.matchMedia('(min-width: 500px)').matches ? true : false) : false,
+                });
+                // Delete from Datatable with SweetAlert
+                function deletemsg(id, url) {
+                    swal({
+                        title: 'Attention suppression',
+                        text: 'Voulez-vous vraiment supprimer ?',
+                        icon: 'warning',
+                        dangerMode: true,
+                        buttons: { cancel: 'Non', delete: 'Oui' }
+
+                    }).then(function (willDelete) {
+                        if (willDelete) {
+                            $.ajax({
+                                url: url + "/" + id,
+                                method: "DELETE",
+                                data: {'idv':id},
+                                success: function (data) {
+                                    //  load('#tab-session');
+                                    if (!data.success) {
+                                        swal({ title: data.message, icon: 'error' });
+
+                                    } else {
+                                        swal({ title: data.message, icon: 'success' });
+                                        location.reload();
+                                    }
+                                },
+                            });
+
+                        } else {
+                            swal({ title: 'Suppression annulée', icon: 'error' });
+                        }
+                    });
+                }
+            });
         </script>
     </body>
 </html>
