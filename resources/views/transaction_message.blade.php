@@ -1,4 +1,4 @@
-@extends('layouts.errors')
+ @extends('layouts.errors')
 
 @section('errors-content')
 
@@ -48,20 +48,20 @@
                         <div class="px-2 py-1 border-start border-3 {{ $statut != 'Effectué' ? ($statut == 'En cours' ? 'border-warning' : 'border-danger') : 'border-success' }}">
                             <p class="m-0 text-black">{{ $achat->reference }}</p>
                             <h4 class="h4 mt-0 mb-1 fw-bold {{ $statut != 'Effectué' ? ($statut == 'En cours' ? 'text-warning' : 'text-danger') : 'text-success' }} text-truncate" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-                                {{ $achat->amount . ' ' . $achat->currency }}
+                                {{ $achat->montant . ' ' . $achat->monaie }}
                             </h4>
                             <p class="m-0 small">{{ $achat->created_at }}</p>
                         </div>
 
                         <div class="px-3 py-1 text-center">
-                            <p class="m-0 text-dark text-uppercase text-truncate">{{ $achat->channel }}</p>
-                            <span class="badge {{ $statut != 'Effectué' ? ($statut == 'En cours' ? 'badge-warning' : 'badge-danger') : 'badge-success' }}">{{ $statut }}</span>
+                            <p class="m-0 text-black text-uppercase text-truncate">{{ $achat->channel }}</p>
+                            <span class="badge {{ $statut != 'Effectué' ? ($statut == 'En cours' ? 'bg-warning' : 'bg-danger') : 'badge-success' }}">{{ $statut }}</span>
                         </div>
                     </div>
                 </div>
                 @endif
 
-                <a href="{{ route('kicoucou') }}" class="btn d-lg-inline-block d-none btn-warning btn-color rounded-pill py-3 px-5 shadow-0">
+                <a href="{{ route('kicoucou') }}" class="btn d-lg-inline-block d-none bg-warning btn-color rounded-pill py-3 px-5 shadow-0">
                     {{ __('general.back_home') }}
                 </a>
             </div>
