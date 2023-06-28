@@ -12,18 +12,22 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+// Generate symbolic link
+Route::get('/symlink', function () {return view('symlink');})->name('generate_symlink');
+// Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
+Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
+Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
+Route::get('/boisson', [HomeController::class, 'boisson'])->name('boisson');
+// Profile
 Route::get('/account', [ProfileController::class, 'index'])->name('account.home');
 Route::post('/account', [ProfileController::class, 'update']);
 Route::delete('/account', [ProfileController::class, 'destroy']);
 Route::get('/account/{entity}', [ProfileController::class, 'entity'])->name('account.entity');
 Route::get('/account/{entity}/{id}', [ProfileController::class, 'entityDatas'])->whereNumber('id')->name('account.entity.datas');
 Route::post('/account/update_avatar/{id}', [ProfileController::class, 'updateAvatar'])->whereNumber('id')->name('account.update_avatar');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
-Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
-Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
-Route::get('/boisson', [HomeController::class, 'boisson'])->name('boisson');
 
 // Transaction
 Route::get('/transaction_en_attente', [HomeController::class, 'transactionEnAttente'])->name('transaction.en_attente');
