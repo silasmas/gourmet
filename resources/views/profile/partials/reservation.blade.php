@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{ $loop->index + 1 }}</td>
                         <td>
-                            {{ \Carbon\Carbon::parse($reservation->date)->translatedFormat('D d M Y à h\Hi\'') }}
+                            {{ \Carbon\Carbon::parse($reservation->date)->translatedFormat('D d M Y à H\Hi\'') }}
                         </td>
                         <td>{{ $reservation->nombre }}</td>
                         <td>
