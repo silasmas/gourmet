@@ -159,7 +159,7 @@ class HomeController extends Controller
 
             if ($achat == null) {
                 achat::create([
-                    'prix' => $montant,
+                    'montant' => $montant,
                     'order_number' => Session::get('order_number'),
                     'user_id' => $user_id
                 ]);
@@ -219,7 +219,7 @@ class HomeController extends Controller
 
             if ($reservation == null) {
                 reservation::create([
-                    'prix' => $montant,
+                    'montant' => $montant,
                     'order_number' => Session::get('order_number'),
                     'user_id' => $user_id
                 ]);
@@ -317,7 +317,7 @@ class HomeController extends Controller
                     //     'reference' => $reference_code,
                     //     'order_number' => $jsonRes->orderNumber,
                     //     'nombre' => $request->register_nombre,
-                    //     'prix' => explode(' ', $request->register_prix)[0],
+                    //     'montant' => explode(' ', $request->register_prix)[0],
                     //     'monaie' => explode(' ', $request->register_prix)[1],
                     //     'statut_id' => 1,
                     //     'user_id' => Auth::user()->id,
@@ -392,7 +392,7 @@ class HomeController extends Controller
                         'reference' => $reference_code,
                         'order_number' => $jsonRes->orderNumber,
                         'nombre' => $request->register_nombre,
-                        'prix' => explode(' ', $request->register_prix)[0],
+                        'montant' => explode(' ', $request->register_prix)[0],
                         'monaie' => explode(' ', $request->register_prix)[1],
                         'statut_id' => 1,
                         'user_id' => Auth::user()->id,
@@ -451,7 +451,7 @@ class HomeController extends Controller
             if ($entity == 'achat') {
                 $achat = json_decode($response->getBody(), false);
                 $register = achat::create([
-                    'prix' => $montant,
+                    'montant' => $montant,
                     'order_number' => Session::get('order_number'),
                     'user_id' => $user_id
                 ]);
@@ -467,7 +467,7 @@ class HomeController extends Controller
             if ($entity == 'reservation') {
                 $reservation = json_decode($response->getBody(), false);
                 $register = reservation::create([
-                    'prix' => $montant,
+                    'montant' => $montant,
                     'order_number' => Session::get('order_number'),
                     'user_id' => $user_id
                 ]);
