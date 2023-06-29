@@ -64,6 +64,7 @@ return [
     'registered_data' => 'Données enregistrées',
     'no_data' => 'Ces données n\'existent pas',
     'required_fields' => 'Veuillez vérifier les champs obligatoires',
+    'error_while_processing' => 'Erreur lors du traitement !',
     'transaction_waiting' => 'Veuillez valider le message de votre opérateur sur votre téléphone. Ensuite appuyez sur le bouton ci-dessous.',
     'transaction_done' => 'Votre opération est terminée !',
     'transaction_canceled' => 'Votre opération a été annulé !',
@@ -124,6 +125,6 @@ return [
         'achatFait'=>'Déjà achété',
         'suite'=>'Continuer la formation',
         'eventPage'=>'Page des lives',
-        'reserve'=>'Reservé sa participation',
+        'reserve'=>'Faire une réservation',
     ],
 ];

@@ -236,7 +236,7 @@ class HomeController extends Controller
 
             if ($reservation != null) {
                 $reservation->update([
-                    'status_id' => 2,
+                    'statut_id' => 2,
                     'updated_at' => now()
                 ]);
             }
@@ -252,7 +252,7 @@ class HomeController extends Controller
 
             if ($reservation != null) {
                 $reservation->update([
-                    'status_id' => 2,
+                    'statut_id' => 2,
                     'updated_at' => now()
                 ]);
             }
@@ -452,7 +452,7 @@ class HomeController extends Controller
                 $achat = json_decode($response->getBody(), false);
                 $register = achat::create([
                     'montant' => $montant,
-                    'order_number' => Session::get('order_number'),
+                    'order_number' => $achat->orderNumber,
                     'user_id' => $user_id
                 ]);
 
@@ -460,7 +460,7 @@ class HomeController extends Controller
                     return redirect($achat->url)->with('order_number', $achat->orderNumber);
 
                 } else {
-                    return redirect('/kicoucou')->with('error_message', __('notifications.error_while_processing'));
+                    return redirect('/kicoucou')->with('error_message', __('general.error_while_processing'));
                 }
             }
 
@@ -468,7 +468,7 @@ class HomeController extends Controller
                 $reservation = json_decode($response->getBody(), false);
                 $register = reservation::create([
                     'montant' => $montant,
-                    'order_number' => Session::get('order_number'),
+                    'order_number' => $reservation->orderNumber,
                     'user_id' => $user_id
                 ]);
 
@@ -476,7 +476,7 @@ class HomeController extends Controller
                     return redirect($reservation->url)->with('order_number', $reservation->orderNumber);
 
                 } else {
-                    return redirect('/kicoucou')->with('error_message', __('notifications.error_while_processing'));
+                    return redirect('/kicoucou')->with('error_message', __('general.error_while_processing'));
                 }
             }
 
