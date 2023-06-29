@@ -100,12 +100,25 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(reservation $reservation)
+    public function destroy($id)
     {
-        $reservation->delete();
-
+        $reservation = reservation::find($id);
         $reservations = reservation::all();
 
-        return $reservations;
+        if (is_null($reservation)) {
+            return [
+                'success' => false,
+                'message' => 'Réservation non trouvé',
+                'data' => $reservations
+            ];
+        }
+
+        $reservation->delete();
+
+        return [
+            'success' => true,
+            'message' => 'Donnée supprimée',
+            'data' => $reservations
+        ];
     }
 }

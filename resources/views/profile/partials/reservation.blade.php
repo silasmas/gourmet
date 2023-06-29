@@ -27,7 +27,6 @@
             <table ids="dataList" class="table">
                 <thead class="border-bottom border-default">
                     <tr>
-                        <th class="bdwT-0 fw-bold">#</th>
                         <th class="bdwT-0 fw-bold">Date/heure réservée</th>
                         <th class="bdwT-0 fw-bold">Nombre de personnes</th>
                         <th class="bdwT-0 fw-bold"></th>
@@ -37,7 +36,6 @@
                 <tbody>
 @forelse ($reservations as $reservation)
                     <tr>
-                        <td>{{ $loop->index + 1 }}</td>
                         <td>
                             {{ \Carbon\Carbon::parse($reservation->date)->translatedFormat('D d M Y à H\Hi\'') }}
                         </td>

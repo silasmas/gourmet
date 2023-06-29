@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 // Generate symbolic link
 Route::get('/symlink', function () {return view('symlink');})->name('generate_symlink');
+
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -21,6 +22,7 @@ Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
 Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
 Route::get('/boisson', [HomeController::class, 'boisson'])->name('boisson');
+
 // Profile
 Route::get('/account', [ProfileController::class, 'index'])->name('account.home');
 Route::post('/account', [ProfileController::class, 'update']);
@@ -32,11 +34,13 @@ Route::post('/account/update_avatar/{id}', [ProfileController::class, 'updateAva
 // Transaction
 Route::get('/transaction_en_attente', [HomeController::class, 'transactionEnAttente'])->name('transaction.en_attente');
 Route::get('/transaction_message/{entity}/{orderNumber}/{userId}', [HomeController::class, 'transactionMessage'])->whereNumber('userId')->name('transaction.message');
+
 // Méthode pour contrôler les modèles
 Route::post('/achat/store', [AchatController::class, 'store'])->name('achat.store');
 Route::delete('/achat/{id}', [AchatController::class, 'destroy'])->whereNumber('id')->name('achat.destroy');
 Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 Route::delete('/reservation/{id}', [ReservationController::class, 'destroy'])->whereNumber('id')->name('reservation.destroy');
+
 // Méthode pour réservation, commande et achat
 Route::post('/kicoucou/acheter', [HomeController::class, 'acheter'])->name('kicoucou.acheter');
 Route::post('/kicoucou/reserver', [HomeController::class, 'reserver'])->name('kicoucou.reserver');
@@ -44,6 +48,7 @@ Route::get('/kicoucou/{entity}/{montant}/{monnaie}/{user_id}', [HomeController::
 Route::get('/kicoucou/achat_envoyee/{montant}/{code}/{user_id}', [HomeController::class, 'achatEnvoyee'])->whereNumber(['montant', 'code', 'user_id'])->name('kicoucou.achat.achat_envoyee');
 Route::get('/kicoucou/reservation_envoyee/{montant}/{code}/{user_id}', [HomeController::class, 'reservationEnvoyee'])->whereNumber(['montant', 'code', 'user_id'])->name('kicoucou.reservation.reservation_envoyee');
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+// Admin data
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

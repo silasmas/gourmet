@@ -513,33 +513,57 @@
 
             // Delete from Datatable with SweetAlert
             function deleteData(id, url) {
-                swal({
+                Swal.fire({
                     title: 'Attention suppression',
                     text: 'Voulez-vous vraiment supprimer ?',
                     icon: 'warning',
-                    dangerMode: true,
-                    buttons: { cancel: 'Non', delete: 'Oui' }
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Oui, supprimer',
+                    cancelButtonText: 'Annuler'
 
-                }).then(function (willDelete) {
-                    if (willDelete) {
+                }).then(function (result) {
+                    if (result.isConfirmed) {
                         $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
                             url: url + "/" + id,
                             method: "DELETE",
-                            data: {'idv':id },
+                            data: { 'id' : id },
                             success: function (data) {
                                 // load('#tab-session');
                                 if (!data.success) {
-                                    swal({ title: data.message, icon: 'error' });
+                                    Swal.fire({
+                                        title: 'Oups !',
+                                        text: data.message,
+                                        icon: 'error'
+                                    });
 
                                 } else {
-                                    swal({ title: data.message, icon: 'success' });
+                                    Swal.fire({
+                                        title: 'Parfait',
+                                        text: data.message,
+                                        icon: 'success'
+                                    });
                                     location.reload();
                                 }
                             },
+                            error: function (xhr, error, status_description) {
+                                console.log(xhr.responseJSON);
+                                console.log(xhr.status);
+                                console.log(error);
+                                console.log(status_description);
+                            }
                         });
 
                     } else {
-                        swal({ title: 'Suppression annulée', icon: 'error' });
+                        Swal.fire({
+                            title: 'Annulée',
+                            text: 'La suppression est annulée',
+                            icon: 'error'
+                        });
                     }
                 });
             }
