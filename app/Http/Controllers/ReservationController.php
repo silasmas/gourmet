@@ -108,7 +108,7 @@ class ReservationController extends Controller
         if (is_null($reservation)) {
             return [
                 'success' => false,
-                'message' => 'Réservation non trouvé',
+                'message' => 'Réservation non trouvée',
                 'data' => $reservations
             ];
         }
