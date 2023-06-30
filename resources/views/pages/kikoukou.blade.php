@@ -1,6 +1,7 @@
 @extends('layouts.app-kikoukou')
 
 @section('content')
+
     <div class="banner-home banner-kikoukou">
         <div class="content-banner">
             <div class="container">
@@ -9,13 +10,12 @@
                         <h1>Bienvenue à Kikoukou Resto</h1>
                         <h2>Une Nourriture <br> Saine et <span class="text-warning">Délicieuse</span></h2>
                         <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
-    @if (!empty(Auth::user()))
+        @if (!empty(Auth::user()))
                         <a href="#book-a-table" class="btn text-uppercase" data-bs-toggle="modal" data-bs-target="#modal-reservation">Réserver table</a>
-                        <a href="#order-dish" class="btn bg-transparent ms-3 px-3 text-warning text-uppercase" data-bs-toggle="modal" data-bs-target="#modal-commander-plat">Commander plat</a>
-    @else
+        @else
                         <a href="{{ route('login') }}" class="btn text-uppercase">Réserver table</a>
-                        <a href="{{ route('login') }}" class="btn bg-transparent ms-3 px-3 text-warning text-uppercase">Commander plat</a>
-    @endif
+        @endif
+                        <a href="{{ route('menu') }}" class="btn bg-transparent ms-3 px-3 text-warning text-uppercase">Commander vos plats</a>
                     </div>
                 </div>
                 <div class="card card-cover">
@@ -305,183 +305,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 d-flex">
-                    <i class="bi bi-geo-alt"></i>
-                    <div class="div">
-                        <h6>Adresse</h6>
-                        <p>
-                            3754, Avenue Kimiala, Q/Salongo<br>Limeté-Kinshasa
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 d-flex">
-                    <i class="bi bi-telephone-fill"></i>
-                    <div class="div">
-                        <h6>Réservations</h6>
-                        <p>
-                            <span>Phone: <a href="tel:+243820661009">(+243) 820 661 009 / 898 681 751</a></span>
-                        </p>
-                        <p>
-                            <span>Email: <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 d-flex">
-                    <i class="bi bi-clock-fill"></i>
-                    <div class="div">
-                        <h6>Heures d'ouverture</h6>
-                        <p>
-                            <span>Lun-Sam:</span> 11H - 23H
-                        </p>
-                        <p>
-                            <span>Dim:</span> Fermé
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 d-flex">
-                    <div class="div">
-                        <h6>Nous suivre</h6>
-                        <div class="block-network">
-                            <a href="#">
-                                <i class="bi bi-facebook"></i>
-                            </a>
-                            <a href="#">
-                                <i class="bi bi-instagram"></i>
-                            </a>
-                            <a href="#">
-                                <i class="bi bi-twitter"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <div class="container">
-                <div class="row g-3">
-                    <div class="col-lg-6">
-                        <p class="mb-0">© Gourmet du Congo 2023</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="d-flex justify-content-start justify-content-lg-end">
-                            <p>Developed By <a href="#">SDEV</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <div class="modal fade" id="modal-reservation" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content ">
-            <div class="modal-header px-sm-4" style="border: none;">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body pt-0 px-sm-4">
-                <div class="text-center">
-                    <h5 class="formation-title mb-4">Réservation</h5>
-                </div>
-                <form method="POST" action="{{ route('kicoucou.reserver') }}">
-                    @csrf
-                    <div class="form-group">
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <label for="register_dateReservation">Date de réservation</label>
-                                <input type="date" name="register_dateReservation" id="register_dateReservation" class="form-control" placeholder="Selectionnez la date">
-                            </div>
-
-                            <div class="col-6">
-                                <div class="col-input">
-                                    <label for="register_heureReservation">Heure de réservation</label>
-                                    <select name="register_heureReservation" id="register_heureReservation" class="form-select">
-                                        <option class="small" disabled selected>Choisir l'heure</option>
-                                        <option>09h30</option>
-                                        <option>10h30</option>
-                                        <option>11h30</option>
-                                        <option>12h30</option>
-                                        <option>13h30</option>
-                                        <option>14h30</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                <label for="selectNbrPerson">Nombre de personnes</label>
-                                <select id="selectNbrPerson" class="form-select">
-                                    <option value="1">1 personne</option>
-                                    <option value="2">2 personnes</option>
-                                    <option value="3">3 personnes</option>
-                                    <option value="4">4 personnes</option>
-                                    <option value="5">5 personnes</option>
-                                    <option value="6+">Plus de 5 personnes</option>
-                                </select>
-
-                                <input type="number" name="register_nombre" id="writeNbrPerson" class="d-none mt-3 form-control" placeholder="Ecrire le nombre de personnes" value="">
-                            </div>
-
-                            <div class="col-6">
-                                <label for="register_prix">Prix : </label>
-                                <input type="text" id="register_prix" name="register_prix" class="form-control ps-0 pt-0 bg-transparent border-0 fs-5 text-primary disabled" value="5 USD">
-                            </div>
-
-                            <div id="paymentMethod">
-                                <p class="mb-3 pb-1 border-bottom border-default text-uppercase">Mode de paiement</p>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" name="transaction_type_id" id="mobile_money" class="align-middle" value="1" />
-                                    <label class="form-check-label" for="mobile_money" role="button">
-                                        <img src="{{ asset('assets/img/payment-mobile-money.png') }}" alt="Mobile money" width="40"> Mobile money
-                                    </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" name="transaction_type_id" id="bank_card" class="align-middle" value="2" />
-                                    <label class="form-check-label" for="bank_card" role="button">
-                                        <img src="{{ asset('assets/img/payment-credit-card.png') }}" alt="Carte bancaire" width="40"> Carte bancaire
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div id="phoneNumberForMoney" class="col-12 my-2 d-none">
-                                <label for="other_phone">Téléphone</label>
-                                <input type="text" id="other_phone" name="other_phone" class="form-control" placeholder="Avec code téléphonique (Ex: 243xxxxxxxxx)">
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn mt-3">Réserver</button>
-                </form>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div id="kicoucouPopUp" class="modal fade" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header px-sm-4" style="border: none;">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body pt-0 px-sm-4">
-                <div class="row g-4">
-                    <div class="col-lg-6 col-sm-8 mx-auto">
-                        <div class="bg-image">
-                            <img src="{{ asset('assets/img/logo-kicoucou.png') }}" alt="logo" class="img-fluid">
-                            <div class="mask"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 text-center">
-                        <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
-                        <p>Vous recherchez un endroit cosy, où partager un repas surprenant entre amis ou en famille ? Kicoucou se fera le plaisir de vous accueillir.</p>
-                    </div>
-                </div>
-            </div>
-          </div>
         </div>
     </div>
 @endsection

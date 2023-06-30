@@ -46,6 +46,11 @@ class HomeController extends Controller
         return view('pages/kikoukou', compact('plats'));
     }
 
+    public function menu()
+    {
+        return view('pages/menu');
+    }
+
     public function atelier()
     {
         return view('pages/atelier');
@@ -56,11 +61,6 @@ class HomeController extends Controller
         $boissons = sommelerie::all();
 
         return view('pages/boisson', compact('boissons'));
-    }
-
-    public function menu()
-    {
-        return view('pages/menu');
     }
 
     public function create()

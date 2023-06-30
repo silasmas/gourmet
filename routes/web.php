@@ -18,8 +18,8 @@ Route::get('/symlink', function () {return view('symlink');})->name('generate_sy
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 Route::get('/kicoucou', [HomeController::class, 'kicoucou'])->name('kicoucou');
+Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 Route::get('/atelier', [HomeController::class, 'atelier'])->name('atelier');
 Route::get('/boisson', [HomeController::class, 'boisson'])->name('boisson');
 
@@ -41,8 +41,8 @@ Route::delete('/achat/{id}', [AchatController::class, 'destroy'])->whereNumber('
 Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
 Route::delete('/reservation/{id}', [ReservationController::class, 'destroy'])->whereNumber('id')->name('reservation.destroy');
 
-// Méthode pour réservation, commande et achat
-Route::post('/kicoucou/acheter', [HomeController::class, 'acheter'])->name('kicoucou.acheter');
+// Méthode pour réservation et achat
+Route::post('/kicoucou/acheter/{entity}', [HomeController::class, 'acheter'])->name('kicoucou.acheter');
 Route::post('/kicoucou/reserver', [HomeController::class, 'reserver'])->name('kicoucou.reserver');
 Route::get('/kicoucou/{entity}/{montant}/{monnaie}/{user_id}', [HomeController::class, 'payerAvecCarte'])->whereNumber(['montant', 'user_id'])->name('kicoucou.payer_avec_carte');
 Route::get('/kicoucou/achat_envoyee/{montant}/{code}/{user_id}', [HomeController::class, 'achatEnvoyee'])->whereNumber(['montant', 'code', 'user_id'])->name('kicoucou.achat.achat_envoyee');
