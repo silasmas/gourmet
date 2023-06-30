@@ -10,15 +10,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class statut extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $guarded = [];
 
-    public function reservation(){
+    public function reservations()
+    {
         return $this->hasMany(reservation::class);
     }
-    public function achat(){
+
+    public function achats()
+    {
         return $this->hasMany(achat::class);
     }
-    public function plaUser(){
+
+    public function plaUsers()
+    {
         return $this->hasMany(plaUser::class);
     }
 }

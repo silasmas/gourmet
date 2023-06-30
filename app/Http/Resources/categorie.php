@@ -20,8 +20,8 @@ class categorie extends JsonResource
     {
         return [
             'id' => $this->id,
-            'group_name' => $this->group_name,
-            'group_description' => $this->group_description,
+            'nom' => $this->nom,
+            'description' => $this->description,
             'plats' => plat::collection($this->plats),
             'sommeleries' => sommelerie::collection($this->sommeleries),
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),

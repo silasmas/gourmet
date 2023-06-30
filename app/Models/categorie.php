@@ -11,10 +11,14 @@ class categorie extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $fillable = ['nom', 'description', 'updated_at'];
 
-    public function pla()
+    public function plats()
     {
         return $this->hasMany(plat::class);
+    }
+
+    public function sommeleries()
+    {
+        return $this->hasMany(sommelerie::class);
     }
 }
