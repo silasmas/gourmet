@@ -51,7 +51,7 @@ class LoginRequest extends FormRequest
         //     ]);
         // }
 
-        $user = User::with('reservation','achat')->where('email', $this->email)
+        $user = User::with('reservations','achats')->where('email', $this->email)
         ->orWhere('phone', $this->email)
         ->first();
 
