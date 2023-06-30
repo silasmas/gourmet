@@ -50,5 +50,7 @@ Route::get('/kicoucou/reservation_envoyee/{montant}/{code}/{user_id}', [HomeCont
 
 // Admin data
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard/{entity}', [HomeController::class, 'dashboardEntity'])->name('dashboard.entity');
+Route::post('/dashboard/{entity}', [HomeController::class, 'registerDashboardEntity']);
 
 require __DIR__ . '/auth.php';

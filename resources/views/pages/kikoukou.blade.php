@@ -10,13 +10,12 @@
                         <h2>Une Nourriture <br> Saine et <span class="text-warning">Délicieuse</span></h2>
                         <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
     @if (!empty(Auth::user()))
-                        <a href="#book-a-table" class="btn" data-bs-toggle="modal" data-bs-target="#modal-reservation">Réserver table</a>
+                        <a href="#book-a-table" class="btn text-uppercase" data-bs-toggle="modal" data-bs-target="#modal-reservation">Réserver table</a>
+                        <a href="#order-dish" class="btn bg-transparent ms-3 px-3 text-warning text-uppercase" data-bs-toggle="modal" data-bs-target="#modal-commander-plat">Commander plat</a>
     @else
-                        <a href="{{ route('login') }}" class="btn">Réserver table</a>
+                        <a href="{{ route('login') }}" class="btn text-uppercase">Réserver table</a>
+                        <a href="{{ route('login') }}" class="btn bg-transparent ms-3 px-3 text-warning text-uppercase">Commander plat</a>
     @endif
-                        <a href="#order-dish" class="ms-3 text-warning" style="text-decoration: none;">
-                            Commander plat <i class="bi bi-arrow-down"></i>
-                        </a>
                     </div>
                 </div>
                 <div class="card card-cover">
