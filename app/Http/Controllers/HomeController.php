@@ -81,11 +81,14 @@ class HomeController extends Controller
             abort(403);
 
         } else {
+            $categories_collection = categorie::all();
+            $categories = ResourcesCategorie::collection($categories_collection);
+
             return view('dashboard', []);
         }
     }
 
-    public function dashboardEntity(StorehomeRequest $request)
+    public function dashboardEntity($entity)
     {
         if (Auth::user()->is_admin == 0) {
             abort(403);
@@ -95,7 +98,7 @@ class HomeController extends Controller
         }
     }
 
-    public function registerDashboardEntity(home $home)
+    public function registerDashboardEntity($entity)
     {
         if (Auth::user()->is_admin == 0) {
             abort(403);

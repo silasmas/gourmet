@@ -103,29 +103,34 @@
                             <h2 class="mb-4 text-md-start text-center">Commandes des clients</h2>
 
                             <div class="table-responsive">
-                                <table id="dataList" class="table">
+                                <table id="dataList" class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="fw-bold">Référence</th>
                                             <th class="fw-bold">Client</th>
                                             <th class="fw-bold">Nom du plat</th>
                                             <th class="fw-bold">Quantité</th>
+                                            <th class="fw-bold">À emporter</th>
                                             <th class="fw-bold"></th>
                                         </tr>
                                     </thead>
     
                                     <tbody id="updateCustomerStatus">
                                         <tr>
-                                            <td>REF-2393832-34</td>
-                                            <td>Carlos Bianda</td>
-                                            <td>Salade Tanganyika</td>
-                                            <td>3</td>
-                                            <td>
-                                                <div id="status_user-USER-ID" class="form-check form-switch" aria-current="STATUS" onchange="changeStatus('status_user-USER-ID')">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="USER-ID" checked />
-                                                    <label role="button" class="ms-2 form-check-label" for="USER-ID">Servi</label>
-                                                </div>
-                                            </td>
+                                            <a href="#" class="d-block h-100">
+                                                <td>
+                                                    <img src="{{ asset('assets/img/placeholder.png') }}" alt="" class="rounded-circle me-2" style="width: 34px!important">
+                                                    Carlos Bianda
+                                                </td>
+                                                <td>Salade Tanganyika</td>
+                                                <td>3</td>
+                                                <td>Oui</td>
+                                                <td>
+                                                    <div id="status_user-USER-ID" class="form-check form-switch" aria-current="STATUS" onchange="changeStatus('status_user-USER-ID')">
+                                                        <input class="form-check-input" type="checkbox" role="switch" id="USER-ID" checked />
+                                                        <label role="button" class="ms-2 form-check-label" for="USER-ID">Servi</label>
+                                                    </div>
+                                                </td>
+                                            </a>
                                         </tr>
                                     </tbody>
                                 </table>
