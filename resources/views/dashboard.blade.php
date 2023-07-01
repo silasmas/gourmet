@@ -29,7 +29,7 @@
     <div class="block-choice py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6" style="z-index: 999;">
+                <div class="col-lg-6 mb-5" style="z-index: 999;">
                     <div class="card h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Boissons</h2>
@@ -46,7 +46,7 @@
     
                                     <tbody id="updateMemberStatus">
                                         <tr>
-                                            <td>Madesu + soso</td>
+                                            <td>Scotch whisky</td>
                                             <td>3</td>
                                             <td class="text-end">
                                                 <a href="#" class="btn px-3 py-2">Ravitailler</a>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6" style="z-index: 999;">
+                <div class="col-lg-6 mb-5" style="z-index: 999;">
                     <div class="card h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Plats</h2>
@@ -80,8 +80,8 @@
     
                                     <tbody id="updateMemberStatus">
                                         <tr>
-                                            <td>Madesu + soso</td>
-                                            <td>3</td>
+                                            <td>Gambas grillées aux fines herbes</td>
+                                            <td>10</td>
                                             <td class="text-end">
                                                 <a href="#" class="btn px-3 py-2">Ravitailler</a>
                                             </td>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 mt-5">
+                <div class="col-12">
                     <div class="card h-auto">
                         <div class="table-responsive p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Commandes</h2>
