@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
         <style>
             .text-warning {color: #d1b603!important;} .bg-warning {background-color: #d1b603!important;} .border-warning {border-color: #d1b603!important;}
+            .rounded-3 {border-radius: 1.5rem!important;}
         </style>
 
         <title>Gourmet du Congo</title>
@@ -436,7 +437,7 @@
         <!-- Scripts -->
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/jquery/js/jquery-ui.min.js') }}"></script>
-        <script src="{{ asset('assets/addons/custom/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/addons/custom/bootstrap/js/bootstrap.bundle.js') }}"></script>
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('assets/js/scriptcarousel.js') }}"></script>
         <script src="{{ asset('assets/addons/custom/cropper/js/cropper.min.js') }}"></script>

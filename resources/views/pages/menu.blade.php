@@ -17,6 +17,7 @@
             </div>
         </div>
     </div>
+
     <div class="block-choice">
         <div class="container">
             <div class="row">

@@ -13,6 +13,7 @@ use App\Http\Requests\StorehomeRequest;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdatehomeRequest;
 use App\Http\Resources\categorie as ResourcesCategorie;
+use App\Http\Resources\sommelerie as ResourcesSommelerie;
 use App\Models\categorie;
 use App\Models\plat;
 use App\Models\plaUser;
@@ -28,9 +29,13 @@ class HomeController extends Controller
     public function __construct()
     {
         // Client used for accessing API
+        $this->middleware('auth')->except(['index', 'about', 'kicoucou', 'menu', 'atelier', 'boisson']);
         $this::$client = new Client();
     }
 
+    /*--------------------------------------------------------
+                        PUBLIC METHODS
+    --------------------------------------------------------*/
     public function index()
     {
         return view('pages.index');
@@ -51,10 +56,6 @@ class HomeController extends Controller
         $categories_collection = categorie::all();
         $categories = ResourcesCategorie::collection($categories_collection);
 
-        foreach ($categories as $categorie) {
-            dd($categorie->plats);
-        }
-
         return view('pages/menu', compact('categories'));
     }
 
@@ -65,49 +66,48 @@ class HomeController extends Controller
 
     public function boisson()
     {
-        $boissons = sommelerie::all();
+        $categories_collection = categorie::all();
+        $categories = ResourcesCategorie::collection($categories_collection);
 
-        return view('pages/boisson', compact('boissons'));
+        return view('pages/boisson', compact('categories'));
     }
 
-    public function create()
+    /*--------------------------------------------------------
+                        ADMIN METHODS
+    --------------------------------------------------------*/
+    public function dashboard()
     {
-        //
+        if (Auth::user()->is_admin == 0) {
+            abort(403);
+
+        } else {
+            return view('dashboard', []);
+        }
     }
 
-    public function store(StorehomeRequest $request)
+    public function dashboardEntity(StorehomeRequest $request)
     {
-        //
+        if (Auth::user()->is_admin == 0) {
+            abort(403);
+
+        } else {
+            return view('dashboard', []);
+        }
     }
 
-    public function show(home $home)
+    public function registerDashboardEntity(home $home)
     {
+        if (Auth::user()->is_admin == 0) {
+            abort(403);
+
+        } else {
+            return view('dashboard', []);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(home $home)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatehomeRequest $request, home $home)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(home $home)
-    {
-        //
-    }
-
+    /*--------------------------------------------------------
+                        PAYMENT METHODS
+    --------------------------------------------------------*/
     /**
      * Display the message about transaction in waiting.
      *
