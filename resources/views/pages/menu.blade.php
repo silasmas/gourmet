@@ -9,9 +9,9 @@
                     <h3 class="fw-bold">Dégustez nos spécialités</h3>
                     <h4 class="mb-4">Commander vos plats <span class="text-warning">ou bien réserver une table</span></h4>
     @if (!empty(Auth::user()))
-                    <a href="#book-a-table" class="btn bg-warning text-white" data-bs-toggle="modal" data-bs-target="#modal-reservation">Réserver une table</a>
+                    <a href="#book-a-table" class="btn bg-warning text-white" data-bs-toggle="modal" data-bs-target="#modal-reservation">Je veux juste réserver</a>
     @else
-                    <a href="{{ route('login') }}" class="btn bg-warning text-white">Réserver une table</a>
+                    <a href="{{ route('login') }}" class="btn bg-warning text-white">Je veux juste réserver</a>
     @endif
                 </div>
             </div>

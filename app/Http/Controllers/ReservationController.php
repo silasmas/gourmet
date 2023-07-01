@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\reservation;
 use Illuminate\Http\Request;
-use App\Http\Requests\StorereservationRequest;
 use App\Http\Requests\UpdatereservationRequest;
 
 class ReservationController extends Controller
@@ -48,6 +47,7 @@ class ReservationController extends Controller
                 'phone' => $request->phone,
                 'channel' => $request->channel,
                 'statut_id' => $request->code,
+                'customer_served' => $request->customer_served,
                 'updated_at' => now()
             ]);
 
@@ -67,6 +67,7 @@ class ReservationController extends Controller
                 'phone' => $request->phone,
                 'channel' => $request->channel,
                 'statut_id' => $request->code,
+                'customer_served' => $request->customer_served,
             ]);
 
             return $reservation;

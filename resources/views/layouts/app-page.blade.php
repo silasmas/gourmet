@@ -119,7 +119,7 @@
                         <div class="text-center">
                             <h5 class="formation-title mb-4">Acheter</h5>
                         </div>
-                        <form method="POST" action="{{ route('kicoucou.acheter') }}">
+                        <form method="POST" action="{{ route('kicoucou.acheter', ['entity' => 'achat']) }}">
                             @csrf
                             <div class="form-group">
                                 <div class="row g-3">

@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\AchatController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlatController;
+use App\Http\Controllers\PlaUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\SommelerieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +39,12 @@ Route::get('/transaction_en_attente', [HomeController::class, 'transactionEnAtte
 Route::get('/transaction_message/{entity}/{orderNumber}/{userId}', [HomeController::class, 'transactionMessage'])->whereNumber('userId')->name('transaction.message');
 
 // Méthode pour contrôler les modèles
+Route::post('/sommelerie/store', [SommelerieController::class, 'store'])->name('sommelerie.store');
+Route::delete('/sommelerie/{id}', [SommelerieController::class, 'destroy'])->whereNumber('id')->name('sommelerie.destroy');
+Route::post('/plat/store', [PlatController::class, 'store'])->name('plat.store');
+Route::delete('/plat/{id}', [PlatController::class, 'destroy'])->whereNumber('id')->name('plat.destroy');
+Route::post('/plat_user/store', [PlaUserController::class, 'store'])->name('plat_user.store');
+Route::delete('/plat_user/{id}', [PlaUserController::class, 'destroy'])->whereNumber('id')->name('plat_user.destroy');
 Route::post('/achat/store', [AchatController::class, 'store'])->name('achat.store');
 Route::delete('/achat/{id}', [AchatController::class, 'destroy'])->whereNumber('id')->name('achat.destroy');
 Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservation.store');
@@ -45,8 +54,7 @@ Route::delete('/reservation/{id}', [ReservationController::class, 'destroy'])->w
 Route::post('/kicoucou/acheter/{entity}', [HomeController::class, 'acheter'])->name('kicoucou.acheter');
 Route::post('/kicoucou/reserver', [HomeController::class, 'reserver'])->name('kicoucou.reserver');
 Route::get('/kicoucou/{entity}/{montant}/{monnaie}/{user_id}', [HomeController::class, 'payerAvecCarte'])->whereNumber(['montant', 'user_id'])->name('kicoucou.payer_avec_carte');
-Route::get('/kicoucou/achat_envoyee/{montant}/{code}/{user_id}', [HomeController::class, 'achatEnvoyee'])->whereNumber(['montant', 'code', 'user_id'])->name('kicoucou.achat.achat_envoyee');
-Route::get('/kicoucou/reservation_envoyee/{montant}/{code}/{user_id}', [HomeController::class, 'reservationEnvoyee'])->whereNumber(['montant', 'code', 'user_id'])->name('kicoucou.reservation.reservation_envoyee');
+Route::get('/kicoucou/paiement_termine/{entity}/{montant}/{code}/{user_id}', [HomeController::class, 'donneeEnvoyee'])->whereNumber(['montant', 'code', 'user_id'])->name('kicoucou.paiement_termine');
 
 // Admin data
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

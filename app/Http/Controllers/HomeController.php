@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorehomeRequest;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdatehomeRequest;
+use App\Http\Resources\categorie as ResourcesCategorie;
 use App\Models\categorie;
 use App\Models\plat;
+use App\Models\plaUser;
 use App\Models\sommelerie;
 use App\Models\statut;
 use Illuminate\Support\Facades\Redirect;
@@ -41,14 +43,19 @@ class HomeController extends Controller
 
     public function kicoucou()
     {
-        $plats = plat::all();
-
-        return view('pages/kikoukou', compact('plats'));
+        return view('pages/kikoukou');
     }
 
     public function menu()
     {
-        return view('pages/menu');
+        $categories_collection = categorie::all();
+        $categories = ResourcesCategorie::collection($categories_collection);
+
+        foreach ($categories as $categorie) {
+            dd($categorie->plats);
+        }
+
+        return view('pages/menu', compact('categories'));
     }
 
     public function atelier()
@@ -128,7 +135,18 @@ class HomeController extends Controller
                 'statut' => $statut->nom,
                 'achat' => $achat,
             ]);
+        }
 
+        if ($entity == 'plat_user') {
+            $plat_user = plaUser::where([['order_number', $orderNumber], ['user_id', $userId]])->first();
+            $statut = statut::find($plat_user->statut_id);
+
+            return view('transaction_message', [
+                'message_content' => __('general.transaction_done'),
+                'status_code' => (string) $plat_user->statut_id,
+                'statut' => $statut->nom,
+                'achat' => $plat_user,
+            ]);
         }
 
         if ($entity == 'reservation') {
@@ -207,12 +225,13 @@ class HomeController extends Controller
     /**
      * GET: Reservation result
      *
+     * @param $entity
      * @param $montant
      * @param $code
      * @param $user_id
      * @return \Illuminate\View\View
      */
-    public function reservationEnvoyee($montant, $code, $user_id)
+    public function donneeEnvoyee($entity, $montant, $code, $user_id)
     {
         if ($code == '0') {
             $reservation = reservation::where('order_number', Session::get('order_number'))->first();
@@ -228,6 +247,7 @@ class HomeController extends Controller
             return view('transaction_message', [
                 'status_code' => $code,
                 'message_content' => __('general.transaction_done'),
+                'entity' => $entity
             ]);
         }
 
@@ -244,6 +264,7 @@ class HomeController extends Controller
             return view('transaction_message', [
                 'status_code' => $code,
                 'message_content' => __('general.transaction_canceled'),
+                'entity' => $entity
             ]);
         }
 
@@ -260,6 +281,7 @@ class HomeController extends Controller
             return view('transaction_message', [
                 'status_code' => $code,
                 'message_content' => __('general.transaction_failed'),
+                'entity' => $entity
             ]);
         }
     }
@@ -268,9 +290,10 @@ class HomeController extends Controller
      * POST: Register achat
      *
      * @param \Illuminate\Http\Request  $request
+     * @param  $entity
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function acheter(Request $request)
+    public function acheter(Request $request, $entity)
     {
         $flexpay_gateway = 'https://backend.flexpay.cd/api/rest/v1/paymentService';
 
@@ -299,7 +322,7 @@ class HomeController extends Controller
                         'reference' => $reference_code,
                         'amount' => explode(' ', $request->register_prix)[0],
                         'currency' => explode(' ', $request->register_prix)[1],
-                        'callbackUrl' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/achat/store'
+                        'callbackUrl' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/achat/store' : '/plat_user/store')
                     ),
                     'verify'  => false
                 ]);
@@ -312,21 +335,42 @@ class HomeController extends Controller
                     return Redirect::back()->with('error_message', __('general.transaction_failed'));
 
                 } else {
-                    // reservation::create([
-                    //     'date' => $request->register_dateReservation . ' ' . explode('h', $request->register_heureReservation)[0] . ':' . explode('h', $request->register_heureReservation)[1] . ':00',
-                    //     'reference' => $reference_code,
-                    //     'order_number' => $jsonRes->orderNumber,
-                    //     'nombre' => $request->register_nombre,
-                    //     'montant' => explode(' ', $request->register_prix)[0],
-                    //     'monaie' => explode(' ', $request->register_prix)[1],
-                    //     'statut_id' => 1,
-                    //     'user_id' => Auth::user()->id,
-                    // ]);
+                    if ($entity == 'achat') {
+                        achat::create([
+                            'user_id' => Auth::user()->id,
+                            'sommelerie_id' => $request->boisson_id,
+                            'reference' => $reference_code,
+                            'order_number' => $jsonRes->orderNumber,
+                            'montant' => explode(' ', $request->register_prix)[0],
+                            'monaie' => explode(' ', $request->register_prix)[1],
+                            'statut_id' => 1,
+                            'customer_served' => $request->customer_served
+                        ]);
 
-                    return Redirect::route('transaction.en_attente', [
-                        'success_message' => $jsonRes->orderNumber . '-' . Auth::user()->id,
-                    ]);
+                        return Redirect::route('transaction.en_attente', [
+                            'success_message' => $jsonRes->orderNumber . '-' . Auth::user()->id . '-achat',
+                        ]);
+                    }
+
+                    if ($entity == 'plat_user') {
+                        plaUser::create([
+                            'user_id' => Auth::user()->id,
+                            'plat_id' => $request->plat_id,
+                            'reference' => $reference_code,
+                            'order_number' => $jsonRes->orderNumber,
+                            'montant' => explode(' ', $request->register_prix)[0],
+                            'monaie' => explode(' ', $request->register_prix)[1],
+                            'statut_id' => 1,
+                            'customer_served' => $request->customer_served,
+                            'take_away' => $request->take_away
+                        ]);
+
+                        return Redirect::route('transaction.en_attente', [
+                            'success_message' => $jsonRes->orderNumber . '-' . Auth::user()->id . '-plat_user',
+                        ]);
+                    }
                 }
+
             } catch (ClientException $e) {
                 return view('transaction_message', [
                     'response_error' => json_decode($e->getResponse()->getBody()->getContents(), false),
@@ -335,7 +379,13 @@ class HomeController extends Controller
         }
 
         if ($request->transaction_type_id == 2) {
-            return Redirect::to('/kicoucou/reservation/' . explode(' ', $request->register_prix)[0] . '/' . explode(' ', $request->register_prix)[1] . '/' . Auth::user()->id);
+            if ($entity == 'achat') {
+                return Redirect::to('/kicoucou/achat/' . explode(' ', $request->register_prix)[0] . '/' . explode(' ', $request->register_prix)[1] . '/' . Auth::user()->id);
+            }
+
+            if ($entity == 'plat_user') {
+                return Redirect::to('/kicoucou/plat_user/' . explode(' ', $request->register_prix)[0] . '/' . explode(' ', $request->register_prix)[1] . '/' . Auth::user()->id);
+            }
         }
     }
 
@@ -402,6 +452,7 @@ class HomeController extends Controller
                         'success_message' => $jsonRes->orderNumber . '-' . Auth::user()->id . '-reservation',
                     ]);
                 }
+
             } catch (ClientException $e) {
                 return view('transaction_message', [
                     'response_error' => json_decode($e->getResponse()->getBody()->getContents(), false),
@@ -440,10 +491,10 @@ class HomeController extends Controller
                     'amount' => $montant,
                     'currency' => $monnaie,
                     'description' => __('general.bank_transaction_description'),
-                    'callback_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/achat/store' : '/reservation/store'),
-                    'approve_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/0/' . $user_id,
-                    'cancel_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/1/' . $user_id,
-                    'decline_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'achat' ? '/kicoucou/achat_envoyee/' : '/kicoucou/reservation_envoyee/') . $montant . '/2/' . $user_id,
+                    'callback_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . ($entity == 'reservation' ? '/reservation/store' : ($entity ==  'achat' ? '/achat/store' : '/plat_user/store')),
+                    'approve_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/kicoucou/paiement_termine/' . $entity . '/' . $montant . '/0/' . $user_id,
+                    'cancel_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/kicoucou/paiement_termine/' . $entity . '/' . $montant . '/1/' . $user_id,
+                    'decline_url' => (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/kicoucou/paiement_termine/' . $entity . '/' . $montant . '/2/' . $user_id,
                 ),
                 'verify'  => false
             ]);
@@ -458,6 +509,22 @@ class HomeController extends Controller
 
                 if ($register) {
                     return redirect($achat->url)->with('order_number', $achat->orderNumber);
+
+                } else {
+                    return redirect('/kicoucou')->with('error_message', __('general.error_while_processing'));
+                }
+            }
+
+            if ($entity == 'plat_user') {
+                $plat_user = json_decode($response->getBody(), false);
+                $register = plaUser::create([
+                    'montant' => $montant,
+                    'order_number' => $plat_user->orderNumber,
+                    'user_id' => $user_id
+                ]);
+
+                if ($register) {
+                    return redirect($plat_user->url)->with('order_number', $plat_user->orderNumber);
 
                 } else {
                     return redirect('/kicoucou')->with('error_message', __('general.error_while_processing'));

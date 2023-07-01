@@ -10,8 +10,9 @@
             <div class="col-lg-6">
                 <p>@lang('general.transaction_waiting')</p>
                 <p>
-                    <a href="{{ route('transaction.message', ['entity' => explode('-', request()->success_message)[2], 'orderNumber' => explode('-', request()->success_message)[0], 'userId' => explode('-', request()->success_message)[1]]) }}"
-                        class="btn btn-primary rounded-pill py-3 px-5">OK</a>
+                    <a href="{{ route('transaction.message', ['entity' => explode('-', request()->success_message)[2], 'orderNumber' => explode('-', request()->success_message)[0], 'userId' => explode('-', request()->success_message)[1]]) }}" class="btn btn-primary rounded-pill py-3 px-5">
+                        OK
+                    </a>
                 </p>
             </div>
         </div>
@@ -61,9 +62,15 @@
                 </div>
                 @endif
 
-                <a href="{{ route('kicoucou') }}" class="btn d-lg-inline-block d-none bg-warning btn-color rounded-pill py-3 px-5 shadow-0">
-                    {{ __('general.back_home') }}
+                @if ($entity == 'reservation')
+                <a href="{{ route('account.entity', ['entity' => 'reservation']) }}" class="btn d-lg-inline-block d-none bg-warning btn-color rounded-pill py-3 px-5 shadow-0">
+                    {{ __('general.back_list') }}
                 </a>
+                @else
+                <a href="{{ route('account.entity', ['entity' => 'order']) }}" class="btn d-lg-inline-block d-none bg-warning btn-color rounded-pill py-3 px-5 shadow-0">
+                    {{ __('general.back_list') }}
+                </a>
+                @endif
             </div>
         </div>
         @endif

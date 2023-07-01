@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\achat;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreachatRequest;
 use App\Http\Requests\UpdateachatRequest;
 
 class AchatController extends Controller
@@ -47,6 +46,7 @@ class AchatController extends Controller
                 'phone' => $request->phone,
                 'channel' => $request->channel,
                 'statut_id' => $request->code,
+                'customer_served' => $request->customer_served,
                 'updated_at' => now()
             ]);
 
@@ -65,6 +65,7 @@ class AchatController extends Controller
                 'phone' => $request->phone,
                 'channel' => $request->channel,
                 'statut_id' => $request->code,
+                'customer_served' => $request->customer_served,
             ]);
 
             return $achat;
@@ -98,12 +99,25 @@ class AchatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(achat $achat)
+    public function destroy($id)
     {
-        $achat->delete();
-
+        $achat = achat::find($id);
         $achats = achat::all();
 
-        return $achats;
+        if (is_null($achat)) {
+            return [
+                'success' => false,
+                'message' => 'Achat non trouvé',
+                'data' => $achats
+            ];
+        }
+
+        $achat->delete();
+
+        return [
+            'success' => true,
+            'message' => 'Donnée supprimée',
+            'data' => $achats
+        ];
     }
 }
