@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-5" style="z-index: 999;">
-                    <div class="card h-auto">
+                    <div class="card w-100 h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Boissons</h2>
 
@@ -63,8 +63,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 mb-5" style="z-index: 999;">
-                    <div class="card h-auto">
+                <div class="col-lg-6 mb-5" style="z-index: 998;">
+                    <div class="card w-100 h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Plats</h2>
 
@@ -98,29 +98,42 @@
                 </div>
 
                 <div class="col-12">
-                    <div class="card h-auto">
-                        <div class="table-responsive p-4 bg-white border border-default rounded-3">
-                            <h2 class="mb-4 text-md-start text-center">Commandes</h2>
+                    <div class="card w-100 h-auto">
+                        <div class="p-4 bg-white border border-default rounded-3">
+                            <h2 class="mb-4 text-md-start text-center">Commandes des clients</h2>
 
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="fw-bold">Nom du plat</th>
-                                        <th class="fw-bold">Quantité</th>
-                                        <th class="fw-bold"></th>
-                                    </tr>
-                                </thead>
+                            <div class="table-responsive">
+                                <table id="dataList" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="fw-bold">Référence</th>
+                                            <th class="fw-bold">Client</th>
+                                            <th class="fw-bold">Nom du plat</th>
+                                            <th class="fw-bold">Quantité</th>
+                                            <th class="fw-bold"></th>
+                                        </tr>
+                                    </thead>
+    
+                                    <tbody id="updateCustomerStatus">
+                                        <tr>
+                                            <td>REF-2393832-34</td>
+                                            <td>Carlos Bianda</td>
+                                            <td>Salade Tanganyika</td>
+                                            <td>3</td>
+                                            <td>
+                                                <div id="status_user-USER-ID" class="form-check form-switch" aria-current="STATUS" onchange="changeStatus('status_user-USER-ID')">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="USER-ID" checked />
+                                                    <label role="button" class="ms-2 form-check-label" for="USER-ID">Servi</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                                <tbody id="updateMemberStatus">
-                                    <tr>
-                                        <td>Madesu + soso</td>
-                                        <td>3</td>
-                                        <td class="text-end">
-                                            <a href="#" class="btn px-3 py-2">Ravitailler</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <p class="m-0 pt-4 pb-0 text-center">
+                                <a href="{{ route('dashboard.entity', ['entity' => 'orders']) }}" class="btn-link">Voir toutes les commandes</a>
+                            </p>
                         </div>
                     </div>
                 </div>
