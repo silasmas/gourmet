@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\achat as ResourcesAchat;
+use App\Http\Resources\platUser;
 use App\Models\achat;
 use App\Models\plaUser;
 use App\Models\reservation;
@@ -29,7 +31,7 @@ class ProfileController extends Controller
         $reservations = reservation::where('user_id', Auth::user()->id)->get();
         $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
         $order_boissons = achat::where('user_id', Auth::user()->id)->get();
-        $count_reservations = $reservations->count();
+        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>', now()]])->get()->count();
         $count_order_plats = $order_plats->count();
         $count_order_boissons = $order_boissons->count();
 
@@ -49,10 +51,12 @@ class ProfileController extends Controller
     {
         $reservations = reservation::where('user_id', Auth::user()->id)->get();
         $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
+        $order_plat_collection = platUser::collection($order_plats);
         $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+        $order_boisson_collection = ResourcesAchat::collection($order_boissons);
         $orders = collect();
-        $orders = $order_plats->merge($order_boissons);
-        $count_reservations = $reservations->count();
+        $orders = $order_plat_collection->merge($order_boisson_collection);
+        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>', now()]])->get()->count();
         $count_orders = $orders->count();
 
         if ($entity == 'reservation') {
@@ -83,10 +87,12 @@ class ProfileController extends Controller
     {
         $reservations = reservation::where('user_id', Auth::user()->id)->get();
         $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
+        $order_plat_collection = platUser::collection($order_plats);
         $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+        $order_boisson_collection = ResourcesAchat::collection($order_boissons);
         $orders = collect();
-        $orders = $order_plats->merge($order_boissons);
-        $count_reservations = $reservations->count();
+        $orders = $order_plat_collection->merge($order_boisson_collection);
+        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>', now()]])->get()->count();
         $count_orders = $orders->count();
 
         if ($entity == 'reservation') {

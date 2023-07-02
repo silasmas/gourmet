@@ -28,8 +28,10 @@
                 <thead class="border-bottom border-default">
 @if (count($orders) > 0)
                     <tr>
-                        <th class="bdwT-0 fw-bold">Date/heure réservée</th>
-                        <th class="bdwT-0 fw-bold">Nombre de personnes</th>
+                        <th class="bdwT-0 fw-bold">Nom</th>
+                        <th class="bdwT-0 fw-bold">Quantite</th>
+                        <th class="bdwT-0 fw-bold">Prix unitaire</th>
+                        <th class="bdwT-0 fw-bold">Prix total</th>
                         <th class="bdwT-0 fw-bold">Client Servi</th>
                         <th class="bdwT-0 fw-bold"></th>
                     </tr>
@@ -39,11 +41,11 @@
                 <tbody>
 @forelse ($orders as $order)
                     <tr>
+                        <td>{{ $order->entity->nom }}</td>
+                        <td>{{ $order->quantite }}</td>
+                        <td>{{ $order->entity->prix . ' ' . $order->entity->monaie }}</td>
+                        <td>{{ $order->montant . ' ' . $order->monaie }}</td>
                         <td>
-                            {{ \Carbon\Carbon::parse($order->date)->translatedFormat('D d M Y à H\Hi\'') }}
-                        </td>
-                        <td>{{ $order->nombre }}</td>
-                        <td>order
                             <i class="bi bi-{{ $order->customer_served == 1 ? 'check-circle' : 'x-circle' }} fs-4 text-{{ $order->customer_served == 1 ? 'success' : 'danger' }}"></i>
                         </td>
                         <td class="text-end">

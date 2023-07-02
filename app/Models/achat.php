@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use App\Models\statut;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -18,13 +16,13 @@ class achat extends Model
         return $this->belongsTo(statut::class);
     }
 
-    public function users()
+    public function user()
     {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function sommeleries()
+    public function entity()
     {
-        return $this->hasMany(User::class, 'sommelerie_id');
+        return $this->belongsTo(sommelerie::class);
     }
 }

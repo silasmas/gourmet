@@ -9,7 +9,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @author Xanders
  * @see https://www.linkedin.com/in/xanders-samoth-b2770737/
  */
-class platUser extends JsonResource
+class achat extends JsonResource
 {
     /**
      * Transform the resource into an array.
