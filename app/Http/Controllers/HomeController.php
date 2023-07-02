@@ -2,22 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\home;
 use App\Models\achat;
 use GuzzleHttp\Client;
 use App\Models\reservation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StorehomeRequest;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\UpdatehomeRequest;
 use App\Http\Resources\categorie as ResourcesCategorie;
-use App\Http\Resources\sommelerie as ResourcesSommelerie;
 use App\Models\categorie;
-use App\Models\plat;
 use App\Models\plaUser;
-use App\Models\sommelerie;
 use App\Models\statut;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\ClientException;
