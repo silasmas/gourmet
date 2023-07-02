@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="mb-4 text-md-start text-center">Mes réservations</h3>
+                    <h3 class="mb-4 text-md-start text-center"></h3>
 
                 </div>
             </div>
