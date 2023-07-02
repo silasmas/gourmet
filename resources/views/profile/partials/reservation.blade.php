@@ -26,11 +26,14 @@
         <div class="table-responsive p-4 pb-2">
             <table ids="dataList" class="table">
                 <thead class="border-bottom border-default">
+@if (count($reservations) > 0)
                     <tr>
                         <th class="bdwT-0 fw-bold">Date/heure réservée</th>
                         <th class="bdwT-0 fw-bold">Nombre de personnes</th>
+                        <th class="bdwT-0 fw-bold">Client Servi</th>
                         <th class="bdwT-0 fw-bold"></th>
                     </tr>
+@endif
                 </thead>
 
                 <tbody>
@@ -41,10 +44,16 @@
                         </td>
                         <td>{{ $reservation->nombre }}</td>
                         <td>
-                            <a role="button" class="btn bg-transparent p-0 fs-4 text-danger" title="Supprimer" data-bs-toggle="tooltip" onclick="event.preventDefault(); deleteData({{ $reservation->id }}, '../reservation');"><i class="bi bi-trash"></i></a><br>
+                            <i class="bi bi-{{ $reservation->customer_served == 1 ? 'check-circle' : 'x-circle' }} fs-4 text-{{ $reservation->customer_served == 1 ? 'success' : 'danger' }}"></i>
+                        </td>
+                        <td class="text-end">
+                            <a role="button" class="btn bg-transparent p-0 fs-4 text-dark" title="Supprimer" data-bs-toggle="tooltip" onclick="event.preventDefault(); deleteData({{ $reservation->id }}, '../reservation');"><i class="bi bi-trash"></i></a><br>
                         </td>
                     </tr>
 @empty
+                    <tr>
+                        <td colspan="4" class="text-muted fs-5"><i class="bi bi-info-circle me-2 align-middle fs-4"></i>Il n'y aucune réservation</td>
+                    </tr>
 @endforelse
                 </tbody>
             </table>
