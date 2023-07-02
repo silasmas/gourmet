@@ -28,10 +28,10 @@ class ProfileController extends Controller
      */
     public function index(): View
     {
-        $reservations = reservation::where('user_id', Auth::user()->id)->get();
+        $reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>=', now()]])->get();
         $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
         $order_boissons = achat::where('user_id', Auth::user()->id)->get();
-        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>', now()]])->get()->count();
+        $count_reservations = $reservations->count();
         $count_order_plats = $order_plats->count();
         $count_order_boissons = $order_boissons->count();
 
@@ -56,7 +56,7 @@ class ProfileController extends Controller
         $order_boisson_collection = ResourcesAchat::collection($order_boissons);
         $orders = collect();
         $orders = $order_plat_collection->merge($order_boisson_collection);
-        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>', now()]])->get()->count();
+        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>=', now()]])->get()->count();
         $count_orders = $orders->count();
 
         if ($entity == 'reservation') {
@@ -92,7 +92,7 @@ class ProfileController extends Controller
         $order_boisson_collection = ResourcesAchat::collection($order_boissons);
         $orders = collect();
         $orders = $order_plat_collection->merge($order_boisson_collection);
-        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>', now()]])->get()->count();
+        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>=', now()]])->get()->count();
         $count_orders = $orders->count();
 
         if ($entity == 'reservation') {
