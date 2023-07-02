@@ -84,7 +84,7 @@ class HomeController extends Controller
             $categories_collection = categorie::all();
             $categories = ResourcesCategorie::collection($categories_collection);
 
-            return view('dashboard', []);
+            return view('dashboard.home', []);
         }
     }
 
@@ -94,7 +94,7 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            return view('dashboard', []);
+            return view('dashboard.home', []);
         }
     }
 
@@ -104,7 +104,7 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            return view('dashboard', []);
+            return view('dashboard.home', []);
         }
     }
 
