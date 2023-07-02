@@ -9,11 +9,6 @@
                     <h1>Bienvenue</h1>
                     <h2>Les boissons <br> servies au frais</h2>
                     <p>Nous vous proposons un accord vins et mets et le négoce de différents types de breuvages importés et des boissons locales.</p>
-    {{-- @if (!empty(Auth::user()))
-                        <a href="#buy-drink" class="btn" data-bs-toggle="modal" data-bs-target="#modal-acheter">Acheter</a>
-    @else
-                        <a href="{{ route('login') }}" class="btn">Acheter</a>
-    @endif --}}
                 </div>
             </div>
         </div>

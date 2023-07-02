@@ -5,8 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-7 mx-auto text-center">
-                    <h3 class="fw-bold text-uppercase">Tableau de bord</h3>
-                    <h4 class="m-0">Gestion des plats, <span class="text-warning">des boissons et d'autres</span> données importantes</h4>
+                    <h3 class="fw-bold text-uppercase">Plat</h3>
                 </div>
             </div>
         </div>
@@ -37,18 +36,14 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
-    @if (count($boissons) > 0)
                                         <tr>
                                             <th class="fw-bold">Nom de la boisson</th>
                                             <th class="fw-bold">Quantité</th>
                                             <th class="fw-bold"></th>
                                         </tr>
-    @endif
                                     </thead>
-
+    
                                     <tbody id="updateMemberStatus">
-    @forelse ($categories as $categorie)
-        @forelse ($categorie->sommeleries as $boisson)
                                         <tr>
                                             <td>Scotch whisky</td>
                                             <td>3</td>
@@ -56,18 +51,6 @@
                                                 <a href="#" class="btn px-3 py-2">Ravitailler</a>
                                             </td>
                                         </tr>
-        @empty
-                                        <tr>
-                                            <td colspan="3" class="text-muted fs-5"><i class="bi bi-info-circle me-2 align-middle fs-4"></i>La liste est encore vide</td>
-                                        </tr>
-        @endforelse
-    @empty
-                                        <tr>
-                                            <td colspan="3" class="text-muted fs-5">
-                                                <i class="bi bi-info-circle me-2 align-middle fs-4"></i>Aucune catégorie <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="btn py-2">Ajouter</a>
-                                            </td>
-                                        </tr>        
-    @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -116,10 +99,10 @@
                 <div class="col-12">
                     <div class="card w-100 h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
-                            <h2 class="mb-4 text-md-start text-center">Commandes récentes</h2>
+                            <h2 class="mb-4 text-md-start text-center">Commandes des clients</h2>
 
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="dataList" class="table">
                                     <thead>
                                         <tr>
                                             <th class="fw-bold">Client</th>

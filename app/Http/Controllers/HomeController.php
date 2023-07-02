@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\achat as ResourcesAchat;
 use App\Models\achat;
 use GuzzleHttp\Client;
 use App\Models\reservation;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Resources\categorie as ResourcesCategorie;
+use App\Http\Resources\platUser;
 use App\Models\categorie;
 use App\Models\plaUser;
 use App\Models\statut;
@@ -76,8 +78,17 @@ class HomeController extends Controller
         } else {
             $categories_collection = categorie::all();
             $categories = ResourcesCategorie::collection($categories_collection);
+            $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
+            $order_plat_collection = platUser::collection($order_plats);
+            $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+            $order_boisson_collection = ResourcesAchat::collection($order_boissons);
+            $orders = collect();
+            $orders = $order_plat_collection->merge($order_boisson_collection);
 
-            return view('dashboard.home', []);
+            return view('dashboard.home', [
+                'categories' => $categories,
+                'orders' => $orders,
+            ]);
         }
     }
 
