@@ -93,7 +93,7 @@ class HomeController extends Controller
                 'categories' => $categories,
                 'boissons' => $boissons_collection,
                 'plats' => $plats_collection,
-                'orders' => $orders,
+                'orders' => $orders
             ]);
         }
     }
@@ -104,39 +104,62 @@ class HomeController extends Controller
             abort(403);
 
         } else {
+            $categories_collection = categorie::all();
+            $categories = ResourcesCategorie::collection($categories_collection);
+            $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
+            $order_plat_collection = platUser::collection($order_plats);
+            $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+            $order_boisson_collection = ResourcesAchat::collection($order_boissons);
+            $orders = collect();
+            $orders = $order_plat_collection->merge($order_boisson_collection);
+
             if ($entity == 'categorie') {
                 return view('dashboard.entity', [
-                    'entity' => $entity
+                    'entity' => $entity,
+                    'categories' => $categories
                 ]);
             }
 
             if ($entity == 'plat') {
                 return view('dashboard.entity', [
-                    'entity' => $entity
+                    'entity' => $entity,
+                    'categories' => $categories
                 ]);
             }
 
             if ($entity == 'boisson') {
                 return view('dashboard.entity', [
-                    'entity' => $entity
+                    'entity' => $entity,
+                    'categories' => $categories
                 ]);
             }
 
             if ($entity == 'orders') {
                 return view('dashboard.entity', [
-                    'entity' => $entity
+                    'entity' => $entity,
+                    'orders' => $orders
                 ]);
             }
         }
     }
 
-    public function registerDashboardEntity($entity)
+    public function registerDashboardEntity(Request $request, $entity)
     {
-        if (Auth::user()->is_admin == 0) {
-            abort(403);
+        if ($entity == 'categorie') {
+            categorie::create([
+                'nom' => $request->register_nom,
+                'description' => $request->register_description
+            ]);
 
-        } else {
-            return view('dashboard.entity', []);
+            return Redirect::back()->with('success_message', 'Catégorie enregistrée');
+        }
+
+        if ($entity == 'plat') {
+            return Redirect::back()->with('success_message', 'Plat enregistré');
+        }
+
+        if ($entity == 'boisson') {
+            return Redirect::back()->with('success_message', 'Boisson enregistrée');
         }
     }
 
