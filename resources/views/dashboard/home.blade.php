@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-7 mx-auto text-center">
                     <h3 class="fw-bold text-uppercase">Tableau de bord</h3>
-                    <h4 class="m-0">Gestion des plats, <span class="text-warning">des boissons et d'autres</span> données importantes</h4>
+                    <h4 class="m-0">Gestion des catégories, <span class="text-warning">des plats et des boissons</span></h4>
                 </div>
             </div>
         </div>
