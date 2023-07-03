@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-5" style="z-index: 999;">
-                    <div class="card w-100 h-auto">
+                    <div class="card h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Boissons</h2>
 
@@ -46,14 +46,14 @@
     @endif
                                     </thead>
 
-                                    <tbody id="updateMemberStatus">
+                                    <tbody>
     @forelse ($categories as $categorie)
         @forelse ($categorie->sommeleries as $boisson)
                                         <tr>
-                                            <td>Scotch whisky</td>
-                                            <td>3</td>
+                                            <td>{{ $boisson->nom }}</td>
+                                            <td>{{ $boisson->quantite }}</td>
                                             <td class="text-end">
-                                                <a href="#" class="btn px-3 py-2">Ravitailler</a>
+                                                <a href="#" class="btn px-3 py-1">Ravitailler</a>
                                             </td>
                                         </tr>
         @empty
@@ -63,8 +63,8 @@
         @endforelse
     @empty
                                         <tr>
-                                            <td colspan="3" class="text-muted fs-5">
-                                                <i class="bi bi-info-circle me-2 align-middle fs-4"></i>Aucune catégorie <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="btn py-2">Ajouter</a>
+                                            <td colspan="3" class="text-muted">
+                                                <i class="bi bi-info-circle me-2 fs-5"></i>il n'y a pas encore de catégorie <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="btn mt-1 py-1 float-end">Ajouter</a>
                                             </td>
                                         </tr>        
     @endforelse
@@ -80,28 +80,44 @@
                 </div>
 
                 <div class="col-lg-6 mb-5" style="z-index: 998;">
-                    <div class="card w-100 h-auto">
+                    <div class="card h-auto float-end">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Plats</h2>
 
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
+    @if (count($plats) > 0)
                                         <tr>
                                             <th class="fw-bold">Nom du plat</th>
                                             <th class="fw-bold">Quantité</th>
                                             <th class="fw-bold"></th>
                                         </tr>
+    @endif
                                     </thead>
     
-                                    <tbody id="updateMemberStatus">
+                                    <tbody>
+    @forelse ($categories as $categorie)
+        @forelse ($categorie->plats as $plat)
                                         <tr>
-                                            <td>Gambas grillées aux fines herbes</td>
-                                            <td>10</td>
+                                            <td>{{ $plat->nom }}</td>
+                                            <td>{{ $plat->quantite }}</td>
                                             <td class="text-end">
-                                                <a href="#" class="btn px-3 py-2">Ravitailler</a>
+                                                <a href="#" class="btn px-3 py-1">Ravitailler</a>
                                             </td>
                                         </tr>
+        @empty
+                                        <tr>
+                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-4"></i>La liste est encore vide</td>
+                                        </tr>
+        @endforelse
+    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-muted">
+                                                <i class="bi bi-info-circle me-2 fs-5"></i>il n'y a pas encore de catégorie <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="btn mt-1 py-1 float-end">Ajouter</a>
+                                            </td>
+                                        </tr>        
+    @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -121,31 +137,39 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
+    @if (count($orders) > 0)
                                         <tr>
                                             <th class="fw-bold">Client</th>
-                                            <th class="fw-bold">Nom du plat</th>
+                                            <th class="fw-bold">Nom de la commande</th>
                                             <th class="fw-bold">Quantité</th>
                                             <th class="fw-bold">À emporter</th>
                                             <th class="fw-bold"></th>
                                         </tr>
+    @endif
                                     </thead>
     
                                     <tbody id="updateCustomerStatus">
+    @forelse ($orders as $order)
                                         <tr>
                                             <td>
-                                                <img src="{{ asset('assets/img/placeholder.png') }}" alt="" class="rounded-circle me-2" style="width: 34px!important">
-                                                Carlos Bianda
+                                                <img src="{{ $order->user->avatar_url != null ? $order->user->avatar_url : asset('assets/img/placeholder.png') }}" alt="" class="rounded-circle me-2" style="width: 34px!important">
+                                                {{ $order->user->prenom . ' ' . $order->user->name }}
                                             </td>
-                                            <td>Salade Tanganyika</td>
-                                            <td>3</td>
-                                            <td>Oui</td>
+                                            <td>{{ $order->entity->nom }}</td>
+                                            <td>{{ $order->entity->quantite }}</td>
+                                            <td>{{ $order->entity->take_away }}</td>
                                             <td>
-                                                <div id="status_user-USER-ID" class="form-check form-switch" aria-current="STATUS" onchange="changeStatus('status_user-USER-ID')">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="USER-ID" checked />
-                                                    <label role="button" class="ms-2 form-check-label" for="USER-ID">Servi</label>
+                                                <div id="status_user-{{ $order->user->id }}" class="form-check form-switch" aria-current="{{ $order->entity->customer_served }}" onchange="changeStatus({{ $order->entity->customer_served }});">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="{{ $order->user->id }}" {{ $order->entity->customer_served == 1 ? 'checked' : '' }} />
+                                                    <label role="button" class="ms-2 form-check-label" for="{{ $order->user->id }}">Servi</label>
                                                 </div>
                                             </td>
                                         </tr>
+    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
+                                        </tr>
+    @endforelse
                                     </tbody>
                                 </table>
                             </div>

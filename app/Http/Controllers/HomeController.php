@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Resources\categorie as ResourcesCategorie;
 use App\Http\Resources\platUser;
 use App\Models\categorie;
+use App\Models\plat;
 use App\Models\plaUser;
+use App\Models\sommelerie;
 use App\Models\statut;
 use Illuminate\Support\Facades\Redirect;
 use GuzzleHttp\Exception\ClientException;
@@ -76,6 +78,8 @@ class HomeController extends Controller
             abort(403);
 
         } else {
+            $boissons_collection = sommelerie::all();
+            $plats_collection = plat::all();
             $categories_collection = categorie::all();
             $categories = ResourcesCategorie::collection($categories_collection);
             $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
@@ -87,6 +91,8 @@ class HomeController extends Controller
 
             return view('dashboard.home', [
                 'categories' => $categories,
+                'boissons' => $boissons_collection,
+                'plats' => $plats_collection,
                 'orders' => $orders,
             ]);
         }
