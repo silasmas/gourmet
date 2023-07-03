@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0">
-                          <li class="breadcrumb-item active" aria-current="page">Accueil</li>
+                            <li class="breadcrumb-item active" aria-current="page">Accueil</li>
                         </ol>
                     </nav>
                 </div>

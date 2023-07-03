@@ -104,7 +104,29 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            return view('dashboard.home', []);
+            if ($entity == 'categorie') {
+                return view('dashboard.entity', [
+                    'entity' => $entity
+                ]);
+            }
+
+            if ($entity == 'plat') {
+                return view('dashboard.entity', [
+                    'entity' => $entity
+                ]);
+            }
+
+            if ($entity == 'boisson') {
+                return view('dashboard.entity', [
+                    'entity' => $entity
+                ]);
+            }
+
+            if ($entity == 'orders') {
+                return view('dashboard.entity', [
+                    'entity' => $entity
+                ]);
+            }
         }
     }
 
@@ -114,7 +136,7 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            return view('dashboard.home', []);
+            return view('dashboard.entity', []);
         }
     }
 
