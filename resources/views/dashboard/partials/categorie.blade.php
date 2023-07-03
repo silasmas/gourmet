@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-7 mx-auto text-center">
-                    <h3 class="fw-bold text-uppercase">Boissons</h3>
-                    <h4 class="m-0">Gestion de <span class="text-warning">boissons</span></h4>
+                    <h3 class="fw-bold text-uppercase">Catégorie</h3>
+                    <h4 class="m-0">Gestion de catégories <span class="text-warning">des boissons et des plats</span></h4>
                 </div>
             </div>
         </div>
