@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AchatController;
+use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlatController;
 use App\Http\Controllers\PlaUserController;
@@ -39,6 +40,8 @@ Route::get('/transaction_en_attente', [HomeController::class, 'transactionEnAtte
 Route::get('/transaction_message/{entity}/{orderNumber}/{userId}', [HomeController::class, 'transactionMessage'])->whereNumber('userId')->name('transaction.message');
 
 // Méthode pour contrôler les modèles
+Route::post('/catogorie/store', [CategorieController::class, 'store'])->name('catogorie.store');
+Route::delete('/catogorie/{id}', [CategorieController::class, 'destroy'])->whereNumber('id')->name('catogorie.destroy');
 Route::post('/sommelerie/store', [SommelerieController::class, 'store'])->name('sommelerie.store');
 Route::delete('/sommelerie/{id}', [SommelerieController::class, 'destroy'])->whereNumber('id')->name('sommelerie.destroy');
 Route::post('/plat/store', [PlatController::class, 'store'])->name('plat.store');

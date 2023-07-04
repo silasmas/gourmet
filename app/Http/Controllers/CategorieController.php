@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\categorie as ResourcesCategorie;
 use App\Models\categorie;
-use App\Http\Requests\StorecategorieRequest;
-use App\Http\Requests\UpdatecategorieRequest;
+use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
@@ -27,9 +27,16 @@ class CategorieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecategorieRequest $request)
+    public function store(Request $request)
     {
-        //
+        $inputs = [
+            'nom' => $request->register_nom,
+            'description' => $request->register_description
+        ];
+
+        $categorie = categorie::create($inputs);
+
+        return new ResourcesCategorie($categorie);
     }
 
     /**
@@ -51,7 +58,7 @@ class CategorieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecategorieRequest $request, categorie $categorie)
+    public function update(Request $request, categorie $categorie)
     {
         //
     }
@@ -59,8 +66,25 @@ class CategorieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(categorie $categorie)
+    public function destroy($id)
     {
-        //
+        $categorie = categorie::find($id);
+        $categories = categorie::all();
+
+        if (is_null($categorie)) {
+            return [
+                'success' => false,
+                'message' => 'Catégorie non trouvée',
+                'data' => ResourcesCategorie::collection($categories)
+            ];
+        }
+
+        $categorie->delete();
+
+        return [
+            'success' => true,
+            'message' => 'Donnée supprimée',
+            'data' => ResourcesCategorie::collection($categories)
+        ];
     }
 }
