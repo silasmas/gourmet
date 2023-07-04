@@ -58,7 +58,7 @@
                                         </tr>
         @empty
                                         <tr>
-                                            <td colspan="3" class="text-muted fs-5"><i class="bi bi-info-circle me-2 align-middle fs-4"></i>La liste est encore vide</td>
+                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
                                         </tr>
         @endforelse
     @empty
