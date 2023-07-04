@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\reservation;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdatereservationRequest;
+use App\Http\Resources\reservation as ResourcesReservation;
 
 class ReservationController extends Controller
 {
@@ -51,7 +51,7 @@ class ReservationController extends Controller
                 'updated_at' => now()
             ]);
 
-            return $reservation;
+            return new ResourcesReservation($reservation);
 
         // Otherwise, create new reservation
         } else {
@@ -70,7 +70,7 @@ class ReservationController extends Controller
                 'customer_served' => $request->customer_served,
             ]);
 
-            return $reservation;
+            return new ResourcesReservation($reservation);
         }
     }
 
@@ -93,7 +93,7 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatereservationRequest $request, reservation $reservation)
+    public function update(Request $request, reservation $reservation)
     {
         //
     }
@@ -110,7 +110,7 @@ class ReservationController extends Controller
             return [
                 'success' => false,
                 'message' => 'Réservation non trouvée',
-                'data' => $reservations
+                'data' => ResourcesReservation::collection($reservations)
             ];
         }
 
@@ -119,7 +119,7 @@ class ReservationController extends Controller
         return [
             'success' => true,
             'message' => 'Donnée supprimée',
-            'data' => $reservations
+            'data' => ResourcesReservation::collection($reservations)
         ];
     }
 }

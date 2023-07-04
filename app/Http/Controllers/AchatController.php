@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\achat;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateachatRequest;
+use App\Http\Resources\achat as ResourcesAchat;
 
 class AchatController extends Controller
 {
@@ -50,7 +50,7 @@ class AchatController extends Controller
                 'updated_at' => now()
             ]);
 
-            return $achat;
+            return new ResourcesAchat($achat);
 
         // Otherwise, create new achat
         } else {
@@ -68,7 +68,7 @@ class AchatController extends Controller
                 'customer_served' => $request->customer_served,
             ]);
 
-            return $achat;
+            return new ResourcesAchat($achat);
         }
     }
 
@@ -91,7 +91,7 @@ class AchatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateachatRequest $request, achat $achat)
+    public function update(Request $request, achat $achat)
     {
         //
     }
@@ -108,7 +108,7 @@ class AchatController extends Controller
             return [
                 'success' => false,
                 'message' => 'Achat non trouvé',
-                'data' => $achats
+                'data' => ResourcesAchat::collection($achats)
             ];
         }
 
@@ -117,7 +117,7 @@ class AchatController extends Controller
         return [
             'success' => true,
             'message' => 'Donnée supprimée',
-            'data' => $achats
+            'data' => ResourcesAchat::collection($achats)
         ];
     }
 }

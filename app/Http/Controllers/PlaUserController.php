@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\platUser;
 use App\Models\plaUser;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class PlaUserController extends Controller
 {
@@ -51,7 +51,7 @@ class PlaUserController extends Controller
                 'updated_at' => now()
             ]);
 
-            return $plat_user;
+            return new platUser($plat_user);
 
         // Otherwise, create new plat_user
         } else {
@@ -70,7 +70,7 @@ class PlaUserController extends Controller
                 'take_away' => $request->take_away,
             ]);
 
-            return $plat_user;
+            return new platUser($plat_user);
         }
     }
 
@@ -110,7 +110,7 @@ class PlaUserController extends Controller
             return [
                 'success' => false,
                 'message' => 'Plat de l\'utilisateur non trouvé',
-                'data' => $plat_users
+                'data' => platUser::collection($plat_users)
             ];
         }
 
@@ -119,7 +119,7 @@ class PlaUserController extends Controller
         return [
             'success' => true,
             'message' => 'Donnée supprimée',
-            'data' => $plat_users
+            'data' => platUser::collection($plat_users)
         ];
     }
 }

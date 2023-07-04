@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\achat as ResourcesAchat;
 use App\Http\Resources\platUser;
+use App\Http\Resources\reservation as ResourcesReservation;
 use App\Models\achat;
 use App\Models\plaUser;
 use App\Models\reservation;
@@ -49,20 +50,25 @@ class ProfileController extends Controller
      */
     public function entity($entity): View
     {
-        $reservations = reservation::where('user_id', Auth::user()->id)->get();
+        $user_reservations = reservation::where('user_id', Auth::user()->id)->get();
         $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
-        $order_plat_collection = platUser::collection($order_plats);
         $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+        // Count user reservations whose date has not yet passed
+        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>=', now()]])->get()->count();
+        // Get resource because of detailed data
+        $reservation_collection = ResourcesReservation::collection($user_reservations);
+        $order_plat_collection = platUser::collection($order_plats);
         $order_boisson_collection = ResourcesAchat::collection($order_boissons);
+        // Combine "sommelerie" and "plat" as a same orders list
         $orders = collect();
         $orders = $order_plat_collection->merge($order_boisson_collection);
-        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>=', now()]])->get()->count();
+        // Count orders
         $count_orders = $orders->count();
 
         if ($entity == 'reservation') {
             return view('profile.personal_infos', [
                 'entity' => $entity,
-                'reservations' => $reservations,
+                'reservations' => $reservation_collection,
                 'count_orders' => $count_orders
             ]);
         }
@@ -85,20 +91,25 @@ class ProfileController extends Controller
      */
     public function entityDatas($entity, $id): View
     {
-        $reservations = reservation::where('user_id', Auth::user()->id)->get();
+        $user_reservations = reservation::where('user_id', Auth::user()->id)->get();
         $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
-        $order_plat_collection = platUser::collection($order_plats);
         $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+        // Count user reservations whose date has not yet passed
+        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>=', now()]])->get()->count();
+        // Get resource because of detailed data
+        $reservation_collection = ResourcesReservation::collection($user_reservations);
+        $order_plat_collection = platUser::collection($order_plats);
         $order_boisson_collection = ResourcesAchat::collection($order_boissons);
+        // Combine "sommelerie" and "plat" as a same orders list
         $orders = collect();
         $orders = $order_plat_collection->merge($order_boisson_collection);
-        $count_reservations = reservation::where([['user_id', Auth::user()->id], ['date', '>=', now()]])->get()->count();
+        // Count orders
         $count_orders = $orders->count();
 
         if ($entity == 'reservation') {
             return view('profile.personal_infos', [
                 'entity' => $entity,
-                'reservations' => $reservations,
+                'reservations' => $reservation_collection,
                 'count_orders' => $count_orders
             ]);
         }

@@ -21,7 +21,15 @@ class PlatController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
         if ($request->categorie_id == null OR !is_numeric($request->categorie_id)) {
             return Redirect::back()->with('error_message', 'Veuillez sélectionner une catégorie !');
