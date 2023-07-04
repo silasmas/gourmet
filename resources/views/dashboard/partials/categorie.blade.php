@@ -39,7 +39,7 @@
                             <form method="POST" action="{{ route('dashboard.entity', ['entity' => 'categorie']) }}">
     @csrf
                                 <label class="visually-hidden" for="register_nom">Nom de la catégorie</label>
-                                <input type="text" id="register_nom" name="register_nom" class="form-control mb-3" placeholder="Nom de la catégorie" autofocus>
+                                <input type="text" id="register_nom" name="register_nom" class="form-control mb-3" placeholder="Nom de la catégorie" required autofocus>
 
                                 <label class="visually-hidden" for="register_description">Description</label>
                                 <textarea id="register_description" name="register_description" class="form-control mb-3" placeholder="Description"></textarea>
