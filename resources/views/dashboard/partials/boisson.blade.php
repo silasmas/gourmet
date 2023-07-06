@@ -51,12 +51,12 @@
                                 <input type="text" name="register_nom" id="register_nom" class="form-control mb-3" placeholder="Nom de la boisson">
 
                                 <div class="row g-3">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6 mb-3">
                                         <label class="visually-hidden" for="register_prix">Prix</label>
-                                        <input type="number" name="register_prix" id="register_prix" class="form-control mb-3" placeholder="Prix">
+                                        <input type="number" name="register_prix" id="register_prix" class="form-control" placeholder="Prix">
                                     </div>
 
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6 mb-3">
                                         <label class="visually-hidden" for="register_monnaie">Monnaie</label>
                                         <select name="register_monnaie" id="register_monnaie" class="form-select">
                                             <option class="small" disabled selected>Monnaie</option>
@@ -119,7 +119,7 @@
                                         <tr>
                                             <td>
                                                 <div class="bg-image me-3 my-2 float-start" style="width: 70px">
-                                                    <img src="{{ $boisson->image }}" alt="" class="img-fluid rounded">
+                                                    <img src="{{ $boisson->image != null ? $boisson->image : asset('assets/img/blank-square.png') }}" alt="" class="img-fluid rounded">
                                                     <div class="mask"></div>
                                                 </div>
                                                 <h5 class="mt-2 mb-1 fw-bold">{{ $boisson->nom }}</h5>
