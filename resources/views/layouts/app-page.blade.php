@@ -39,6 +39,7 @@
 
     <body>
         <!-- Modal Crop Image -->
+        <!-- Avatar -->
         <div class="modal fade" id="cropModalImage" tabindex="-1" aria-labelledby="cropModalImageLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -65,50 +66,111 @@
                 </div>
             </div>
         </div>
-        <!-- Modal Formation 1 -->
-        <div class="modal fade" id="modal-plus-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content ">
-                    <div class="modal-header px-sm-4" style="border: none;">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <!-- Image 1 -->
+        <div class="modal fade" id="cropModalImage1" tabindex="-1" aria-labelledby="cropModalImageLabel1" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pb-0 border-0">
+                        <h5 class="modal-title" id="cropModalImageLabel1">Recadrer la photo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                     </div>
-                    <div class="modal-body pt-0 px-sm-4">
-                        <h5 class="formation-title">Formation</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit explicabo ratione voluptates asperiores, doloremque aspernatur adipisci recusandae ea dolorem vero, dolores pariatur voluptas cumque aliquam quia libero? Libero, dolorum accusamus.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit explicabo ratione voluptates asperiores, doloremque aspernatur adipisci recusandae ea dolorem vero, dolores pariatur voluptas cumque aliquam quia libero? Libero, dolorum accusamus.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit explicabo ratione voluptates asperiores, doloremque aspernatur adipisci recusandae ea dolorem vero, dolores pariatur voluptas cumque aliquam quia libero? Libero, dolorum accusamus.
-                        </p>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 mb-sm-0 mb-4">
+                                    <div class="bg-image">
+                                        <img src="" id="retrieved_image1" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal Formation 2 -->
-        <div class="modal fade" id="modal-plus-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content ">
-                    <div class="modal-header px-sm-4" style="border: none;">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body pt-0 px-sm-4">
-                        <h5 class="formation-title">Formation</h5>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit explicabo ratione voluptates asperiores, doloremque aspernatur adipisci recusandae ea dolorem vero, dolores pariatur voluptas cumque aliquam quia libero? Libero, dolorum accusamus.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit explicabo ratione voluptates asperiores, doloremque aspernatur adipisci recusandae ea dolorem vero, dolores pariatur voluptas cumque aliquam quia libero? Libero, dolorum accusamus.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit explicabo ratione voluptates asperiores, doloremque aspernatur adipisci recusandae ea dolorem vero, dolores pariatur voluptas cumque aliquam quia libero? Libero, dolorum accusamus.
-                        </p>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button type="button" id="crop" class="btn">Enregistrer</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Image 2 -->
+        <div class="modal fade" id="cropModalImage2" tabindex="-1" aria-labelledby="cropModalImageLabel2" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pb-0 border-0">
+                        <h5 class="modal-title" id="cropModalImageLabel2">Recadrer la photo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 mb-sm-0 mb-4">
+                                    <div class="bg-image">
+                                        <img src="" id="retrieved_image2" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button type="button" id="crop" class="btn">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="modal fade" id="cropModalImage3" tabindex="-1" aria-labelledby="cropModalImageLabel3" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pb-0 border-0">
+                        <h5 class="modal-title" id="cropModalImageLabel3">Recadrer la photo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 mb-sm-0 mb-4">
+                                    <div class="bg-image">
+                                        <img src="" id="retrieved_image3" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button type="button" id="crop" class="btn">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="modal fade" id="cropModalImage4" tabindex="-1" aria-labelledby="cropModalImageLabel4" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pb-0 border-0">
+                        <h5 class="modal-title" id="cropModalImageLabel4">Recadrer la photo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 mb-sm-0 mb-4">
+                                    <div class="bg-image">
+                                        <img src="" id="retrieved_image4" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button type="button" id="crop" class="btn">Enregistrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal Achat boisson -->
         <div class="modal fade" id="modal-acheter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -509,6 +571,232 @@
                     paging: 'matchMedia' in window ? (window.matchMedia('(min-width: 500px)').matches ? true : false) : false,
                     ordering: false,
                     info: 'matchMedia' in window ? (window.matchMedia('(min-width: 500px)').matches ? true : false) : false,
+                });
+
+                // Recadrer l'image sans l'uploader
+                // IMAGE 1
+                var retrievedImage1 = document.getElementById('retrieved_image1');
+                var imageResult1 = document.querySelector('.image-1');
+                var modal1 = new bootstrap.Modal(document.getElementById('cropModalImage1'), { keyboard: false });
+
+                $('#register_image_1').on('change', function (e) {
+                    var files = e.target.files;
+                    var done = function (url) {
+                        retrievedImage1.src = url;
+
+                        modal1.show();
+                    };
+
+                    if (files && files.length > 0) {
+                        var reader = new FileReader();
+
+                        reader.onload = function () {
+                            done(reader.result);
+                        };
+                        reader.readAsDataURL(files[0]);
+                    }
+                });
+
+                $('#cropModalImage1').on('shown.bs.modal', function () {
+                    cropper = new Cropper(retrievedImage1, {
+                        aspectRatio: 1,
+                        viewMode: 3,
+                        preview: '#cropModalImage1 .preview'
+                    });
+
+                }).on('hidden.bs.modal', function () {
+                    cropper.destroy();
+
+                    cropper = null;
+                });
+
+                $('#cropModalImage1 #crop').on('click', function () {
+                    var canvas = cropper.getCroppedCanvas({
+                        width: 700,
+                        height: 700
+                    });
+
+                    modal1.hide();
+                    canvas.toBlob(function (blob) {
+                        URL.createObjectURL(blob);
+                        var reader = new FileReader();
+
+                        reader.readAsDataURL(blob);
+                        reader.onloadend = function () {
+                            var base64_data = reader.result;
+
+                            $(imageResult1).attr('src', base64_data);
+                            $('#data_image_1').attr('value', base64_data);
+                        };
+                    });
+                });
+                // IMAGE 2
+                var retrievedImage2 = document.getElementById('retrieved_image2');
+                var imageResult2 = document.querySelector('.image-2');
+                var modal2 = new bootstrap.Modal(document.getElementById('cropModalImage2'), { keyboard: false });
+
+                $('#register_image_2').on('change', function (e) {
+                    var files = e.target.files;
+                    var done = function (url) {
+                        retrievedImage2.src = url;
+
+                        modal2.show();
+                    };
+
+                    if (files && files.length > 0) {
+                        var reader = new FileReader();
+
+                        reader.onload = function () {
+                            done(reader.result);
+                        };
+                        reader.readAsDataURL(files[0]);
+                    }
+                });
+
+                $('#cropModalImage2').on('shown.bs.modal', function () {
+                    cropper = new Cropper(retrievedImage2, {
+                        aspectRatio: 1,
+                        viewMode: 3,
+                        preview: '#cropModalImage2 .preview'
+                    });
+
+                }).on('hidden.bs.modal', function () {
+                    cropper.destroy();
+
+                    cropper = null;
+                });
+
+                $('#cropModalImage2 #crop').on('click', function () {
+                    var canvas = cropper.getCroppedCanvas({
+                        width: 700,
+                        height: 700
+                    });
+
+                    modal2.hide();
+                    canvas.toBlob(function (blob) {
+                        URL.createObjectURL(blob);
+                        var reader = new FileReader();
+
+                        reader.readAsDataURL(blob);
+                        reader.onloadend = function () {
+                            var base64_data = reader.result;
+
+                            $(imageResult2).attr('src', base64_data);
+                            $('#data_image_2').attr('value', base64_data);
+                        };
+                    });
+                });
+                // IMAGE 3
+                var retrievedImage3 = document.getElementById('retrieved_image3');
+                var imageResult3 = document.querySelector('.image-3');
+                var modal3 = new bootstrap.Modal(document.getElementById('cropModalImage3'), { keyboard: false });
+
+                $('#register_image_3').on('change', function (e) {
+                    var files = e.target.files;
+                    var done = function (url) {
+                        retrievedImage3.src = url;
+
+                        modal3.show();
+                    };
+
+                    if (files && files.length > 0) {
+                        var reader = new FileReader();
+
+                        reader.onload = function () {
+                            done(reader.result);
+                        };
+                        reader.readAsDataURL(files[0]);
+                    }
+                });
+
+                $('#cropModalImage3').on('shown.bs.modal', function () {
+                    cropper = new Cropper(retrievedImage3, {
+                        aspectRatio: 1,
+                        viewMode: 3,
+                        preview: '#cropModalImage3 .preview'
+                    });
+
+                }).on('hidden.bs.modal', function () {
+                    cropper.destroy();
+
+                    cropper = null;
+                });
+
+                $('#cropModalImage3 #crop').on('click', function () {
+                    var canvas = cropper.getCroppedCanvas({
+                        width: 700,
+                        height: 700
+                    });
+
+                    modal3.hide();
+                    canvas.toBlob(function (blob) {
+                        URL.createObjectURL(blob);
+                        var reader = new FileReader();
+
+                        reader.readAsDataURL(blob);
+                        reader.onloadend = function () {
+                            var base64_data = reader.result;
+
+                            $(imageResult3).attr('src', base64_data);
+                            $('#data_image_3').attr('value', base64_data);
+                        };
+                    });
+                });
+                // IMAGE 4
+                var retrievedImage4 = document.getElementById('retrieved_image4');
+                var imageResult4 = document.querySelector('.image-4');
+                var modal4 = new bootstrap.Modal(document.getElementById('cropModalImage4'), { keyboard: false });
+
+                $('#register_image_4').on('change', function (e) {
+                    var files = e.target.files;
+                    var done = function (url) {
+                        retrievedImage4.src = url;
+
+                        modal4.show();
+                    };
+
+                    if (files && files.length > 0) {
+                        var reader = new FileReader();
+
+                        reader.onload = function () {
+                            done(reader.result);
+                        };
+                        reader.readAsDataURL(files[0]);
+                    }
+                });
+
+                $('#cropModalImage4').on('shown.bs.modal', function () {
+                    cropper = new Cropper(retrievedImage4, {
+                        aspectRatio: 1,
+                        viewMode: 3,
+                        preview: '#cropModalImage4 .preview'
+                    });
+
+                }).on('hidden.bs.modal', function () {
+                    cropper.destroy();
+
+                    cropper = null;
+                });
+
+                $('#cropModalImage4 #crop').on('click', function () {
+                    var canvas = cropper.getCroppedCanvas({
+                        width: 700,
+                        height: 700
+                    });
+
+                    modal4.hide();
+                    canvas.toBlob(function (blob) {
+                        URL.createObjectURL(blob);
+                        var reader = new FileReader();
+
+                        reader.readAsDataURL(blob);
+                        reader.onloadend = function () {
+                            var base64_data = reader.result;
+
+                            $(imageResult4).attr('src', base64_data);
+                            $('#data_image_4').attr('value', base64_data);
+                        };
+                    });
                 });
             });
 

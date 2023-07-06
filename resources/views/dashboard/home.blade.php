@@ -49,6 +49,7 @@
                                     <tbody>
     @forelse ($categories as $categorie)
         @forelse ($categorie->sommeleries as $boisson)
+            @if ($loop->index < 5)
                                         <tr>
                                             <td>{{ $boisson->nom }}</td>
                                             <td>{{ $boisson->quantite }}</td>
@@ -56,10 +57,8 @@
                                                 <a href="#" class="btn px-3 py-1">Ravitailler</a>
                                             </td>
                                         </tr>
+            @endif
         @empty
-                                        <tr>
-                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
-                                        </tr>
         @endforelse
     @empty
                                         <tr>
@@ -68,6 +67,12 @@
                                             </td>
                                         </tr>        
     @endforelse
+    @if (count($boissons) == 0)
+                                        <tr>
+                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
+                                        </tr>
+    @endif
+
                                     </tbody>
                                 </table>
                             </div>
@@ -99,6 +104,7 @@
                                     <tbody>
     @forelse ($categories as $categorie)
         @forelse ($categorie->plats as $plat)
+            @if ($loop->index < 5)
                                         <tr>
                                             <td>{{ $plat->nom }}</td>
                                             <td>{{ $plat->quantite }}</td>
@@ -106,10 +112,8 @@
                                                 <a href="#" class="btn px-3 py-1">Ravitailler</a>
                                             </td>
                                         </tr>
+            @endif
         @empty
-                                        <tr>
-                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-4"></i>La liste est encore vide</td>
-                                        </tr>
         @endforelse
     @empty
                                         <tr>
@@ -118,6 +122,12 @@
                                             </td>
                                         </tr>        
     @endforelse
+    @if (count($plats) == 0)
+                                        <tr>
+                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
+                                        </tr>
+    @endif
+
                                     </tbody>
                                 </table>
                             </div>

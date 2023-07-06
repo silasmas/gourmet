@@ -7,6 +7,8 @@ use App\Models\achat;
 use GuzzleHttp\Client;
 use App\Models\reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Resources\categorie as ResourcesCategorie;
@@ -104,6 +106,8 @@ class HomeController extends Controller
             abort(403);
 
         } else {
+            $boissons_collection = sommelerie::all();
+            $plats_collection = plat::all();
             $categories_collection = categorie::all();
             $categories = ResourcesCategorie::collection($categories_collection);
             $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
@@ -123,14 +127,18 @@ class HomeController extends Controller
             if ($entity == 'plat') {
                 return view('dashboard.entity', [
                     'entity' => $entity,
-                    'categories' => $categories
+                    'categories' => $categories,
+                    'boissons' => $boissons_collection,
+                    'plats' => $plats_collection
                 ]);
             }
 
             if ($entity == 'boisson') {
                 return view('dashboard.entity', [
                     'entity' => $entity,
-                    'categories' => $categories
+                    'categories' => $categories,
+                    'boissons' => $boissons_collection,
+                    'plats' => $plats_collection
                 ]);
             }
 
@@ -154,12 +162,51 @@ class HomeController extends Controller
             return Redirect::back()->with('success_message', 'Catégorie enregistrée');
         }
 
-        if ($entity == 'plat') {
-            return Redirect::back()->with('success_message', 'Plat enregistré');
+        if ($entity == 'boisson') {
+            if ($request->categorie_id == null OR !is_numeric($request->categorie_id)) {
+                return Redirect::back()->with('error_message', 'Veuillez sélectionner une catégorie !');
+            }
+
+            if (trim($request->register_nom) == null) {
+                return Redirect::back()->with('error_message', 'Le nom est obligatoire');
+            }
+
+            if (trim($request->register_prix) == null OR trim($request->register_monnaie) == null) {
+                return Redirect::back()->with('error_message', 'Le prix et la monnaie sont obligatoire');
+            }
+    
+            // Register new sommelerie
+            $sommelerie = sommelerie::create([
+                'nom' => $request->register_nom,
+                'prix' => $request->register_prix,
+                'monaie' => $request->register_monnaie,
+                'quantite' => $request->register_quantite,
+                'description' => $request->register_description,
+                'categorie_id' => $request->categorie_id
+            ]);
+    
+            if ($request->data_image_1 != null) {
+                $replace = substr($request->data_image_1, 0, strpos($request->data_image_1, ',') + 1);
+                // Find substring from replace here eg: data:image/png;base64,
+                $image = str_replace($replace, '', $request->data_image_1);
+                $image = str_replace(' ', '+', $image);
+                // Create image URL
+                $image_url = '/images/sommeleries/' . $sommelerie->id . '/' . Str::random(50) . '.png';
+    
+                // Upload image
+                Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+    
+                $sommelerie->update([
+                    'image' => '/storage' . $image_url,
+                    'updated_at' => now()
+                ]);
+            }
+    
+            return Redirect::back()->with('success_message', 'Boisson enregistrée');
         }
 
-        if ($entity == 'boisson') {
-            return Redirect::back()->with('success_message', 'Boisson enregistrée');
+        if ($entity == 'plat') {
+            return Redirect::back()->with('success_message', 'Plat enregistré');
         }
     }
 
