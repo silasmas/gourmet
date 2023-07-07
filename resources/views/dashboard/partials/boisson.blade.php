@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-7 mx-auto text-center">
-                    <h3 class="fw-bold text-uppercase">Boissons</h3>
+                    <h3 class="fw-bold text-uppercase">Boisson</h3>
                     <h4 class="m-0">Gestion de <span class="text-warning">boissons</span></h4>
                 </div>
             </div>
@@ -21,6 +21,15 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Accueil</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}">Catégorie</a></li>
+                            <li class="dropright">
+                                <a href="javascript:void(0);" class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list ms-2 me-1 fs-6"></i></a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('dashboard.entity', ['entity' => 'plat']) }}" class="dropdown-item">Plat</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">Boisson</li>
                         </ol>
                     </nav>

@@ -19,6 +19,15 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item active" aria-current="page">Accueil</li>
+                            <li class="dropright">
+                                <a href="javascript:void(0);" class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list ms-2 fs-6"></i></a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="dropdown-item">Catégorie</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ol>
                     </nav>
                 </div>
@@ -29,7 +38,7 @@
     <div class="block-choice py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mb-5" style="z-index: 999;">
+                <div class="col-lg-6 mb-5" style="z-index: 998;">
                     <div class="card h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Boissons</h2>
@@ -47,9 +56,7 @@
                                     </thead>
 
                                     <tbody>
-    @forelse ($categories as $categorie)
-        @forelse ($categorie->sommeleries as $boisson)
-            @if ($loop->index < 5)
+    @foreach ($boissons as $boisson)
                                         <tr>
                                             <td>{{ $boisson->nom }}</td>
                                             <td>{{ $boisson->quantite }}</td>
@@ -57,20 +64,18 @@
                                                 <a href="#" class="btn px-3 py-1">Ravitailler</a>
                                             </td>
                                         </tr>
-            @endif
-        @empty
-        @endforelse
-    @empty
+    @endforeach
+    @if (count($boissons) == 0)
+                                        <tr>
+                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
+                                        </tr>
+    @endif
+    @if (count($categories) == 0)
                                         <tr>
                                             <td colspan="3" class="text-muted">
                                                 <i class="bi bi-info-circle me-2 fs-5"></i>il n'y a pas encore de catégorie <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="btn mt-1 py-1 float-end">Ajouter</a>
                                             </td>
                                         </tr>        
-    @endforelse
-    @if (count($boissons) == 0)
-                                        <tr>
-                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
-                                        </tr>
     @endif
 
                                     </tbody>
@@ -84,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 mb-5" style="z-index: 998;">
+                <div class="col-lg-6 mb-5" style="z-index: 997;">
                     <div class="card h-auto float-end">
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Plats</h2>
@@ -104,7 +109,6 @@
                                     <tbody>
     @forelse ($categories as $categorie)
         @forelse ($categorie->plats as $plat)
-            @if ($loop->index < 5)
                                         <tr>
                                             <td>{{ $plat->nom }}</td>
                                             <td>{{ $plat->quantite }}</td>
@@ -112,7 +116,6 @@
                                                 <a href="#" class="btn px-3 py-1">Ravitailler</a>
                                             </td>
                                         </tr>
-            @endif
         @empty
         @endforelse
     @empty

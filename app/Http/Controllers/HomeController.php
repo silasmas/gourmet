@@ -80,8 +80,8 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            $boissons_collection = sommelerie::all();
-            $plats_collection = plat::all();
+            $boissons_collection = sommelerie::limit(5)->get();
+            $plats_collection = plat::limit(5)->get();
             $categories_collection = categorie::all();
             $categories = ResourcesCategorie::collection($categories_collection);
             $order_plats = plaUser::where('user_id', Auth::user()->id)->get();

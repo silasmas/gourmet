@@ -21,6 +21,18 @@
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Accueil</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Catégorie</li>
+                            <li class="dropright">
+                                <a href="javascript:void(0);" class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list ms-2 fs-6"></i></a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('dashboard.entity', ['entity' => 'boisson']) }}" class="dropdown-item">Boisson</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('dashboard.entity', ['entity' => 'plat']) }}" class="dropdown-item">Plat</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ol>
                     </nav>
                 </div>
