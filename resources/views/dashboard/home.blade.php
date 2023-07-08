@@ -1,6 +1,7 @@
 @extends('layouts.app-page')
 
 @section('content')
+
     <div class="navbar px-2 position-fixed" style="top: 1rem; left: 1rem; z-index: 99999;">
         <a id="avatarLink" class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="{{ Auth::user()->avatar_url != null ? Auth::user()->avatar_url : asset('assets/img/placeholder.png') }}" alt="{{ Auth::user()->prenom }}" width="40" class="rounded-circle">
