@@ -346,6 +346,7 @@
         <div class="back-drop"></div>
 
         <!-- =============== ALERT MESSAGES =============== -->
+        <!-- Alert for JavaScript -->
 @if (!empty(request()->alert_success))
         <div class="position-fixed w-100" style="top: 41px; z-index: 9999;">
             <div class="row">
@@ -418,6 +419,17 @@
             </div>
         </div>
 @endif
+        <!-- Alert for JavaScript -->
+        <div id="jSReqAlert" class="position-fixed w-100 d-none" style="top: 41px; z-index: 9999;">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-10 mx-auto">
+                    <div class="alert alert-dismissible fade show" role="alert">
+                        <span class="bi me-2 mb-0 fs-4" style="vertical-align: -3px;"></span> <span class="message_content"></span>
+                        <button type="button" class="btn-close mt-1" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- /=============== ALERT MESSAGES =============== -->
 
         <div class="global-div">
@@ -800,6 +812,75 @@
                 });
             });
 
+            // Increment quantity for "plat" or "sommelerie"
+            function incrementQuantity(element, id, url) {
+                // Ensure alert has not style
+                if ($('#jSReqAlert .alert').hasClass('alert-danger')) {
+                    $('#jSReqAlert .alert').removeClass('alert-danger');
+                }
+
+                if ($('#jSReqAlert .alert').hasClass('alert-success')) {
+                    $('#jSReqAlert .alert').removeClass('alert-success');
+                }
+
+                if ($('#jSReqAlert .bi').hasClass('bi-exclamation-triangle')) {
+                    $('#jSReqAlert .bi').removeClass('bi-exclamation-triangle');
+                }
+
+                if ($('#jSReqAlert .bi').hasClass('bi-info-circle')) {
+                    $('#jSReqAlert .bi').removeClass('bi-info-circle');
+                }
+
+                $(element).addClass('disabled');
+
+                var quantity = parseInt(element.getAttribute('data-quantity'));
+
+                // Increment quantity
+                quantity++;
+
+                $('#quantity-' + id + ' span').text(quantity);
+
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: url + '/' + id,
+                    method: 'PUT',
+                    data: { 'id' : id, 'quantite' : quantity },
+                    success: function (data) {
+                        if (!data.success) {
+                            $('#jSReqAlert .alert').addClass('alert-danger');
+                            $('#jSReqAlert .bi').addClass('bi-exclamation-triangle');
+                            $('#jSReqAlert .message_content').text(data.message);
+                            $('#jSReqAlert').removeClass('d-none');
+                            $(element).removeClass('disabled');
+
+                            // Reset decrementing quantity
+                            quantity--;
+
+                            $('#quantity-' + id + ' span').text(quantity);
+
+                        } else {
+                            $('#jSReqAlert .alert').addClass('alert-success');
+                            $('#jSReqAlert .bi').addClass('bi-info-circle');
+                            $('#jSReqAlert .message_content').text(data.message);
+                            $('#jSReqAlert').removeClass('d-none');
+                            location.reload();
+                        }
+                    },
+                    error: function (xhr, error, status_description) {
+                        $('#jSReqAlert .alert').addClass('alert-danger');
+                        $('#jSReqAlert .bi').addClass('bi-exclamation-triangle');
+                        $('#jSReqAlert .message_content').text(xhr.status + ' - ' + status_description);
+                        $('#jSReqAlert').removeClass('d-none');
+                        $(element).removeClass('disabled');
+
+                        // Reset decrementing quantity
+                        quantity--;
+
+                        $('#quantity-' + id + ' span').text(quantity);
+                    }
+                });
+            }
+
             // Delete from Datatable with SweetAlert
             function deleteData(id, url) {
                 Swal.fire({
@@ -815,11 +896,9 @@
                 }).then(function (result) {
                     if (result.isConfirmed) {
                         $.ajax({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            url: url + "/" + id,
-                            method: "DELETE",
+                            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                            url: url + '/' + id,
+                            method: 'DELETE',
                             data: { 'id' : id },
                             success: function (data) {
                                 // load('#tab-session');

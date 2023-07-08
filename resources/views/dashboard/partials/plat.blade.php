@@ -46,7 +46,7 @@
                         <div class="p-4 bg-white border border-default rounded-3">
                             <h2 class="mb-4 text-md-start text-center">Ajouter un plat</h2>
 
-                            <form method="POST" action="{{ route('dashboard.entity', ['entity' => 'boisson']) }}">
+                            <form method="POST" action="{{ route('dashboard.entity', ['entity' => 'plat']) }}">
     @csrf
                                 <label class="visually-hidden" for="categorie_id">Catégorie</label>
                                 <select name="categorie_id" id="categorie_id" class="form-select mb-3">
@@ -59,10 +59,10 @@
                                 <label class="visually-hidden" for="register_nom">Nom du plat</label>
                                 <input type="text" name="register_nom" id="register_nom" class="form-control mb-3" placeholder="Nom du plat">
 
-                                <div class="row g-3">
+                                <div class="row g-3 mb-3">
                                     <div class="col-sm-6">
                                         <label class="visually-hidden" for="register_prix">Prix</label>
-                                        <input type="number" name="register_prix" id="register_prix" class="form-control mb-3" placeholder="Prix">
+                                        <input type="number" name="register_prix" id="register_prix" class="form-control" placeholder="Prix">
                                     </div>
 
                                     <div class="col-sm-6">
@@ -172,14 +172,14 @@
                                                     <div class="mask"></div>
                                                 </div>
                                                 <h5 class="mt-2 mb-1 fw-bold">{{ $plat->nom }}</h5>
-                                                <h6 class="mt-2 mb-1">
-                                                    <u>Quantité</u> {{ $plat->quantite }} 
-                                                    <a href="#" id="ravitailler" class="btn btn-sm px-2 py-1 ms-2 rounded-pill">Ravitailler</a>
+                                                <p class="mb-2 small text-gray">{{ $plat->description }}</p>
+                                                <h6 id="quantity-{{ $plat->id }}" class="mt-2 mb-1">
+                                                    <u>Quantité</u> <span>{{ $plat->quantite }}</span> 
+                                                    <a data-quantity="{{ $plat->quantite }}" role="button" class="btn btn-sm px-2 py-1 ms-2 rounded-pill" onclick="event.preventDefault(); incrementQuantity(this, {{ $plat->id }}, '../plat/update');">Ravitailler</a>
                                                 </h6>
-                                                <p class="mb-2 text-primary">{{ $plat->description }}</p>
                                             </td>
                                             <td class="text-end">
-                                                <a role="button" class="btn bg-transparent mt-2 p-0 fs-4 text-dark" title="Supprimer" data-bs-toggle="tooltip" onclick="event.preventDefault(); deleteData({{ $boisson->id }}, '../sommelerie');"><i class="bi bi-trash"></i></a><br>
+                                                <a role="button" class="btn bg-transparent mt-2 p-0 fs-4 text-dark" title="Supprimer" data-bs-toggle="tooltip" onclick="event.preventDefault(); deleteData({{ $plat->id }}, '../plat');"><i class="bi bi-trash"></i></a><br>
                                                 <small class="d-inline-block px-3 py-2 bg-light rounded-pill">{{ $plat->prix . ' ' . $plat->monaie }}</small>
                                             </td>
                                         </tr>

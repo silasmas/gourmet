@@ -43,8 +43,10 @@ Route::get('/transaction_message/{entity}/{orderNumber}/{userId}', [HomeControll
 Route::post('/categorie/store', [CategorieController::class, 'store'])->name('categorie.store');
 Route::delete('/categorie/{id}', [CategorieController::class, 'destroy'])->whereNumber('id')->name('categorie.destroy');
 Route::post('/sommelerie/store', [SommelerieController::class, 'store'])->name('sommelerie.store');
+Route::put('/sommelerie/update/{id}', [SommelerieController::class, 'update'])->whereNumber('id')->name('sommelerie.update');
 Route::delete('/sommelerie/{id}', [SommelerieController::class, 'destroy'])->whereNumber('id')->name('sommelerie.destroy');
 Route::post('/plat/store', [PlatController::class, 'store'])->name('plat.store');
+Route::put('/plat/update/{id}', [PlatController::class, 'update'])->whereNumber('id')->name('plat.update');
 Route::delete('/plat/{id}', [PlatController::class, 'destroy'])->whereNumber('id')->name('plat.destroy');
 Route::post('/plat_user/store', [PlaUserController::class, 'store'])->name('plat_user.store');
 Route::delete('/plat_user/{id}', [PlaUserController::class, 'destroy'])->whereNumber('id')->name('plat_user.destroy');

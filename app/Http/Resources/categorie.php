@@ -22,8 +22,8 @@ class categorie extends JsonResource
             'id' => $this->id,
             'nom' => $this->nom,
             'description' => $this->description,
-            'plats' => plat::collection($this->plats),
-            'sommeleries' => sommelerie::collection($this->sommeleries),
+            'plats' => plat::collection($this->plats)->sortByDesc('created_at')->toArray(),
+            'sommeleries' => sommelerie::collection($this->sommeleries)->sortByDesc('created_at')->toArray(),
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s')
         ];

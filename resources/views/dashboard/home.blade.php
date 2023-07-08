@@ -59,9 +59,9 @@
     @foreach ($boissons as $boisson)
                                         <tr>
                                             <td>{{ $boisson->nom }}</td>
-                                            <td>{{ $boisson->quantite }}</td>
+                                            <td id="quantity-{{ $boisson->id }}"><span>{{ $boisson->quantite }}</span></td>
                                             <td class="text-end">
-                                                <a href="#" class="btn px-3 py-1">Ravitailler</a>
+                                                <a data-quantity="{{ $boisson->quantite }}" role="button" class="btn btn-sm px-2 py-1 ms-2 rounded-pill" onclick="event.preventDefault(); incrementQuantity(this, {{ $boisson->id }}, '../sommelerie/update');">Ravitailler</a>
                                             </td>
                                         </tr>
     @endforeach
@@ -105,32 +105,29 @@
                                         </tr>
     @endif
                                     </thead>
-    
+
                                     <tbody>
-    @forelse ($categories as $categorie)
-        @forelse ($categorie->plats as $plat)
+    @foreach ($plats as $plat)
                                         <tr>
                                             <td>{{ $plat->nom }}</td>
-                                            <td>{{ $plat->quantite }}</td>
+                                            <td id="quantity-{{ $plat->id }}"><span>{{ $plat->quantite }}</span></td>
                                             <td class="text-end">
-                                                <a href="#" class="btn px-3 py-1">Ravitailler</a>
+                                                <a data-quantity="{{ $plat->quantite }}" role="button" class="btn btn-sm px-2 py-1 ms-2 rounded-pill" onclick="event.preventDefault(); incrementQuantity(this, {{ $plat->id }}, '../plat/update');">Ravitailler</a>
                                             </td>
                                         </tr>
-        @empty
-        @endforelse
-    @empty
-                                        <tr>
-                                            <td colspan="3" class="text-muted">
-                                                <i class="bi bi-info-circle me-2 fs-5"></i>il n'y a pas encore de catégorie <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="btn mt-1 py-1 float-end">Ajouter</a>
-                                            </td>
-                                        </tr>        
-    @endforelse
+    @endforeach
     @if (count($plats) == 0)
                                         <tr>
                                             <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
                                         </tr>
     @endif
-
+    @if (count($categories) == 0)
+                                        <tr>
+                                            <td colspan="3" class="text-muted">
+                                                <i class="bi bi-info-circle me-2 fs-5"></i>il n'y a pas encore de catégorie <a href="{{ route('dashboard.entity', ['entity' => 'categorie']) }}" class="btn mt-1 py-1 float-end">Ajouter</a>
+                                            </td>
+                                        </tr>        
+    @endif
                                     </tbody>
                                 </table>
                             </div>

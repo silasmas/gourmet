@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 
-class PlatController extends Controller
+class PlatController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +40,7 @@ class PlatController extends Controller
             'nom' => $request->nom,
             'prix' => $request->prix,
             'monaie' => $request->monaie,
-            'quantite' => $request->quantite,
+            'quantite' => $request->quantite != null ? $request->quantite : 1,
             'description' => $request->description,
             'categorie_id' => $request->categorie_id
         ]);
@@ -113,10 +113,9 @@ class PlatController extends Controller
             ]);
         }
 
-        return Redirect::back()->with('success_message', 'Plat enregistré');
+        return $this->handleResponse($plat, 'Plat enregistré');
     }
 
-    
     /**
      * Display the specified resource.
      */
@@ -136,9 +135,126 @@ class PlatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, plat $plat)
+    public function update(Request $request, $id)
     {
-        //
+        // Find plat by given ID
+        $plat = plat::find($id);
+
+        if (is_null($plat)) {
+            return $this->handleError('Plat non trouvé');
+        }
+
+        if ($request->nom != null) {
+            $plat->update([
+                'nom' => $request->nom,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->prix != null) {
+            $plat->update([
+                'prix' => $request->prix,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->monaie != null) {
+            $plat->update([
+                'monaie' => $request->monaie,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->quantite != null) {
+            $plat->update([
+                'quantite' => $request->quantite,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->description != null) {
+            $plat->update([
+                'description' => $request->description,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->categorie_id != null) {
+            $plat->update([
+                'categorie_id' => $request->categorie_id,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->image != null) {
+            $replace = substr($request->image, 0, strpos($request->image, ',') + 1);
+            // Find substring from replace here eg: data:image/png;base64,
+            $image = str_replace($replace, '', $request->image);
+            $image = str_replace(' ', '+', $image);
+            // Create image URL
+            $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+            // Upload image
+            Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+            $plat->update([
+                'image' => '/storage' . $image_url,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->image2 != null) {
+            $replace = substr($request->image2, 0, strpos($request->image2, ',') + 1);
+            // Find substring from replace here eg: data:image/png;base64,
+            $image = str_replace($replace, '', $request->image2);
+            $image = str_replace(' ', '+', $image);
+            // Create image URL
+            $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+            // Upload image
+            Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+            $plat->update([
+                'image2' => '/storage' . $image_url,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->image3 != null) {
+            $replace = substr($request->image3, 0, strpos($request->image3, ',') + 1);
+            // Find substring from replace here eg: data:image/png;base64,
+            $image = str_replace($replace, '', $request->image3);
+            $image = str_replace(' ', '+', $image);
+            // Create image URL
+            $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+            // Upload image
+            Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+            $plat->update([
+                'image3' => '/storage' . $image_url,
+                'updated_at' => now()
+            ]);
+        }
+
+        if ($request->image4 != null) {
+            $replace = substr($request->image4, 0, strpos($request->image4, ',') + 1);
+            // Find substring from replace here eg: data:image/png;base64,
+            $image = str_replace($replace, '', $request->image4);
+            $image = str_replace(' ', '+', $image);
+            // Create image URL
+            $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+            // Upload image
+            Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+            $plat->update([
+                'image4' => '/storage' . $image_url,
+                'updated_at' => now()
+            ]);
+        }
+
+        return $this->handleResponse($plat, 'Plat modifié');
     }
 
     /**
@@ -150,19 +266,12 @@ class PlatController extends Controller
         $plats = plat::all();
 
         if (is_null($plat)) {
-            return [
-                'success' => false,
-                'message' => 'Plat non trouvé',
-                'data' => $plats
-            ];
+            return $this->handleError('Plat non trouvé');
         }
 
+        $this->deleteDir($_SERVER['DOCUMENT_ROOT'] . '/storage/images/plats/' . $plat->id);
         $plat->delete();
 
-        return [
-            'success' => true,
-            'message' => 'Donnée supprimée',
-            'data' => $plats
-        ];
+        return $this->handleResponse($plat, 'Plat supprimé');
     }
 }

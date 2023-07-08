@@ -79,9 +79,7 @@ $(document).ready(function () {
                 modalImage.hide();
 
                 $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                     type: 'POST',
                     url: url,
                     data: datas,

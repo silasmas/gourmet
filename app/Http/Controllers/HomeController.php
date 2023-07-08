@@ -80,13 +80,13 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            $boissons_collection = sommelerie::limit(5)->get();
-            $plats_collection = plat::limit(5)->get();
+            $boissons_collection = sommelerie::limit(5)->orderByDesc('created_at')->get();
+            $plats_collection = plat::limit(5)->orderByDesc('created_at')->get();
             $categories_collection = categorie::all();
             $categories = ResourcesCategorie::collection($categories_collection);
-            $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
+            $order_plats = plaUser::where('user_id', Auth::user()->id)->orderByDesc('created_at')->get();
             $order_plat_collection = platUser::collection($order_plats);
-            $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+            $order_boissons = achat::where('user_id', Auth::user()->id)->orderByDesc('created_at')->get();
             $order_boisson_collection = ResourcesAchat::collection($order_boissons);
             $orders = collect();
             $orders = $order_plat_collection->merge($order_boisson_collection);
@@ -174,13 +174,13 @@ class HomeController extends Controller
             if (trim($request->register_prix) == null OR trim($request->register_monnaie) == null) {
                 return Redirect::back()->with('error_message', 'Le prix et la monnaie sont obligatoire');
             }
-    
+
             // Register new sommelerie
             $sommelerie = sommelerie::create([
                 'nom' => $request->register_nom,
                 'prix' => $request->register_prix,
                 'monaie' => $request->register_monnaie,
-                'quantite' => $request->register_quantite,
+                'quantite' => $request->register_quantite != null ? $request->register_quantite : 1,
                 'description' => $request->register_description,
                 'categorie_id' => $request->categorie_id
             ]);
@@ -201,11 +201,101 @@ class HomeController extends Controller
                     'updated_at' => now()
                 ]);
             }
-    
+
             return Redirect::back()->with('success_message', 'Boisson enregistrée');
         }
 
         if ($entity == 'plat') {
+            if ($request->categorie_id == null OR !is_numeric($request->categorie_id)) {
+                return Redirect::back()->with('error_message', 'Veuillez sélectionner une catégorie !');
+            }
+
+            if (trim($request->register_nom) == null) {
+                return Redirect::back()->with('error_message', 'Le nom est obligatoire');
+            }
+
+            if (trim($request->register_prix) == null OR trim($request->register_monnaie) == null) {
+                return Redirect::back()->with('error_message', 'Le prix et la monnaie sont obligatoire');
+            }
+
+            // Register new plat
+            $plat = plat::create([
+                'nom' => $request->register_nom,
+                'prix' => $request->register_prix,
+                'monaie' => $request->register_monnaie,
+                'quantite' => $request->register_quantite != null ? $request->register_quantite : 1,
+                'description' => $request->register_description,
+                'categorie_id' => $request->categorie_id
+            ]);
+
+            if ($request->data_image_1 != null) {
+                $replace = substr($request->data_image_1, 0, strpos($request->data_image_1, ',') + 1);
+                // Find substring from replace here eg: data:image/png;base64,
+                $image = str_replace($replace, '', $request->data_image_1);
+                $image = str_replace(' ', '+', $image);
+                // Create image URL
+                $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+                // Upload image
+                Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+                $plat->update([
+                    'image' => '/storage' . $image_url,
+                    'updated_at' => now()
+                ]);
+            }
+
+            if ($request->data_image_2 != null) {
+                $replace = substr($request->data_image_2, 0, strpos($request->data_image_2, ',') + 1);
+                // Find substring from replace here eg: data:image/png;base64,
+                $image = str_replace($replace, '', $request->data_image_2);
+                $image = str_replace(' ', '+', $image);
+                // Create image URL
+                $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+                // Upload image
+                Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+                $plat->update([
+                    'image2' => '/storage' . $image_url,
+                    'updated_at' => now()
+                ]);
+            }
+
+            if ($request->data_image_3 != null) {
+                $replace = substr($request->data_image_3, 0, strpos($request->data_image_3, ',') + 1);
+                // Find substring from replace here eg: data:image/png;base64,
+                $image = str_replace($replace, '', $request->data_image_3);
+                $image = str_replace(' ', '+', $image);
+                // Create image URL
+                $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+                // Upload image
+                Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+                $plat->update([
+                    'image3' => '/storage' . $image_url,
+                    'updated_at' => now()
+                ]);
+            }
+
+            if ($request->data_image_4 != null) {
+                $replace = substr($request->data_image_4, 0, strpos($request->data_image_4, ',') + 1);
+                // Find substring from replace here eg: data:image/png;base64,
+                $image = str_replace($replace, '', $request->data_image_4);
+                $image = str_replace(' ', '+', $image);
+                // Create image URL
+                $image_url = '/images/plats/' . $plat->id . '/' . Str::random(50) . '.png';
+
+                // Upload image
+                Storage::url(Storage::disk('public')->put($image_url, base64_decode($image)));
+
+                $plat->update([
+                    'image4' => '/storage' . $image_url,
+                    'updated_at' => now()
+                ]);
+            }
+
             return Redirect::back()->with('success_message', 'Plat enregistré');
         }
     }
