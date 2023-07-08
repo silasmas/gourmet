@@ -224,8 +224,11 @@
                 </div>
             </div>
         </div>
-
-@include('parties.navbar-page')
+@if (Route::is('dashboard') || Route::is('dashboard.entity'))
+    {{-- @include('parties.navbar-kikoukou') --}}
+@else
+    @include('parties.navbar-page')    
+@endif
 
         <div class="full-menu">
             <div class="close-menu">
@@ -258,17 +261,17 @@
 
                         <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="avatarLink">
                             <li>
-                                <a href="#" class="dropdown-item py-2">
+                                <a href="{{ route('account.home') }}" class="dropdown-item py-2">
                                     <i class="bi bi-person me-1"></i> <span style="font-size: 0.8rem;">Profil</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item py-2">
+                                <a href="{{ route('account.entity', ['entity' => 'reservation']) }}" class="dropdown-item py-2">
                                     <i class="bi bi-telephone-forward me-1"></i> <span style="font-size: 0.8rem;">Mes réservations</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item py-2">
+                                <a href="{{ route('account.entity', ['entity' => 'order']) }}" class="dropdown-item py-2">
                                     <i class="bi bi-cart me-1"></i> <span style="font-size: 0.8rem;">Mes commandes</span>
                                 </a>
                             </li>
@@ -814,23 +817,6 @@
 
             // Increment quantity for "plat" or "sommelerie"
             function incrementQuantity(element, id, url) {
-                // Ensure alert has not style
-                if ($('#jSReqAlert .alert').hasClass('alert-danger')) {
-                    $('#jSReqAlert .alert').removeClass('alert-danger');
-                }
-
-                if ($('#jSReqAlert .alert').hasClass('alert-success')) {
-                    $('#jSReqAlert .alert').removeClass('alert-success');
-                }
-
-                if ($('#jSReqAlert .bi').hasClass('bi-exclamation-triangle')) {
-                    $('#jSReqAlert .bi').removeClass('bi-exclamation-triangle');
-                }
-
-                if ($('#jSReqAlert .bi').hasClass('bi-info-circle')) {
-                    $('#jSReqAlert .bi').removeClass('bi-info-circle');
-                }
-
                 $(element).addClass('disabled');
 
                 var quantity = parseInt(element.getAttribute('data-quantity'));
