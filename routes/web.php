@@ -65,7 +65,7 @@ Route::get('/kicoucou/paiement_termine/{entity}/{montant}/{code}/{user_id}', [Ho
 Route::get('/admin', [HomeController::class, 'dashboard'])->name('dashboard');
 Route::get('/admin/{entity}', [HomeController::class, 'dashboardEntity'])->name('dashboard.entity');
 Route::post('/admin/{entity}', [HomeController::class, 'registerDashboardEntity']);
-Route::get('/admin/{entity}/{id}', [HomeController::class, 'dashboardEntity'])->name('dashboard.entity.datas');
-Route::post('/admin/{entity}/{id}', [HomeController::class, 'dashboardEntity']);
+Route::get('/admin/{entity}/{id}', [HomeController::class, 'dashboardEntityDatas'])->whereNumber('id')->name('dashboard.entity.datas');
+Route::post('/admin/{entity}/{id}', [HomeController::class, 'updateDashboardEntity'])->whereNumber('id');
 
 require __DIR__ . '/auth.php';
