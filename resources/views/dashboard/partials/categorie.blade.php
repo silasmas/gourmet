@@ -47,14 +47,28 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Accueil</a></li>
+                            <li class="dropright">
+                                <a href="javascript:void(0);" class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-chevron-double-right mx-2 fs-6"></i></a>
+
+                                <ul class="dropdown-menu py-1">
+                                    <li>
+                                        <a class="dropdown-item disabled">Catégorie</a>
+                                    </li>
+                                    <hr class="my-1">
+                                    <li>
+                                        <a href="{{ route('dashboard.entity', ['entity' => 'orders']) }}" class="dropdown-item">Commandes</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">Catégorie</li>
                             <li class="dropright">
-                                <a href="javascript:void(0);" class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-list ms-2 fs-6"></i></a>
+                                <a href="javascript:void(0);" class="btn p-0" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-chevron-double-right ms-2 fs-6"></i></a>
 
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu py-1">
                                     <li>
                                         <a href="{{ route('dashboard.entity', ['entity' => 'boisson']) }}" class="dropdown-item">Boisson</a>
                                     </li>
+                                    <hr class="my-1">
                                     <li>
                                         <a href="{{ route('dashboard.entity', ['entity' => 'plat']) }}" class="dropdown-item">Plat</a>
                                     </li>

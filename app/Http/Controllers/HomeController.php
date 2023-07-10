@@ -84,9 +84,9 @@ class HomeController extends Controller
             $plats_collection = plat::limit(5)->orderByDesc('created_at')->get();
             $categories_collection = categorie::all();
             $categories = ResourcesCategorie::collection($categories_collection);
-            $order_plats = plaUser::where('user_id', Auth::user()->id)->orderByDesc('created_at')->get();
+            $order_plats = plaUser::limit(7)->orderByDesc('created_at')->get();
             $order_plat_collection = platUser::collection($order_plats);
-            $order_boissons = achat::where('user_id', Auth::user()->id)->orderByDesc('created_at')->get();
+            $order_boissons = achat::limit(7)->orderByDesc('created_at')->get();
             $order_boisson_collection = ResourcesAchat::collection($order_boissons);
             $orders = collect();
             $orders = $order_plat_collection->merge($order_boisson_collection);
