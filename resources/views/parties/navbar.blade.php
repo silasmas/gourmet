@@ -59,6 +59,13 @@
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end p-0" aria-labelledby="avatarLink">
+    @if (Auth::user()->is_admin == 1)
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="dropdown-item py-2">
+                                <i class="bi bi-speedometer me-1"></i> <span style="font-size: 0.8rem;">Administration</span>
+                            </a>
+                        </li>
+    @endif
                         <li>
                             <a href="{{ route('account.home') }}" class="dropdown-item py-2">
                                 <i class="bi bi-person me-1"></i> <span style="font-size: 0.8rem;">Profil</span>
