@@ -68,14 +68,12 @@
         </div>
     </div>
 
-    <div class="block-choice py-5">
+    <div class="block-choice py-5" style="min-height: 20rem;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="card w-100 h-auto">
                         <div class="p-4 bg-white border border-default rounded-3">
-                            <h2 class="mb-4 text-md-start text-center">Commandes récentes</h2>
-
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -115,10 +113,6 @@
                                     </tbody>
                                 </table>
                             </div>
-
-                            <p class="m-0 pt-4 pb-0 text-center">
-                                <a href="{{ route('dashboard.entity', ['entity' => 'orders']) }}" class="btn-link">Voir toutes les commandes</a>
-                            </p>
                         </div>
                     </div>
                 </div>
