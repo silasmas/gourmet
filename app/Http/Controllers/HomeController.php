@@ -80,10 +80,9 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            $boissons_collection = sommelerie::limit(5)->orderByDesc('created_at')->get();
-            $plats_collection = plat::limit(5)->orderByDesc('created_at')->get();
-            $categories_collection = categorie::all();
-            $categories = ResourcesCategorie::collection($categories_collection);
+            $boissons = sommelerie::limit(5)->orderByDesc('created_at')->get();
+            $plats = plat::limit(5)->orderByDesc('created_at')->get();
+            $categories = categorie::all();
             $order_plats = plaUser::limit(7)->orderByDesc('created_at')->get();
             $order_plat_collection = platUser::collection($order_plats);
             $order_boissons = achat::limit(7)->orderByDesc('created_at')->get();
@@ -93,8 +92,8 @@ class HomeController extends Controller
 
             return view('dashboard.home', [
                 'categories' => $categories,
-                'boissons' => $boissons_collection,
-                'plats' => $plats_collection,
+                'boissons' => $boissons,
+                'plats' => $plats,
                 'orders' => $orders
             ]);
         }
@@ -106,13 +105,12 @@ class HomeController extends Controller
             abort(403);
 
         } else {
-            $boissons_collection = sommelerie::all();
-            $plats_collection = plat::all();
-            $categories_collection = categorie::all();
-            $categories = ResourcesCategorie::collection($categories_collection);
-            $order_plats = plaUser::where('user_id', Auth::user()->id)->get();
+            $boissons = sommelerie::all();
+            $plats = plat::all();
+            $categories = categorie::all();
+            $order_plats = plaUser::orderByDesc('created_at')->get();
             $order_plat_collection = platUser::collection($order_plats);
-            $order_boissons = achat::where('user_id', Auth::user()->id)->get();
+            $order_boissons = achat::orderByDesc('created_at')->get();
             $order_boisson_collection = ResourcesAchat::collection($order_boissons);
             $orders = collect();
             $orders = $order_plat_collection->merge($order_boisson_collection);
@@ -128,8 +126,7 @@ class HomeController extends Controller
                 return view('dashboard.entity', [
                     'entity' => $entity,
                     'categories' => $categories,
-                    'boissons' => $boissons_collection,
-                    'plats' => $plats_collection
+                    'plats' => $plats
                 ]);
             }
 
@@ -137,8 +134,7 @@ class HomeController extends Controller
                 return view('dashboard.entity', [
                     'entity' => $entity,
                     'categories' => $categories,
-                    'boissons' => $boissons_collection,
-                    'plats' => $plats_collection
+                    'boissons' => $boissons
                 ]);
             }
 
@@ -146,6 +142,70 @@ class HomeController extends Controller
                 return view('dashboard.entity', [
                     'entity' => $entity,
                     'orders' => $orders
+                ]);
+            }
+        }
+    }
+
+    public function dashboardEntityDatas($entity, $id)
+    {
+        if (Auth::user()->is_admin == 0) {
+            abort(403);
+
+        } else {
+            $categorie_by_id = categorie::find($id);
+
+            if (is_null($categorie_by_id)) {
+                return Redirect::to('/admin/categorie')->with('error_message', 'Cette catégorie n\'existe pas !');
+            }
+
+            $boisson_by_id = sommelerie::find($id);
+
+            if (is_null($boisson_by_id)) {
+                return Redirect::to('/admin/boisson')->with('error_message', 'Cette boisson n\'existe pas !');
+            }
+
+            $plat_by_id = plat::find($id);
+
+            if (is_null($plat_by_id)) {
+                return Redirect::to('/admin/plat')->with('error_message', 'Ce plat n\'existe pas !');
+            }
+
+            $categories = categorie::all();
+            $user_order_plats = plaUser::where('user_id', $id)->orderByDesc('created_at')->get();
+            $user_order_plat_collection = platUser::collection($user_order_plats);
+            $user_order_boissons = achat::where('user_id', $id)->orderByDesc('created_at')->get();
+            $user_order_boisson_collection = ResourcesAchat::collection($user_order_boissons);
+            $user_orders = collect();
+            $user_orders = $user_order_plat_collection->merge($user_order_boisson_collection);
+
+            if ($entity == 'categorie') {
+                return view('dashboard.entity', [
+                    'entity' => $entity,
+                    'categorie' => $categorie_by_id
+                ]);
+            }
+
+            if ($entity == 'plat') {
+                return view('dashboard.entity', [
+                    'entity' => $entity,
+                    'categories' => $categories,
+                    'plat' => $plat_by_id
+                ]);
+            }
+
+            if ($entity == 'boisson') {
+                return view('dashboard.entity', [
+                    'entity' => $entity,
+                    'categories' => $categories,
+                    'boisson' => $boisson_by_id
+                ]);
+            }
+
+            if ($entity == 'orders') {
+                return view('dashboard.entity', [
+                    'entity' => $entity,
+                    'user_orders' => $user_orders
                 ]);
             }
         }

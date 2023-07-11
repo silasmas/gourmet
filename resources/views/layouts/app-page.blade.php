@@ -446,7 +446,8 @@
             <div class="wrapper">
 @yield('content')
 
-                <footer>
+                <footer class="{{ Route::current()->getName() != 'dashboard' && Route::current()->getName() != 'dashboard.entity' && Route::current()->getName() != 'dashboard.entity.datas' ? '' : 'py-0' }}">
+@if (Route::current()->getName() != 'dashboard' && Route::current()->getName() != 'dashboard.entity' && Route::current()->getName() != 'dashboard.entity.datas')
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-3 d-flex">
@@ -500,6 +501,7 @@
                             </div>
                         </div>
                     </div>
+@endif
                     <div class="bottom-bar">
                         <div class="container">
                             <div class="row g-3">

@@ -72,6 +72,55 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <div class="card w-100 h-auto">
+                        <div class="p-4 bg-white border border-default rounded-3">
+                            <h2 class="mb-4 text-md-start text-center">Commandes récentes</h2>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+    @if (count($orders) > 0)
+                                        <tr>
+                                            <th class="fw-bold">Client</th>
+                                            <th class="fw-bold">Nom de la commande</th>
+                                            <th class="fw-bold">Quantité</th>
+                                            <th class="fw-bold">À emporter</th>
+                                            <th class="fw-bold"></th>
+                                        </tr>
+    @endif
+                                    </thead>
+
+                                    <tbody id="updateCustomerStatus">
+    @forelse ($orders as $order)
+                                        <tr>
+                                            <td>
+                                                <img src="{{ $order->user->avatar_url != null ? $order->user->avatar_url : asset('assets/img/placeholder.png') }}" alt="" class="rounded-circle me-2" style="width: 34px!important">
+                                                {{ $order->user->prenom . ' ' . $order->user->name }}
+                                            </td>
+                                            <td>{{ $order->entity->nom }}</td>
+                                            <td>{{ $order->entity->quantite }}</td>
+                                            <td>{{ $order->entity->take_away }}</td>
+                                            <td>
+                                                <div id="status_user-{{ $order->user->id }}" class="form-check form-switch" aria-current="{{ $order->entity->customer_served }}" onchange="changeStatus({{ $order->entity->customer_served }});">
+                                                    <input class="form-check-input" type="checkbox" role="switch" id="{{ $order->user->id }}" {{ $order->entity->customer_served == 1 ? 'checked' : '' }} />
+                                                    <label role="button" class="ms-2 form-check-label" for="{{ $order->user->id }}">Servi</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-muted"><i class="bi bi-info-circle me-2 align-middle fs-5"></i>La liste est encore vide</td>
+                                        </tr>
+    @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="m-0 pt-4 pb-0 text-center">
+                                <a href="{{ route('dashboard.entity', ['entity' => 'orders']) }}" class="btn-link">Voir toutes les commandes</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

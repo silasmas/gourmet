@@ -189,7 +189,7 @@
                                         </tr>
     @endif
                                     </thead>
-    
+
                                     <tbody id="updateCustomerStatus">
     @forelse ($orders as $order)
                                         <tr>
