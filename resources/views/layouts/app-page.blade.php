@@ -30,8 +30,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
         <style>
-            .text-warning {color: #d1b603!important;} .bg-warning {background-color: #d1b603!important;} .border-warning {border-color: #d1b603!important;}
-            .rounded-3 {border-radius: 1.5rem!important;}
+            .text-warning {color: #d1b603!important;} .bg-warning {background-color: #d1b603!important;} .border-warning {border-color: #d1b603!important;} .rounded-3 {border-radius: 1.5rem!important;}.mCard {width: 100%;flex-direction: column; overflow: hidden; border-radius: 1.5rem;} .mCard-body {flex: 1 1 auto; padding: 1rem;} .mCard-img {width: 100%;}
         </style>
 
         <title>Gourmet du Congo</title>
