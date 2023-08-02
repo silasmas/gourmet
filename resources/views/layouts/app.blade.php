@@ -53,7 +53,7 @@
                             <a href="{{ route('atelier') }}">Atelier</a>
                         </li>
                         <li>
-                            <a href="{{ route('boisson') }}">Boisson </a>
+                            <a href="{{ route('boisson') }}">Boissons </a>
                         </li>
                         <li>
                             <a href="{{ route('about') }}">A propos</a>

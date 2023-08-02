@@ -171,7 +171,7 @@
                     </li>
                     <li>
                         <a href="{{ route('boisson') }}"
-                            class="{{ Route::current()->getName() == 'boisson' ? 'active' : '' }}">boisson </a>
+                            class="{{ Route::current()->getName() == 'boisson' ? 'active' : '' }}">Boissons</a>
                     </li>
                     <li>
                         <a href="{{ route('about') }}"

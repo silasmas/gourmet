@@ -26,7 +26,7 @@
                       </li>
                       <li class="nav-item">
                           <a class="nav-link {{ Route::current()->getName() == 'boisson' ? 'active' : '' }}" href="{{ route('boisson') }}">
-                              Boisson
+                              Boissons
                           </a>
                       </li>
                       <li class="nav-item">

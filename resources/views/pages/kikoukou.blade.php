@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="block-choice mt-5 py-5 bg-light">
+    <div class="block-choice mt-5 py-lg-4 pt-4 pb-0 bg-light">
         <div class="container">
             <div class="row mb-4 justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div class="block-choice block-special">
+    <div class="block-choice block-special py-lg-5 pt-0">
         <div class="container">
             <div class="row g-lg-5 g-3">
                 <div class="col-lg-6">

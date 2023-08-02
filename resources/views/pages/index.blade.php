@@ -56,7 +56,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10">
-                                <h1>Boisson</h1>
+                                <h1>Boissons</h1>
                                 <h2>Des Boissons <br> Vraiment <span class="text-warning">Vitalisantes</span></h2>
                                 <p>Nous vous proposons un accord vins et mets et le négoce de différents types de breuvages importés et des boissons locales.</p>
                                 <a href="/boisson" class="btn">Savoir plus</a>
@@ -155,7 +155,7 @@
                         <img src="{{asset('assets/img/5.jpg')}}" alt="">
                     </div>
                     <div class="content-text">
-                        <h5>Boisson</h5>
+                        <h5>Boissons</h5>
                         <p>Nous vous proposons un accord vins et mets et le négoce de différents types de breuvages importés et des boissons locales.</p>
                         <a href="{{ route('boisson') }}" class="btn pt-0 px-0 border-bottom border-3 border-warning rounded-0 float-end">Voir les détails <i class="bi bi-arrow-right ms-2 align-middle"></i></a>
                     </div>

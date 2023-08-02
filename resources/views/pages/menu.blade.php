@@ -76,7 +76,11 @@
                                     <p class="mb-2 small">{{ $plat->description }}</p>
                                     <h4 class="m-sm-0 mb-2"><div class="badge bg-light text-primary fw-bold">{{ $plat->prix . ' ' . $plat->monaie }}</div></h4>
                 @if ($plat->quantite > 0)
+                    @if (!empty(Auth::user()))
                                     <a role="button" class="btn btn-sm px-3 py-2 float-sm-end" onclick="addToCart({{ Auth::user()->id }}, {{ $plat->id }}, 'plat');"><i class="bi bi-cart3 me-2"></i>Ajouter au panier</a>
+                    @else
+                                    <a href="{{ route('login') }}" role="button" class="btn btn-sm px-3 py-2 float-sm-end"><i class="bi bi-cart3 me-2"></i>Ajouter au panier</a>
+                    @endif
                 @else
                                     <small class="text-danger float-sm-end"><i class="bi bi-info-circle me-2"></i>Stock épuisé</small>
                 @endif
