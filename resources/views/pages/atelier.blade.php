@@ -22,7 +22,7 @@
         <div class="row g-3 align-items-center">
             <div class="col-lg-6">
                 <div class="card">
-                    <img src="{{ asset('assets/img/pub/pub_02.jpg') }}" alt="">
+                    <img src="{{ asset('assets/img/1.jpg') }}" alt="">
                 </div>
             </div>
 
