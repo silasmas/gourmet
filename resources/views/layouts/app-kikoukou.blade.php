@@ -240,7 +240,7 @@
                         <div>
                             <h5>Réservations</h5>
                             <p class="mb-0">
-                                <a href="tel:+243820661009"> (+243) 820 661 009 / 898 681 751</a>
+                                <a href="tel:+243898681751"> (+243) 898 681 751</a>
                             </p>
                             <p>
                                 <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a>
@@ -376,7 +376,7 @@
                                 <div class="div">
                                     <h6>Réservations</h6>
                                     <p>
-                                        <span>Phone: <a href="tel:+243820661009">(+243) 820 661 009 / 898 681 751</a></span>
+                                        <span>Phone: <a href="tel:+243898681751"> (+243) 898 681 751</span>
                                     </p>
                                     <p>
                                         <span>Email: <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></span>

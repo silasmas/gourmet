@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <h1>Bienvenue à Kikoukou Resto</h1>
+                        <h1>Bienvenue à Kicoucou Resto</h1>
                         <h2>Une Nourriture <br> Saine et <span class="text-warning">Délicieuse</span></h2>
                         <p>Kicoucou est un nouveau concept de restaurant qui allie tradition, qualité du service, qualité des produits et cuisine créative.</p>
         @if (!empty(Auth::user()))
