@@ -28,7 +28,7 @@
                         <div class="col-lg-7 position-relative about-img" style="background-image: url({{ asset('assets/img/pub/pub_01.jpg') }}) ;" data-aos="fade-up" data-aos-delay="150">
                             <div class="call-us position-absolute">
                                 <h4>Réserver une table</h4>
-                                <p>(+243) 898 681 751</p>
+                                <p>(+243) 898 681 751 / 833 344 116</p>
                             </div>
                         </div>
                         <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">

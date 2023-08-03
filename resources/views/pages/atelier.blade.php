@@ -34,7 +34,7 @@
                     <p class="d-flex mb-1 text-dark"><i class="bi bi-pin-angle-fill me-3 text-warning"></i><span class="d-inline-block">Divers aliments (sauces, aliments dérivés) ;</span></p>
                     <p class="d-flex mb-3 text-dark"><i class="bi bi-pin-angle-fill me-3 text-warning"></i><span class="d-inline-block">Diverses boissons, des jus.</span></p>
                     <p class="mb-3 text-dark">Nous assurons également le nettoyage et la mise en emballage des aliments crus comme  les produits d’élevage : la viande ; la volaille : poulet, cailles ; les produits de la pisciculture : le poisson dans toute sa diversité.</p>
-                    <p class="mb-3 text-dark">Pour un devis ou un conseil, joignons au (+243) 898 681 751 ou nous écrire sur <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></p>
+                    <p class="mb-3 text-dark">Pour un devis ou un conseil, joignons au (+243) 898 681 751 / 833 344 116 ou nous écrire sur <a href="mailto:gourmetducongo@gmail.com">gourmetducongo@gmail.com</a></p>
                 </div>
             </div>
         </div>
